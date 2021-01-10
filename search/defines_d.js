@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['wdt_5fct',['WDT_CT',['../neorv32_8h.html#a650754ede53fd1367f9f40ce9870a2d3',1,'neorv32.h']]],
-  ['wdt_5fpassword',['WDT_PASSWORD',['../neorv32_8h.html#af2a2bd9c74bdba1b46bd92025bd00ab6',1,'neorv32.h']]]
+  ['uart_5fct_1710',['UART_CT',['../neorv32_8h.html#add80bf63566866d28e6bed5190a841b5',1,'neorv32.h']]],
+  ['uart_5fdata_1711',['UART_DATA',['../neorv32_8h.html#ae8063fe1a693e0f849bd626b28a5447c',1,'neorv32.h']]]
 ];

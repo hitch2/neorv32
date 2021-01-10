@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['uart_5fct',['UART_CT',['../neorv32_8h.html#add80bf63566866d28e6bed5190a841b5',1,'neorv32.h']]],
-  ['uart_5fdata',['UART_DATA',['../neorv32_8h.html#ae8063fe1a693e0f849bd626b28a5447c',1,'neorv32.h']]]
+  ['trng_5fct_1707',['TRNG_CT',['../neorv32_8h.html#abfd8dc1811ee923d8d7ca2672304dcc4',1,'neorv32.h']]],
+  ['twi_5fct_1708',['TWI_CT',['../neorv32_8h.html#a89965ec91a0788976fb79821991f1fc3',1,'neorv32.h']]],
+  ['twi_5fdata_1709',['TWI_DATA',['../neorv32_8h.html#aaad9f06d6da950b43cc158cf2d28c92d',1,'neorv32.h']]]
 ];

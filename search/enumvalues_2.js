@@ -1,15 +1,16 @@
 var searchData=
 [
-  ['pwm_5fct_5fen',['PWM_CT_EN',['../neorv32_8h.html#a1f3f718bd93cb201c5cead84bc00e5d0a644af7f23e5b9d5485ee2f2538bc0ae6',1,'neorv32.h']]],
-  ['pwm_5fct_5fprsc0',['PWM_CT_PRSC0',['../neorv32_8h.html#a1f3f718bd93cb201c5cead84bc00e5d0a4dba83da97008a4525dd63b2f070494b',1,'neorv32.h']]],
-  ['pwm_5fct_5fprsc1',['PWM_CT_PRSC1',['../neorv32_8h.html#a1f3f718bd93cb201c5cead84bc00e5d0a238ae092326f83752ae4dd25d3337497',1,'neorv32.h']]],
-  ['pwm_5fct_5fprsc2',['PWM_CT_PRSC2',['../neorv32_8h.html#a1f3f718bd93cb201c5cead84bc00e5d0ad8c6d3a96f0d386f78edd2455c275b81',1,'neorv32.h']]],
-  ['pwm_5fduty_5fch0_5flsb',['PWM_DUTY_CH0_LSB',['../neorv32_8h.html#a963c140e7b919b6dc7ec6158ee7bb30aa710563698d25247ad1e0e3ffb2923518',1,'neorv32.h']]],
-  ['pwm_5fduty_5fch0_5fmsb',['PWM_DUTY_CH0_MSB',['../neorv32_8h.html#a963c140e7b919b6dc7ec6158ee7bb30aaecc1c56cf4d48a6b97208ab637ceb0b8',1,'neorv32.h']]],
-  ['pwm_5fduty_5fch1_5flsb',['PWM_DUTY_CH1_LSB',['../neorv32_8h.html#a963c140e7b919b6dc7ec6158ee7bb30aaa4d1b0c4ea482c913334f77007c2bb79',1,'neorv32.h']]],
-  ['pwm_5fduty_5fch1_5fmsb',['PWM_DUTY_CH1_MSB',['../neorv32_8h.html#a963c140e7b919b6dc7ec6158ee7bb30aae4b8e407cf164252158df86e2f8d5936',1,'neorv32.h']]],
-  ['pwm_5fduty_5fch2_5flsb',['PWM_DUTY_CH2_LSB',['../neorv32_8h.html#a963c140e7b919b6dc7ec6158ee7bb30aaa5990f6039016a8c044c809e21fbb39b',1,'neorv32.h']]],
-  ['pwm_5fduty_5fch2_5fmsb',['PWM_DUTY_CH2_MSB',['../neorv32_8h.html#a963c140e7b919b6dc7ec6158ee7bb30aa85966189b00647b33ae1e3fe63e4343c',1,'neorv32.h']]],
-  ['pwm_5fduty_5fch3_5flsb',['PWM_DUTY_CH3_LSB',['../neorv32_8h.html#a963c140e7b919b6dc7ec6158ee7bb30aa86566cbe2699b9e8e97dc36828814098',1,'neorv32.h']]],
-  ['pwm_5fduty_5fch3_5fmsb',['PWM_DUTY_CH3_MSB',['../neorv32_8h.html#a963c140e7b919b6dc7ec6158ee7bb30aaef2d9294e065b5a22c6e774e4004f32c',1,'neorv32.h']]]
+  ['hpmcnt_5fevent_5fbranch_1404',['HPMCNT_EVENT_BRANCH',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea9e1e2b50352b2555e9c64e76776919a6',1,'neorv32.h']]],
+  ['hpmcnt_5fevent_5fcir_1405',['HPMCNT_EVENT_CIR',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfead2dcce5ec6a91b42f6cd001a9ec1c009',1,'neorv32.h']]],
+  ['hpmcnt_5fevent_5fcy_1406',['HPMCNT_EVENT_CY',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea2b683572525adc02ce0910031cfea914',1,'neorv32.h']]],
+  ['hpmcnt_5fevent_5fillegal_1407',['HPMCNT_EVENT_ILLEGAL',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfeab3ded28f00396297d97020b24ac7430e',1,'neorv32.h']]],
+  ['hpmcnt_5fevent_5fir_1408',['HPMCNT_EVENT_IR',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfeaab438295e5f00ffe4c2457a54ee9bfc4',1,'neorv32.h']]],
+  ['hpmcnt_5fevent_5fjump_1409',['HPMCNT_EVENT_JUMP',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfeab41a92d0860ddf2257a0d1ec835f9fa1',1,'neorv32.h']]],
+  ['hpmcnt_5fevent_5fload_1410',['HPMCNT_EVENT_LOAD',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea1a06f216e1a12afa0b90d6e1218b3c91',1,'neorv32.h']]],
+  ['hpmcnt_5fevent_5fstore_1411',['HPMCNT_EVENT_STORE',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea6a942852e3cd85616a63addb8e9d76f2',1,'neorv32.h']]],
+  ['hpmcnt_5fevent_5ftbranch_1412',['HPMCNT_EVENT_TBRANCH',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea84d61e83f67988ca8095ddf36246a83e',1,'neorv32.h']]],
+  ['hpmcnt_5fevent_5ftrap_1413',['HPMCNT_EVENT_TRAP',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea3a4f5bf9251def87a71162dbcf9043c5',1,'neorv32.h']]],
+  ['hpmcnt_5fevent_5fwait_5fif_1414',['HPMCNT_EVENT_WAIT_IF',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea9df7f7bf565c33f3c904b60eb3ef6b59',1,'neorv32.h']]],
+  ['hpmcnt_5fevent_5fwait_5fii_1415',['HPMCNT_EVENT_WAIT_II',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfead47298512a8b932e9030f3fca9e4b48b',1,'neorv32.h']]],
+  ['hpmcnt_5fevent_5fwait_5fls_1416',['HPMCNT_EVENT_WAIT_LS',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea6d4f8e82e644ed4213fcff039f049198',1,'neorv32.h']]]
 ];

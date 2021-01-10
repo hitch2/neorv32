@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fast_5fupload',['fast_upload',['../bootloader_8c.html#a4d8caf1721ae4109a31cab276076dc39',1,'bootloader.c']]]
+  ['dump_5fmemory_896',['dump_memory',['../hex__viewer_2main_8c.html#a20c6e65f1cc09f83c5768707ccf170ed',1,'main.c']]]
 ];
