@@ -83,7 +83,8 @@ The NEORV32 RISC-V Processor</h1>
 <h2><a class="anchor" id="autotoc_md1"></a>
 Overview</h2>
 <p>The NEORV32 Processor is a customizable microcontroller-like system on chip (SoC) that is based on the RISC-V-compliant NEORV32 CPU. The processor is intended as <em>ready-to-go</em> auxiliary processor within a larger SoC designs or as stand-alone custom microcontroller.</p>
-<p>The project’s change log is available in the <a href="https://github.com/stnolting/neorv32/blob/master/CHANGELOG.md">CHANGELOG.md</a> file in the root directory of this repository. To see the changes between releases visit the project's <a href="https://github.com/stnolting/neorv32/releases">release page</a>. For more detailed information take a look at the <a href="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/NEORV32.pdf">:page_facing_up: NEORV32 data sheet</a> (pdf).</p>
+<p>The project’s change log is available in the <a href="https://github.com/stnolting/neorv32/blob/master/CHANGELOG.md">CHANGELOG.md</a> file in the root directory of this repository. To see the changes between releases visit the project's <a href="https://github.com/stnolting/neorv32/releases">release page</a>.</p>
+<p>The documentation of the software framework is available online on <a href="https://stnolting.github.io/neorv32/files.html">GitHub-pages</a>. For more detailed information take a look at the <a href="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/NEORV32.pdf">:page_facing_up: NEORV32 data sheet</a> (pdf).</p>
 <h3><a class="anchor" id="autotoc_md2"></a>
 Key Features</h3>
 <ul>
@@ -92,7 +93,7 @@ Key Features</h3>
 <li>Subset of the <em>Privileged Architecture Specification</em> <a href="https://github.com/stnolting/neorv32/blob/master/docs/riscv-spec.pdf">(Version 1.12-draft)</a></li>
 </ul>
 </li>
-<li>Configurable RISC-V CPU extensions<ul>
+<li>Configurable RISC-V-compliant CPU extensions<ul>
 <li><code>A</code> - atomic memory access instructions (optional)</li>
 <li><code>B</code> - Bit manipulation instructions (optional)</li>
 <li><code>C</code> - compressed instructions (16-bit) (optional)</li>
@@ -111,14 +112,15 @@ Key Features</h3>
 <li>optional embedded memories (instructions/data/bootloader, RAM/ROM) and caches</li>
 <li>timers (watch dog, RISC-V-compliant machine timer)</li>
 <li>serial interfaces (SPI, TWI, UART) and general purpose IO</li>
-<li>external bus interface (Wishbone / <a href="#AXI4-Connectivity">AXI4</a>)</li>
-<li><a href="#NEORV32-Processor-Features">more ...</a></li>
+<li></li>
+<li><a href="#NEORV32-Processor-Featurexternal bus interface (Wishbone / [AXI4](#AXI4-Connectivity))es">more ...</a></li>
 </ul>
 </li>
 <li>Software framework<ul>
 <li>core libraries for high-level usage of the provided functions and peripherals</li>
 <li>application compilation based on <a href="https://github.com/stnolting/neorv32/blob/master/sw/example/blink_led/makefile">GNU makefiles</a></li>
 <li>GCC-based toolchain (<a href="https://github.com/stnolting/riscv_gcc_prebuilt">pre-compiled toolchains available</a>)</li>
+<li>bootloader with UART interface console</li>
 <li>runtime environment</li>
 <li>several example programs</li>
 <li><a href="https://github.com/stnolting/neorv32/blob/master/docs/doxygen_makefile_sw">doxygen-based</a> documentation: available on <a href="https://stnolting.github.io/neorv32/files.html">GitHub pages</a></li>
@@ -239,9 +241,10 @@ NEORV32 CPU Features</h3>
 <li>Supported instructions: <code>LR.W</code> (load-reservate) <code>SC.W</code> (store-conditional)</li>
 </ul>
 <p><b>Bit manipulation instructions</b> (<code>B</code> extension implying <code>Zbb</code> extension):</p><ul>
-<li>:warning: RISC-V <code>B</code> extensions is not officially ratified yet!</li>
+<li>:warning: RISC-V <code>B</code> extension is not officially ratified yet!</li>
+<li>Compatible to <a href="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/bitmanip-draft.pdf">v0.94-draft</a> of the bit manipulation spec</li>
 <li>Support via intrisc library (see <a href="https://github.com/stnolting/neorv32/tree/master/sw/example/bit_manipulation"><code>sw/example/bit_manipulation</code></a>)</li>
-<li>Only the <code>Zbb</code> base subset is supported yet</li>
+<li>Only the <code>Zbb</code> base instructions subset is supported yet</li>
 <li>Supported instructions: <code>CLZ</code> <code>CTZ</code> <code>CPOP</code> <code>SEXT.B</code> <code>SEXT.H</code> <code>MIN[U]</code> <code>MAX[U]</code> <code>ANDN</code> <code>ORN</code> <code>XNOR</code> <code>ROL</code> <code>ROR</code> <code>RORI</code> <code>zext</code>(<em>pseudo-instruction</em> for <code>PACK rd, rs, zero</code>) <code>rev8</code>(<em>pseudo-instruction</em> for <code>GREVI rd, rs, -8</code>) <code>orc.b</code>(<em>pseudo-instruction</em> for <code>GORCI rd, rs, 7</code>)</li>
 </ul>
 <p><b>Privileged architecture / CSR access</b> (<code>Zicsr</code> extension):</p><ul>
@@ -461,9 +464,10 @@ Getting Started</h2>
 <h3><a class="anchor" id="autotoc_md23"></a>
 Toolchain</h3>
 <p>At first you need the <b>RISC-V GCC toolchain</b>. You can either <a href="https://github.com/riscv/riscv-gnu-toolchain">download the sources</a> and build the toolchain by yourself, or you can download a prebuilt one and install it.</p>
-<p>:warning: Keep in mind that – for instance – a <code>rv32imc</code> toolchain only provides library code compiled with compressed and <code>mul</code>/<code>div</code> instructions! Hence, this code cannot be executed (without emulation) on an architecture without these extensions!</p>
 <p>To build the toolchain by yourself, follow the official <a href="https://github.com/riscv/riscv-gnu-toolchain">build instructions</a>. Make sure to use the <code>ilp32</code> or <code>ilp32e</code> ABI.</p>
 <p><b>Alternatively</b>, you can download a prebuilt toolchain. I have uploaded the toolchains I am using to GitHub. These toolchains were compiled on a 64-bit x86 Ubuntu 20.04 LTS (Ubuntu on Windows, actually). Download the toolchain of choice: <a href="https://github.com/stnolting/riscv_gcc_prebuilt">:octocat: github.com/stnolting/riscv_gcc_prebuilt</a></p>
+<p>You can also use the toolchains provided by <a href="https://github.com/sifive/freedom-tools/releases">SiFive</a>. These are 64-bit toolchains that can also emit 32-bit RISC-V code. They were compiled for more sophisticated machines (<code>imac</code>) so the according hardware extensions are <em>mandatory</em></p>
+<p>:warning: Keep in mind that – for instance – a <code>rv32imc</code> toolchain only provides library code compiled with compressed and <code>mul</code>/<code>div</code> instructions! Hence, this code cannot be executed (without emulation) on an architecture without these extensions!</p>
 <h3><a class="anchor" id="autotoc_md24"></a>
 Dowload the NEORV32 Project</h3>
 <p>Get the sources of the NEORV32 Processor project. The simplest way is using <code>git clone</code> (suggested for easy project updates via <code>git pull</code>): </p><pre class="fragment">$ git clone https://github.com/stnolting/neorv32.git

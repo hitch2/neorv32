@@ -566,16 +566,17 @@ Enumerations</h2></td></tr>
 , <a class="el" href="neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea9df7f7bf565c33f3c904b60eb3ef6b59">HPMCNT_EVENT_WAIT_IF</a> = 4
 , <br />
 &#160;&#160;<a class="el" href="neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfead47298512a8b932e9030f3fca9e4b48b">HPMCNT_EVENT_WAIT_II</a> = 5
-, <a class="el" href="neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea1a06f216e1a12afa0b90d6e1218b3c91">HPMCNT_EVENT_LOAD</a> = 6
-, <a class="el" href="neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea6a942852e3cd85616a63addb8e9d76f2">HPMCNT_EVENT_STORE</a> = 7
-, <a class="el" href="neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea6d4f8e82e644ed4213fcff039f049198">HPMCNT_EVENT_WAIT_LS</a> = 8
+, <a class="el" href="neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea7fec8a91cb13b85f42d1a777afdfb513">HPMCNT_EVENT_WAIT_MC</a> = 6
+, <a class="el" href="neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea1a06f216e1a12afa0b90d6e1218b3c91">HPMCNT_EVENT_LOAD</a> = 7
+, <a class="el" href="neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea6a942852e3cd85616a63addb8e9d76f2">HPMCNT_EVENT_STORE</a> = 8
 , <br />
-&#160;&#160;<a class="el" href="neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfeab41a92d0860ddf2257a0d1ec835f9fa1">HPMCNT_EVENT_JUMP</a> = 9
-, <a class="el" href="neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea9e1e2b50352b2555e9c64e76776919a6">HPMCNT_EVENT_BRANCH</a> = 10
-, <a class="el" href="neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea84d61e83f67988ca8095ddf36246a83e">HPMCNT_EVENT_TBRANCH</a> = 11
-, <a class="el" href="neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea3a4f5bf9251def87a71162dbcf9043c5">HPMCNT_EVENT_TRAP</a> = 12
+&#160;&#160;<a class="el" href="neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea6d4f8e82e644ed4213fcff039f049198">HPMCNT_EVENT_WAIT_LS</a> = 9
+, <a class="el" href="neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfeab41a92d0860ddf2257a0d1ec835f9fa1">HPMCNT_EVENT_JUMP</a> = 10
+, <a class="el" href="neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea9e1e2b50352b2555e9c64e76776919a6">HPMCNT_EVENT_BRANCH</a> = 11
+, <a class="el" href="neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea84d61e83f67988ca8095ddf36246a83e">HPMCNT_EVENT_TBRANCH</a> = 12
 , <br />
-&#160;&#160;<a class="el" href="neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfeab3ded28f00396297d97020b24ac7430e">HPMCNT_EVENT_ILLEGAL</a> = 13
+&#160;&#160;<a class="el" href="neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea3a4f5bf9251def87a71162dbcf9043c5">HPMCNT_EVENT_TRAP</a> = 13
+, <a class="el" href="neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfeab3ded28f00396297d97020b24ac7430e">HPMCNT_EVENT_ILLEGAL</a> = 14
 <br />
  }</td></tr>
 <tr class="separator:a5cb925a3e41efd5e767bb39b3ee60cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2393,21 +2394,23 @@ Enumerations</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a5cb925a3e41efd5e767bb39b3ee60cfead47298512a8b932e9030f3fca9e4b48b"></a>HPMCNT_EVENT_WAIT_II&#160;</td><td class="fielddoc"><p>CPU mhpmevent CSR (5): Instruction issue wait cycle </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a5cb925a3e41efd5e767bb39b3ee60cfea1a06f216e1a12afa0b90d6e1218b3c91"></a>HPMCNT_EVENT_LOAD&#160;</td><td class="fielddoc"><p>CPU mhpmevent CSR (6): Load operation </p>
+<tr><td class="fieldname"><a id="a5cb925a3e41efd5e767bb39b3ee60cfea7fec8a91cb13b85f42d1a777afdfb513"></a>HPMCNT_EVENT_WAIT_MC&#160;</td><td class="fielddoc"><p>CPU mhpmevent CSR (6): Multi-cycle ALU-operation wait cycle </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a5cb925a3e41efd5e767bb39b3ee60cfea6a942852e3cd85616a63addb8e9d76f2"></a>HPMCNT_EVENT_STORE&#160;</td><td class="fielddoc"><p>CPU mhpmevent CSR (7): Store operation </p>
+<tr><td class="fieldname"><a id="a5cb925a3e41efd5e767bb39b3ee60cfea1a06f216e1a12afa0b90d6e1218b3c91"></a>HPMCNT_EVENT_LOAD&#160;</td><td class="fielddoc"><p>CPU mhpmevent CSR (7): Load operation </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a5cb925a3e41efd5e767bb39b3ee60cfea6d4f8e82e644ed4213fcff039f049198"></a>HPMCNT_EVENT_WAIT_LS&#160;</td><td class="fielddoc"><p>CPU mhpmevent CSR (8): Load/store memory wait cycle </p>
+<tr><td class="fieldname"><a id="a5cb925a3e41efd5e767bb39b3ee60cfea6a942852e3cd85616a63addb8e9d76f2"></a>HPMCNT_EVENT_STORE&#160;</td><td class="fielddoc"><p>CPU mhpmevent CSR (8): Store operation </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a5cb925a3e41efd5e767bb39b3ee60cfeab41a92d0860ddf2257a0d1ec835f9fa1"></a>HPMCNT_EVENT_JUMP&#160;</td><td class="fielddoc"><p>CPU mhpmevent CSR (9): Unconditional jump </p>
+<tr><td class="fieldname"><a id="a5cb925a3e41efd5e767bb39b3ee60cfea6d4f8e82e644ed4213fcff039f049198"></a>HPMCNT_EVENT_WAIT_LS&#160;</td><td class="fielddoc"><p>CPU mhpmevent CSR (9): Load/store memory wait cycle </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a5cb925a3e41efd5e767bb39b3ee60cfea9e1e2b50352b2555e9c64e76776919a6"></a>HPMCNT_EVENT_BRANCH&#160;</td><td class="fielddoc"><p>CPU mhpmevent CSR (10): Conditional branch (taken or not taken) </p>
+<tr><td class="fieldname"><a id="a5cb925a3e41efd5e767bb39b3ee60cfeab41a92d0860ddf2257a0d1ec835f9fa1"></a>HPMCNT_EVENT_JUMP&#160;</td><td class="fielddoc"><p>CPU mhpmevent CSR (10): Unconditional jump </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a5cb925a3e41efd5e767bb39b3ee60cfea84d61e83f67988ca8095ddf36246a83e"></a>HPMCNT_EVENT_TBRANCH&#160;</td><td class="fielddoc"><p>CPU mhpmevent CSR (11): Conditional taken branch </p>
+<tr><td class="fieldname"><a id="a5cb925a3e41efd5e767bb39b3ee60cfea9e1e2b50352b2555e9c64e76776919a6"></a>HPMCNT_EVENT_BRANCH&#160;</td><td class="fielddoc"><p>CPU mhpmevent CSR (11): Conditional branch (taken or not taken) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a5cb925a3e41efd5e767bb39b3ee60cfea3a4f5bf9251def87a71162dbcf9043c5"></a>HPMCNT_EVENT_TRAP&#160;</td><td class="fielddoc"><p>CPU mhpmevent CSR (12): Entered trap </p>
+<tr><td class="fieldname"><a id="a5cb925a3e41efd5e767bb39b3ee60cfea84d61e83f67988ca8095ddf36246a83e"></a>HPMCNT_EVENT_TBRANCH&#160;</td><td class="fielddoc"><p>CPU mhpmevent CSR (12): Conditional taken branch </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a5cb925a3e41efd5e767bb39b3ee60cfeab3ded28f00396297d97020b24ac7430e"></a>HPMCNT_EVENT_ILLEGAL&#160;</td><td class="fielddoc"><p>CPU mhpmevent CSR (13): Illegal instruction exception </p>
+<tr><td class="fieldname"><a id="a5cb925a3e41efd5e767bb39b3ee60cfea3a4f5bf9251def87a71162dbcf9043c5"></a>HPMCNT_EVENT_TRAP&#160;</td><td class="fielddoc"><p>CPU mhpmevent CSR (13): Entered trap </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5cb925a3e41efd5e767bb39b3ee60cfeab3ded28f00396297d97020b24ac7430e"></a>HPMCNT_EVENT_ILLEGAL&#160;</td><td class="fielddoc"><p>CPU mhpmevent CSR (14): Illegal instruction exception </p>
 </td></tr>
 </table>
 

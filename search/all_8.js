@@ -13,5 +13,6 @@ var searchData=
   ['hpmcnt_5fevent_5ftrap_378',['HPMCNT_EVENT_TRAP',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea3a4f5bf9251def87a71162dbcf9043c5',1,'neorv32.h']]],
   ['hpmcnt_5fevent_5fwait_5fif_379',['HPMCNT_EVENT_WAIT_IF',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea9df7f7bf565c33f3c904b60eb3ef6b59',1,'neorv32.h']]],
   ['hpmcnt_5fevent_5fwait_5fii_380',['HPMCNT_EVENT_WAIT_II',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfead47298512a8b932e9030f3fca9e4b48b',1,'neorv32.h']]],
-  ['hpmcnt_5fevent_5fwait_5fls_381',['HPMCNT_EVENT_WAIT_LS',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea6d4f8e82e644ed4213fcff039f049198',1,'neorv32.h']]]
+  ['hpmcnt_5fevent_5fwait_5fls_381',['HPMCNT_EVENT_WAIT_LS',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea6d4f8e82e644ed4213fcff039f049198',1,'neorv32.h']]],
+  ['hpmcnt_5fevent_5fwait_5fmc_382',['HPMCNT_EVENT_WAIT_MC',['../neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfea7fec8a91cb13b85f42d1a777afdfb513',1,'neorv32.h']]]
 ];
