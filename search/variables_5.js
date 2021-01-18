@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['universe_1066',['universe',['../game__of__life_2main_8c.html#ae0b5214cf0cd93049e9df8a95a09d826',1,'main.c']]]
+  ['universe_1074',['universe',['../game__of__life_2main_8c.html#ae0b5214cf0cd93049e9df8a95a09d826',1,'main.c']]]
 ];

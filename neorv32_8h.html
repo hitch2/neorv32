@@ -659,6 +659,11 @@ Enumerations</h2></td></tr>
 , <a class="el" href="neorv32_8h.html#a50ee5bda9789b5cffae281db5d10a1eaacab6cf47ccfa0c5543e8799f72eb1c1e">SYSINFO_CACHE_IC_ASSOCIATIVITY_1</a> = 9
 , <a class="el" href="neorv32_8h.html#a50ee5bda9789b5cffae281db5d10a1eaa8392bf019261ed6e0e0580e9d46215d7">SYSINFO_CACHE_IC_ASSOCIATIVITY_2</a> = 10
 , <a class="el" href="neorv32_8h.html#a50ee5bda9789b5cffae281db5d10a1eaa54db63bb467c480eee304c76f43e4c61">SYSINFO_CACHE_IC_ASSOCIATIVITY_3</a> = 11
+, <br />
+&#160;&#160;<a class="el" href="neorv32_8h.html#a50ee5bda9789b5cffae281db5d10a1eaabdf580040a684244065c66fb161474cf">SYSINFO_CACHE_IC_REPLACEMENT_0</a> = 12
+, <a class="el" href="neorv32_8h.html#a50ee5bda9789b5cffae281db5d10a1eaa2c546bf3458c1d6cd7875d0da31fe1b0">SYSINFO_CACHE_IC_REPLACEMENT_1</a> = 13
+, <a class="el" href="neorv32_8h.html#a50ee5bda9789b5cffae281db5d10a1eaaea31933d8c2552aab46bb23a54a046e5">SYSINFO_CACHE_IC_REPLACEMENT_2</a> = 14
+, <a class="el" href="neorv32_8h.html#a50ee5bda9789b5cffae281db5d10a1eaa000db2272fe0621c9b51798d4f220541">SYSINFO_CACHE_IC_REPLACEMENT_3</a> = 15
 <br />
  }</td></tr>
 <tr class="separator:a50ee5bda9789b5cffae281db5d10a1ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2554,13 +2559,21 @@ Enumerations</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a50ee5bda9789b5cffae281db5d10a1eaa64d896bcbedcadd16c512926fce8db5b"></a>SYSINFO_CACHE_IC_NUM_BLOCKS_3&#160;</td><td class="fielddoc"><p>SYSINFO_CACHE (7) (r/-): i-cache: log2(Number of cache blocks/pages/lines), bit 3 (via ICACHE_NUM_BLOCKS generic) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a50ee5bda9789b5cffae281db5d10a1eaad6c4a937c7d46cb6885d6cf97948d837"></a>SYSINFO_CACHE_IC_ASSOCIATIVITY_0&#160;</td><td class="fielddoc"><p>SYSINFO_CACHE (10) (r/-): i-cache: log2(associativity), bit 0 (always 0 -&gt; direct mapped) </p>
+<tr><td class="fieldname"><a id="a50ee5bda9789b5cffae281db5d10a1eaad6c4a937c7d46cb6885d6cf97948d837"></a>SYSINFO_CACHE_IC_ASSOCIATIVITY_0&#160;</td><td class="fielddoc"><p>SYSINFO_CACHE (8) (r/-): i-cache: log2(associativity), bit 0 (via ICACHE_ASSOCIATIVITY generic) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a50ee5bda9789b5cffae281db5d10a1eaacab6cf47ccfa0c5543e8799f72eb1c1e"></a>SYSINFO_CACHE_IC_ASSOCIATIVITY_1&#160;</td><td class="fielddoc"><p>SYSINFO_CACHE (11) (r/-): i-cache: log2(associativity), bit 1 (always 0 -&gt; direct mapped) </p>
+<tr><td class="fieldname"><a id="a50ee5bda9789b5cffae281db5d10a1eaacab6cf47ccfa0c5543e8799f72eb1c1e"></a>SYSINFO_CACHE_IC_ASSOCIATIVITY_1&#160;</td><td class="fielddoc"><p>SYSINFO_CACHE (9) (r/-): i-cache: log2(associativity), bit 1 (via ICACHE_ASSOCIATIVITY generic) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a50ee5bda9789b5cffae281db5d10a1eaa8392bf019261ed6e0e0580e9d46215d7"></a>SYSINFO_CACHE_IC_ASSOCIATIVITY_2&#160;</td><td class="fielddoc"><p>SYSINFO_CACHE (12) (r/-): i-cache: log2(associativity), bit 2 (always 0 -&gt; direct mapped) </p>
+<tr><td class="fieldname"><a id="a50ee5bda9789b5cffae281db5d10a1eaa8392bf019261ed6e0e0580e9d46215d7"></a>SYSINFO_CACHE_IC_ASSOCIATIVITY_2&#160;</td><td class="fielddoc"><p>SYSINFO_CACHE (10) (r/-): i-cache: log2(associativity), bit 2 (via ICACHE_ASSOCIATIVITY generic) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a50ee5bda9789b5cffae281db5d10a1eaa54db63bb467c480eee304c76f43e4c61"></a>SYSINFO_CACHE_IC_ASSOCIATIVITY_3&#160;</td><td class="fielddoc"><p>SYSINFO_CACHE (13) (r/-): i-cache: log2(associativity), bit 3 (always 0 -&gt; direct mapped) </p>
+<tr><td class="fieldname"><a id="a50ee5bda9789b5cffae281db5d10a1eaa54db63bb467c480eee304c76f43e4c61"></a>SYSINFO_CACHE_IC_ASSOCIATIVITY_3&#160;</td><td class="fielddoc"><p>SYSINFO_CACHE (11) (r/-): i-cache: log2(associativity), bit 3 (via ICACHE_ASSOCIATIVITY generic) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a50ee5bda9789b5cffae281db5d10a1eaabdf580040a684244065c66fb161474cf"></a>SYSINFO_CACHE_IC_REPLACEMENT_0&#160;</td><td class="fielddoc"><p>SYSINFO_CACHE (12) (r/-): i-cache: replacement policy (0001 = LRU if associativity &gt; 0) bit 0 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a50ee5bda9789b5cffae281db5d10a1eaa2c546bf3458c1d6cd7875d0da31fe1b0"></a>SYSINFO_CACHE_IC_REPLACEMENT_1&#160;</td><td class="fielddoc"><p>SYSINFO_CACHE (13) (r/-): i-cache: replacement policy (0001 = LRU if associativity &gt; 0) bit 1 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a50ee5bda9789b5cffae281db5d10a1eaaea31933d8c2552aab46bb23a54a046e5"></a>SYSINFO_CACHE_IC_REPLACEMENT_2&#160;</td><td class="fielddoc"><p>SYSINFO_CACHE (14) (r/-): i-cache: replacement policy (0001 = LRU if associativity &gt; 0) bit 2 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a50ee5bda9789b5cffae281db5d10a1eaa000db2272fe0621c9b51798d4f220541"></a>SYSINFO_CACHE_IC_REPLACEMENT_3&#160;</td><td class="fielddoc"><p>SYSINFO_CACHE (15) (r/-): i-cache: replacement policy (0001 = LRU if associativity &gt; 0) bit 3 </p>
 </td></tr>
 </table>
 

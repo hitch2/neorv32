@@ -79,6 +79,10 @@ $(function() {
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ac0633f560da07ba2df1e693058f5020c"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__cpu_8c.html#ac0633f560da07ba2df1e693058f5020c">__neorv32_cpu_pmp_cfg_read</a> (uint32_t index)</td></tr>
+<tr class="separator:ac0633f560da07ba2df1e693058f5020c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a267d5f2b7453c2df0c7e7effe128fd7d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__cpu_8c.html#a267d5f2b7453c2df0c7e7effe128fd7d">__neorv32_cpu_pmp_cfg_write</a> (uint32_t index, uint32_t data)</td></tr>
+<tr class="separator:a267d5f2b7453c2df0c7e7effe128fd7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1128a30988815e8195618da07c13a345"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__cpu_8c.html#a1128a30988815e8195618da07c13a345">neorv32_cpu_irq_enable</a> (uint8_t irq_sel)</td></tr>
 <tr class="separator:a1128a30988815e8195618da07c13a345"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57c3b55f5b7042ed2470b2fe7d0ce0c7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__cpu_8c.html#a57c3b55f5b7042ed2470b2fe7d0ce0c7">neorv32_cpu_irq_disable</a> (uint8_t irq_sel)</td></tr>
@@ -112,6 +116,87 @@ Functions</h2></td></tr>
 <div class="textblock"><p>CPU Core Functions HW driver source file. </p>
 <dl class="section author"><dt>Author</dt><dd>Stephan Nolting </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="ac0633f560da07ba2df1e693058f5020c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0633f560da07ba2df1e693058f5020c">&#9670;&nbsp;</a></span>__neorv32_cpu_pmp_cfg_read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint32_t __neorv32_cpu_pmp_cfg_read </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>&gt;Private&lt; helper functions.</p>
+<p>Internal helper function: Read PMP configuration register 0..15</p>
+<dl class="section warning"><dt>Warning</dt><dd>This function requires the PMP CPU extension.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>PMP CFG configuration register ID (0..15). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>PMP CFG read data. </dd></dl>
+
+</div>
+</div>
+<a id="a267d5f2b7453c2df0c7e7effe128fd7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a267d5f2b7453c2df0c7e7effe128fd7d">&#9670;&nbsp;</a></span>__neorv32_cpu_pmp_cfg_write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void __neorv32_cpu_pmp_cfg_write </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Internal helper function: Write PMP configuration register 0..15</p>
+<dl class="section warning"><dt>Warning</dt><dd>This function requires the PMP CPU extension.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>PMP CFG configuration register ID (0..15). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>PMP CFG write data. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a223a5310e26238277d63dc48d7dbd63a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a223a5310e26238277d63dc48d7dbd63a">&#9670;&nbsp;</a></span>neorv32_cpu_atomic_cas()</h2>
 
