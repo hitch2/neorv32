@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['num_5fhpm_5fcnts_5fglobal_1072',['num_hpm_cnts_global',['../cpu__test_2main_8c.html#ad38d1de5648875f1e407246c296fb311',1,'main.c']]]
+  ['getting_5fexe_1075',['getting_exe',['../bootloader_8c.html#a5fa6b109bf211d1768f84c9d38eef240',1,'bootloader.c']]]
 ];

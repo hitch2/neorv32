@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['trap_5ftimestamp32_1073',['trap_timestamp32',['../cpu__test_2main_8c.html#aabc965af6ab37d074ad951c48808c739',1,'main.c']]]
+  ['num_5fhpm_5fcnts_5fglobal_1076',['num_hpm_cnts_global',['../cpu__test_2main_8c.html#ad38d1de5648875f1e407246c296fb311',1,'main.c']]]
 ];
