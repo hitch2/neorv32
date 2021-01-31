@@ -83,29 +83,31 @@ The NEORV32 RISC-V Processor</h1>
 <h2><a class="anchor" id="autotoc_md1"></a>
 Overview</h2>
 <p>The NEORV32 Processor is a customizable microcontroller-like system on chip (SoC) that is based on the RISC-V-compliant NEORV32 CPU. The processor is intended as <em>ready-to-go</em> auxiliary processor within a larger SoC designs or as stand-alone custom microcontroller.</p>
-<p>The project’s change log is available in the <a href="https://github.com/stnolting/neorv32/blob/master/CHANGELOG.md">CHANGELOG.md</a> file in the root directory of this repository. To see the changes between releases visit the project's <a href="https://github.com/stnolting/neorv32/releases">release page</a>.</p>
-<p>The documentation of the software framework is available online on <a href="https://stnolting.github.io/neorv32/files.html">GitHub-pages</a>. For more detailed information take a look at the <a href="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/NEORV32.pdf">:page_facing_up: NEORV32 data sheet</a> (pdf).</p>
+<p>:label: The project’s change log is available in the <a href="https://github.com/stnolting/neorv32/blob/master/CHANGELOG.md">CHANGELOG.md</a> file in the root directory of this repository. To see the changes between releases visit the project's <a href="https://github.com/stnolting/neorv32/releases">release page</a>.</p>
+<p>:books: The doxygen-based documentation of the software framework is available online at <a href="https://stnolting.github.io/neorv32/files.html">GitHub-pages</a>.</p>
+<p>:page_facing_up: For more detailed information take a look at the <a href="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/NEORV32.pdf">NEORV32 data sheet (pdf)</a>.</p>
 <h3><a class="anchor" id="autotoc_md2"></a>
 Key Features</h3>
 <ul>
-<li>RISC-V-<a href="#Status">compliant</a> 32-bit <code>rv32i</code> <a href="#NEORV32-CPU-Features"><b>NEORV32 CPU</b></a>, compliant to<ul>
+<li>RISC-V 32-bit <code>rv32i</code> <a href="#NEORV32-CPU-Features"><b>NEORV32 CPU</b></a>, compliant to<ul>
 <li>Subset of the <em>Unprivileged ISA Specification</em> <a href="https://github.com/stnolting/neorv32/blob/master/docs/riscv-privileged.pdf">(Version 2.2)</a></li>
 <li>Subset of the <em>Privileged Architecture Specification</em> <a href="https://github.com/stnolting/neorv32/blob/master/docs/riscv-spec.pdf">(Version 1.12-draft)</a></li>
+<li>Passes the <a href="#Status">offcial RISC-V compliance tests</a></li>
 </ul>
 </li>
 <li>Configurable RISC-V-compliant CPU extensions<ul>
-<li><code>A</code> - atomic memory access instructions (optional)</li>
-<li><code>B</code> - Bit manipulation instructions (optional)</li>
-<li><code>C</code> - compressed instructions (16-bit) (optional)</li>
-<li><code>E</code> - embedded CPU (reduced register file size) (optional)</li>
-<li><code>I</code> - base integer instruction set (always enabled)</li>
-<li><code>M</code> - integer multiplication and division hardware (optional)</li>
-<li><code>U</code> - less-privileged <em>user mode</em> (optional)</li>
-<li><code>X</code> - NEORV32-specific extensions (always enabled)</li>
-<li><code>Zicsr</code> - control and status register access instructions (+ exception/irq system) (optional)</li>
-<li><code>Zifencei</code> - instruction stream synchronization (optional)</li>
-<li><code>PMP</code> - physical memory protection (optional)</li>
-<li><code>HPM</code> - hardware performance monitors (optional)</li>
+<li><a href="#Atomic-memory-access-a-extension"><code>A</code></a> - atomic memory access instructions (optional)</li>
+<li><a href="#Bit-manipulation-instructions-B-extension"><code>B</code></a> - Bit manipulation instructions (optional)</li>
+<li><a href="#Compressed-instructions-C-extension"><code>C</code></a> - compressed instructions (16-bit) (optional)</li>
+<li><a href="#Embedded-CPU-version-E-extension"><code>E</code></a> - embedded CPU (reduced register file size) (optional)</li>
+<li><a href="#Integer-base-instruction-set-I-extension"><code>I</code></a> - base integer instruction set (always enabled)</li>
+<li><a href="#Integer-multiplication-and-division-hardware-M-extension"><code>M</code></a> - integer multiplication and division hardware (optional)</li>
+<li><a href="#Privileged-architecture---User-mode-U-extension"><code>U</code></a> - less-privileged <em>user mode</em> (optional)</li>
+<li><a href="#NEORV32-specific-CPU-extensions-X-extension"><code>X</code></a> - NEORV32-specific extensions (always enabled)</li>
+<li><a href="#Privileged-architecture---CSR-access-Zicsr-extension"><code>Zicsr</code></a> - control and status register access instructions (+ exception/irq system) (optional)</li>
+<li><a href="#Privileged-architecture---Instruction-stream-synchronization-Zifencei-extension"><code>Zifencei</code></a> - instruction stream synchronization (optional)</li>
+<li><a href="#Privileged-architecture---Physical-memory-protection-PMP"><code>PMP</code></a> - physical memory protection (optional)</li>
+<li><a href="#Privileged-architecture---Hardware-performance-monitors-HPM-extension"><code>HPM</code></a> - hardware performance monitors (optional)</li>
 </ul>
 </li>
 <li>Full-scale RISC-V microcontroller system / <b>SoC</b> <a href="#NEORV32-Processor-Features"><b>NEORV32 Processor</b></a> with optional submodules<ul>
@@ -114,6 +116,7 @@ Key Features</h3>
 <li>serial interfaces (SPI, TWI, UART)</li>
 <li>general purpose IO and PWM channels</li>
 <li>external bus interface (Wishbone / <a href="#AXI4-Connectivity">AXI4</a>)</li>
+<li>subsystem for custom co-processors</li>
 <li><a href="#NEORV32-Processor-Features">more ...</a></li>
 </ul>
 </li>
@@ -147,7 +150,7 @@ Design Principles</h3>
 <h3><a class="anchor" id="autotoc_md4"></a>
 Status</h3>
 <p>The processor is <a href="#FPGA-Implementation-Results">synthesizable</a> (tested on <em>real hardware</em> using Intel Quartus Prime, Xilinx Vivado and Lattice Radiant/Synplify Pro) and can successfully execute all the <a href="https://github.com/stnolting/neorv32/tree/master/sw/example">provided example programs</a> including the <a href="#CoreMark-Benchmark">CoreMark benchmark</a>.</p>
-<p>The processor passes the official <code>rv32_m/C</code>, <code>rv32_m/I</code>, <code>rv32_m/M</code>, <code>rv32_m/privilege</code> and <code>rv32_m/Zifencei</code> <a href="https://github.com/riscv/riscv-compliance">RISC-V compliance tests (new framework v2)</a>.</p>
+<p><b>RISC-V Compliance</b>: The processor passes the official <code>rv32_m/C</code>, <code>rv32_m/I</code>, <code>rv32_m/M</code>, <code>rv32_m/privilege</code> and <code>rv32_m/Zifencei</code> <a href="https://github.com/riscv/riscv-compliance">RISC-V compliance</a> tests. More information regarding the NEORV32 port of the compliance framework can be found in <a href="https://github.com/stnolting/neorv32/blob/master/riscv-compliance/README.md"><code>riscv-compliance/README.md</code></a>.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Project component   </th><th class="markdownTableHeadLeft">CI status    </th></tr>
@@ -165,16 +168,16 @@ To-Do / Wish List / Help Wanted</h3>
 <ul>
 <li>Use LaTeX for data sheet</li>
 <li>Further size and performance optimization</li>
-<li>Further expand associativity configuration of instruction cache (4x/8x set-associativity)</li>
-<li>Add data cache</li>
-<li>Burst mode for the external memory/bus interface</li>
+<li>Further expand associativity configuration of instruction cache (4x/8x set-associativity)?</li>
+<li>Add data cache?</li>
+<li>Burst mode for the external memory/bus interface?</li>
 <li>RISC-V <code>F</code> (using <a href="https://github.com/riscv/riscv-zfinx/blob/master/Zfinx_spec.adoc"><code>Zfinx</code></a>?) CPU extension (single-precision floating point)</li>
 <li>Add template (HW module + intrinsics skeleton) for custom instructions?</li>
-<li>Implement further RISC-V (or custom?) CPU extensions</li>
-<li>More support for FreeRTOS (like <em>all</em> traps)</li>
-<li>Port additional RTOSs (like <a href="https://github.com/zephyrproject-rtos/zephyr">Zephyr</a> or <a href="https://www.riot-os.org">RIOT</a>)</li>
-<li>Maybe port <a href="https://circuitpython.org/">CircuitPython</a> (just for fun)</li>
-<li>Add debugger (<a href="https://github.com/riscv/riscv-debug-spec">RISC-V debug spec</a>)</li>
+<li>Implement further RISC-V (or custom) CPU extensions?</li>
+<li>More support for FreeRTOS (like <em>all</em> traps)?</li>
+<li>Port additional RTOSs (like <a href="https://github.com/zephyrproject-rtos/zephyr">Zephyr</a> or <a href="https://www.riot-os.org">RIOT</a>)?</li>
+<li>Add debugger (<a href="https://github.com/riscv/riscv-debug-spec">RISC-V debug spec</a>)?</li>
+<li>Add encryption/decryption/hash accelerator (maybe <a href="https://en.wikipedia.org/wiki/XTEA">XTEA</a>)?</li>
 <li>...</li>
 <li><a href="#ContributeFeedbackQuestions">Ideas?</a></li>
 </ul>
@@ -197,15 +200,17 @@ NEORV32 Processor Features</h3>
 <li>32-bit external bus interface, Wishbone b4 compliant (<b>WISHBONE</b>), <em>standard</em> or <em>pipelined</em> handshake/transactions mode</li>
 <li>wrapper for <b>AXI4-Lite Master Interface</b> (see <a href="#AXI4-Connectivity">AXI Connectivity</a>)</li>
 <li>PWM controller with 4 channels and 8-bit duty cycle resolution (<b>PWM</b>)</li>
-<li>GARO-based true random number generator (<b>TRNG</b>)</li>
-<li>custom functions units (<b>CFU0</b> and <b>CFU1</b>) for tightly-coupled custom co-processors</li>
+<li>ring-oscillator-based true random number generator (<b>TRNG</b>)</li>
+<li>custom functions subsystem (<b>CFS</b>) for tightly-coupled custom co-processor extensions</li>
 <li>system configuration information memory to check hardware configuration by software (<b>SYSINFO</b>, mandatory - not <em>optional</em>)</li>
 </ul>
 <h3><a class="anchor" id="autotoc_md8"></a>
 NEORV32 CPU Features</h3>
 <p>The NEORV32 CPU is <b>compliant</b> to the <a href="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/riscv-spec.pdf">official RISC-V specifications (2.2)</a> including a subset of the <a href="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/riscv-spec.pdf">RISC-V privileged architecture specifications (1.12-draft)</a> tested via the <a href="https://github.com/riscv/riscv-compliance">official RISC-V Compliance Test Framework</a> (see <a href="https://github.com/stnolting/neorv32/blob/master/riscv-compliance/README.md"><code>riscv-compliance/README</code></a>).</p>
 <p>More information regarding the CPU including a detailed list of the instruction set and the available CSRs can be found in the <a href="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/NEORV32.pdf">:page_facing_up: NEORV32 data sheet</a>.</p>
-<p><b>General</b>:</p><ul>
+<h4><a class="anchor" id="autotoc_md9"></a>
+General Features</h4>
+<ul>
 <li>Modified Harvard architecture (separate CPU interfaces for data and instructions; NEORV32 processor: Single processor-internal bus via I/D mux)</li>
 <li>Two stages in-order pipeline (FETCH, EXECUTE); each stage uses a multi-cycle processing scheme</li>
 <li>No hardware support of unaligned accesses - they will trigger an exception</li>
@@ -214,40 +219,69 @@ NEORV32 CPU Features</h3>
 <li>Privilege levels: <code>machine</code> mode, <code>user</code> mode (if enabled via <code>U</code> extension)</li>
 <li>Official <a href="https://github.com/riscv/riscv-isa-manual/blob/master/marchid.md">RISC-V open-source architecture ID</a></li>
 </ul>
-<p><b>RV32I base instruction set</b> (<code>I</code> extension):</p><ul>
-<li>ALU instructions: <code>LUI</code> <code>AUIPC</code> <code>ADDI</code> <code>SLTI</code> <code>SLTIU</code> <code>XORI</code> <code>ORI</code> <code>ANDI</code> <code>SLLI</code> <code>SRLI</code> <code>SRAI</code> <code>ADD</code> <code>SUB</code> <code>SLL</code> <code>SLT</code> <code>SLTU</code> <code>XOR</code> <code>SRL</code> <code>SRA</code> <code>OR</code> <code>AND</code></li>
-<li>Jump and branch instructions: <code>JAL</code> <code>JALR</code> <code>BEQ</code> <code>BNE</code> <code>BLT</code> <code>BGE</code> <code>BLTU</code> <code>BGEU</code></li>
-<li>Memory instructions: <code>LB</code> <code>LH</code> <code>LW</code> <code>LBU</code> <code>LHU</code> <code>SB</code> <code>SH</code> <code>SW</code></li>
-<li>System instructions: <code>ECALL</code> <code>EBREAK</code> <code>FENCE</code></li>
-<li>Pseudo-instructions are not listed</li>
+<h4><a class="anchor" id="autotoc_md10"></a>
+Atomic memory access (&lt;tt&gt;A&lt;/tt&gt; extension)</h4>
+<ul>
+<li>Supported instructions: <code>LR.W</code> (load-reservate) <code>SC.W</code> (store-conditional)</li>
 </ul>
-<p><b>Compressed instructions</b> (<code>C</code> extension):</p><ul>
+<h4><a class="anchor" id="autotoc_md11"></a>
+Bit manipulation instructions (&lt;tt&gt;B&lt;/tt&gt; extension)</h4>
+<ul>
+<li>:warning: Extension is not officially ratified yet by the RISC-V foundation!</li>
+<li>Implies <code>Zbb</code> extension (base bit manipulation instruction set)</li>
+<li>Compatible to <a href="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/bitmanip-draft.pdf">v0.94-draft</a> of the bit manipulation spec</li>
+<li>Support via intrisc library (see <a href="https://github.com/stnolting/neorv32/tree/master/sw/example/bit_manipulation"><code>sw/example/bit_manipulation</code></a>)</li>
+<li>Only the <code>Zbb</code> base instructions subset is supported yet</li>
+<li>Supported instructions: <code>CLZ</code> <code>CTZ</code> <code>CPOP</code> <code>SEXT.B</code> <code>SEXT.H</code> <code>MIN[U]</code> <code>MAX[U]</code> <code>ANDN</code> <code>ORN</code> <code>XNOR</code> <code>ROL</code> <code>ROR</code> <code>RORI</code> <code>zext</code>(<em>pseudo-instruction</em> for <code>PACK rd, rs, zero</code>) <code>rev8</code>(<em>pseudo-instruction</em> for <code>GREVI rd, rs, -8</code>) <code>orc.b</code>(<em>pseudo-instruction</em> for <code>GORCI rd, rs, 7</code>)</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md12"></a>
+Compressed instructions (&lt;tt&gt;C&lt;/tt&gt; extension)</h4>
+<ul>
 <li>ALU instructions: <code>C.ADDI4SPN</code> <code>C.ADDI</code> <code>C.ADD</code> <code>C.ADDI16SP</code> <code>C.LI</code> <code>C.LUI</code> <code>C.SLLI</code> <code>C.SRLI</code> <code>C.SRAI</code> <code>C.ANDI</code> <code>C.SUB</code> <code>C.XOR</code> <code>C.OR</code> <code>C.AND</code> <code>C.MV</code> <code>C.NOP</code></li>
 <li>Jump and branch instructions: <code>C.J</code> <code>C.JAL</code> <code>C.JR</code> <code>C.JALR</code> <code>C.BEQZ</code> <code>C.BNEZ</code></li>
 <li>Memory instructions: <code>C.LW</code> <code>C.SW</code> <code>C.LWSP</code> <code>C.SWSP</code></li>
 <li>System instructions: <code>C.EBREAK</code> (only with <code>Zicsr</code> extension)</li>
 <li>Pseudo-instructions are not listed</li>
 </ul>
-<p><b>Embedded CPU version</b> (<code>E</code> extension):</p><ul>
+<h4><a class="anchor" id="autotoc_md13"></a>
+Embedded CPU version (&lt;tt&gt;E&lt;/tt&gt; extension)</h4>
+<ul>
 <li>Reduced register file (only the 16 lowest registers)</li>
 </ul>
-<p><b>Integer multiplication and division hardware</b> (<code>M</code> extension):</p><ul>
+<h4><a class="anchor" id="autotoc_md14"></a>
+Integer base instruction set (&lt;tt&gt;I&lt;/tt&gt; extension)</h4>
+<ul>
+<li>ALU instructions: <code>LUI</code> <code>AUIPC</code> <code>ADDI</code> <code>SLTI</code> <code>SLTIU</code> <code>XORI</code> <code>ORI</code> <code>ANDI</code> <code>SLLI</code> <code>SRLI</code> <code>SRAI</code> <code>ADD</code> <code>SUB</code> <code>SLL</code> <code>SLT</code> <code>SLTU</code> <code>XOR</code> <code>SRL</code> <code>SRA</code> <code>OR</code> <code>AND</code></li>
+<li>Jump and branch instructions: <code>JAL</code> <code>JALR</code> <code>BEQ</code> <code>BNE</code> <code>BLT</code> <code>BGE</code> <code>BLTU</code> <code>BGEU</code></li>
+<li>Memory instructions: <code>LB</code> <code>LH</code> <code>LW</code> <code>LBU</code> <code>LHU</code> <code>SB</code> <code>SH</code> <code>SW</code></li>
+<li>System instructions: <code>ECALL</code> <code>EBREAK</code> <code>FENCE</code></li>
+<li>Pseudo-instructions are not listed</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md15"></a>
+Integer multiplication and division hardware (&lt;tt&gt;M&lt;/tt&gt; extension)</h4>
+<ul>
 <li>Multiplication instructions: <code>MUL</code> <code>MULH</code> <code>MULHSU</code> <code>MULHU</code></li>
 <li>Division instructions: <code>DIV</code> <code>DIVU</code> <code>REM</code> <code>REMU</code></li>
 <li>By default, the multiplier and divider cores use an iterative bit-serial processing scheme</li>
 <li>Multiplications can be mapped to DSPs via the <code>FAST_MUL_EN</code> generic to increase performance</li>
 </ul>
-<p><b>Atomic memory access</b> (<code>A</code> extension):</p><ul>
-<li>Supported instructions: <code>LR.W</code> (load-reservate) <code>SC.W</code> (store-conditional)</li>
+<h4><a class="anchor" id="autotoc_md16"></a>
+Privileged architecture - User mode (&lt;tt&gt;U&lt;/tt&gt; extension)</h4>
+<ul>
+<li>Requires <code>Zicsr</code> extension</li>
+<li>Privilege levels: <code>M</code> (machine mode) + less-privileged <code>U</code> (user mode)</li>
 </ul>
-<p><b>Bit manipulation instructions</b> (<code>B</code> extension implying <code>Zbb</code> extension):</p><ul>
-<li>:warning: RISC-V <code>B</code> extension is not officially ratified yet!</li>
-<li>Compatible to <a href="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/bitmanip-draft.pdf">v0.94-draft</a> of the bit manipulation spec</li>
-<li>Support via intrisc library (see <a href="https://github.com/stnolting/neorv32/tree/master/sw/example/bit_manipulation"><code>sw/example/bit_manipulation</code></a>)</li>
-<li>Only the <code>Zbb</code> base instructions subset is supported yet</li>
-<li>Supported instructions: <code>CLZ</code> <code>CTZ</code> <code>CPOP</code> <code>SEXT.B</code> <code>SEXT.H</code> <code>MIN[U]</code> <code>MAX[U]</code> <code>ANDN</code> <code>ORN</code> <code>XNOR</code> <code>ROL</code> <code>ROR</code> <code>RORI</code> <code>zext</code>(<em>pseudo-instruction</em> for <code>PACK rd, rs, zero</code>) <code>rev8</code>(<em>pseudo-instruction</em> for <code>GREVI rd, rs, -8</code>) <code>orc.b</code>(<em>pseudo-instruction</em> for <code>GORCI rd, rs, 7</code>)</li>
+<h4><a class="anchor" id="autotoc_md17"></a>
+NEORV32-specific CPU extensions (&lt;tt&gt;X&lt;/tt&gt; extension)</h4>
+<ul>
+<li>The NEORV32-specific extensions are always enabled and are indicated via the <code>X</code> bit set in the <code>misa</code> CSR.</li>
+<li>Eight <em>fast interrupt</em> request channels with according control/status bits in <code>mie</code> and <code>mip</code> and custom exception codes in <code>mcause</code></li>
+<li><code>mzext</code> CSR to check for implemented <code>Z*</code> CPU extensions (like <code>Zifencei</code>)</li>
+<li>All undefined/umimplemented/malformed/illegal instructions do raise an illegal instruction exception</li>
 </ul>
-<p><b>Privileged architecture / CSR access</b> (<code>Zicsr</code> extension):</p><ul>
+<h4><a class="anchor" id="autotoc_md18"></a>
+Privileged architecture - CSR access (&lt;tt&gt;Zicsr&lt;/tt&gt; extension)</h4>
+<ul>
 <li>Privilege levels: <code>M-mode</code> (Machine mode)</li>
 <li>CSR access instructions: <code>CSRRW</code> <code>CSRRS</code> <code>CSRRC</code> <code>CSRRWI</code> <code>CSRRSI</code> <code>CSRRCI</code></li>
 <li>System instructions: <code>MRET</code> <code>WFI</code></li>
@@ -268,25 +302,30 @@ NEORV32 CPU Features</h3>
 <li>Machine timer interrupt <code>mti</code> (via processor's MTIME unit / external signal)</li>
 <li>Machine software interrupt <code>msi</code> (via external signal)</li>
 <li>Machine external interrupt <code>mei</code> (via external signal)</li>
-<li>Four fast interrupt requests (custom extension)</li>
+<li>Eight fast interrupt requests (custom extension)</li>
 </ul>
 </li>
 </ul>
-<p><b>Privileged architecture / User mode</b> (<code>U</code> extension, requires <code>Zicsr</code> extension):</p><ul>
-<li>Privilege levels: <code>M-mode</code> (Machine mode) + <code>U-mode</code> (User mode)</li>
-</ul>
-<p><b>Privileged architecture / Instruction stream synchronization</b> (<code>Zifencei</code> extension):</p><ul>
+<h4><a class="anchor" id="autotoc_md19"></a>
+Privileged architecture - Instruction stream synchronization (&lt;tt&gt;Zifencei&lt;/tt&gt; extension)</h4>
+<ul>
 <li>System instructions: <code>FENCE.I</code> (among others, used to clear and reload instruction cache)</li>
 </ul>
-<p><b>Privileged architecture / Physical memory protection</b> (<code>PMP</code>, requires <code>Zicsr</code> extension):</p><ul>
+<h4><a class="anchor" id="autotoc_md20"></a>
+Privileged architecture - Physical memory protection (&lt;tt&gt;PMP&lt;/tt&gt;)</h4>
+<ul>
+<li>Requires <code>Zicsr</code> extension</li>
 <li>Configurable number of regions (0..63)</li>
 <li>Additional machine CSRs: <code>pmpcfg*</code>(0..15) <code>pmpaddr*</code>(0..63)</li>
 </ul>
-<p><b>Privileged architecture / Hardware performance monitors</b> (<code>HPM</code>, requires <code>Zicsr</code> extension):</p><ul>
+<h4><a class="anchor" id="autotoc_md21"></a>
+Privileged architecture - Hardware performance monitors (&lt;tt&gt;HPM&lt;/tt&gt; extension)</h4>
+<ul>
+<li>Requires <code>Zicsr</code> extension</li>
 <li>Configurable number of counters (0..29)</li>
 <li>Additional machine CSRs: <code>mhpmevent*</code>(3..31) <code>[m]hpmcounter*[h]</code>(3..31)</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md9"></a>
+<h3><a class="anchor" id="autotoc_md22"></a>
 :warning: Non-RISC-V-Compliant Issues and Limitations</h3>
 <ul>
 <li>CPU and Processor are BIG-ENDIAN, but this should be no problem as the external memory bus interface provides big- and little-endian configurations</li>
@@ -296,17 +335,9 @@ NEORV32 CPU Features</h3>
 <li>The <code>mcause</code> trap code <code>0x80000000</code> (originally reserved in the RISC-V specs) is used to indicate a hardware reset (as "non-maskable interrupt")</li>
 <li>The bit manipulation extension is not yet officially ratified, but is expected to stay unchanged. There is no software support in the upstream GCC RISC-V port yet. However, an intrinsic library is provided to utilize the provided bit manipulation extension from C-language code (see <a href="https://github.com/stnolting/neorv32/tree/master/sw/example/bit_manipulation"><code>sw/example/bit_manipulation</code></a>). NEORV32's <code>B</code>/<code>Zbb</code> extension is compliant to spec. version "0.94-draft".</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md10"></a>
-NEORV32-Specific CPU Extensions</h3>
-<p>The NEORV32-specific extensions are always enabled and are indicated via the <code>X</code> bit in the <code>misa</code> CSR.</p>
-<ul>
-<li>Four <em>fast interrupt</em> request channels with according control/status bits in <code>mie</code> and <code>mip</code> and custom exception codes in <code>mcause</code></li>
-<li><code>mzext</code> CSR to check for implemented <code>Z*</code> CPU extensions (like <code>Zifencei</code>)</li>
-<li>All undefined/umimplemented/malformed/illegal instructions do raise an illegal instruction exception</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md11"></a>
+<h2><a class="anchor" id="autotoc_md23"></a>
 FPGA Implementation Results</h2>
-<h3><a class="anchor" id="autotoc_md12"></a>
+<h3><a class="anchor" id="autotoc_md24"></a>
 NEORV32 CPU</h3>
 <p>This chapter shows exemplary implementation results of the NEORV32 CPU for an <b>Intel Cyclone IV EP4CE22F17C6N FPGA</b> on a DE0-nano board. The design was synthesized using <b>Intel Quartus Prime Lite 20.1</b> ("balanced implementation"). The timing information is derived from the Timing Analyzer / Slow 1200mV 0C Model. If not otherwise specified, the default configuration of the CPU's generics is assumed (e.g. no physical memory protection, no hardware performance monitors). No constraints were used at all. The <code>u</code> and <code>Zifencei</code> extensions have a negligible impact on the hardware requirements.</p>
 <p>Results generated for hardware version <a href="https://github.com/stnolting/neorv32/blob/master/CHANGELOG.md"><code>1.5.0.3</code></a>.</p>
@@ -327,7 +358,7 @@ NEORV32 CPU</h3>
 <td class="markdownTableBodyLeft"><code>rv32imacb</code> + <code>u</code> + <code>Zicsr</code> + <code>Zifencei</code>   </td><td class="markdownTableBodyCenter">3045   </td><td class="markdownTableBodyCenter">1260   </td><td class="markdownTableBodyCenter">1024   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">116 MHz   </td></tr>
 </table>
 <p>Setups with enabled "embedded CPU extension" <code>E</code> show the same LUT and FF utilization and identical f_max. However, the size of the register file is cut in half.</p>
-<h3><a class="anchor" id="autotoc_md13"></a>
+<h3><a class="anchor" id="autotoc_md25"></a>
 NEORV32 Processor-Internal Peripherals and Memories</h3>
 <p>Results generated for hardware version <a href="https://github.com/stnolting/neorv32/blob/master/CHANGELOG.md"><code>1.5.0.3</code></a>.</p>
 <table class="markdownTable">
@@ -340,37 +371,35 @@ NEORV32 Processor-Internal Peripherals and Memories</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">i-CACHE   </td><td class="markdownTableBodyLeft">Proc.-int. nstruction cache (default 1x4x64 bytes)   </td><td class="markdownTableBodyRight">234   </td><td class="markdownTableBodyRight">156   </td><td class="markdownTableBodyRight">8 192   </td><td class="markdownTableBodyRight">0    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">CFU0   </td><td class="markdownTableBodyLeft">Custom functions unit 0   </td><td class="markdownTableBodyRight">-   </td><td class="markdownTableBodyRight">-   </td><td class="markdownTableBodyRight">-   </td><td class="markdownTableBodyRight">-    </td></tr>
+<td class="markdownTableBodyLeft">CFS   </td><td class="markdownTableBodyLeft">Custom functions subsystem   </td><td class="markdownTableBodyRight">-   </td><td class="markdownTableBodyRight">-   </td><td class="markdownTableBodyRight">-   </td><td class="markdownTableBodyRight">-    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">CFU1   </td><td class="markdownTableBodyLeft">Custom functions unit 1   </td><td class="markdownTableBodyRight">-   </td><td class="markdownTableBodyRight">-   </td><td class="markdownTableBodyRight">-   </td><td class="markdownTableBodyRight">-    </td></tr>
-<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">DMEM   </td><td class="markdownTableBodyLeft">Processor-internal data memory (default 8kB)   </td><td class="markdownTableBodyRight">6   </td><td class="markdownTableBodyRight">2   </td><td class="markdownTableBodyRight">65 536   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">GPIO   </td><td class="markdownTableBodyLeft">General purpose input/output ports   </td><td class="markdownTableBodyRight">67   </td><td class="markdownTableBodyRight">65   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">IMEM   </td><td class="markdownTableBodyLeft">Processor-internal instruction memory (default 16kb)   </td><td class="markdownTableBodyRight">6   </td><td class="markdownTableBodyRight">2   </td><td class="markdownTableBodyRight">131 072   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">MTIME   </td><td class="markdownTableBodyLeft">Machine system timer   </td><td class="markdownTableBodyRight">274   </td><td class="markdownTableBodyRight">166   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">PWM   </td><td class="markdownTableBodyLeft">Pulse-width modulation controller   </td><td class="markdownTableBodyRight">71   </td><td class="markdownTableBodyRight">69   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">SPI   </td><td class="markdownTableBodyLeft">Serial peripheral interface   </td><td class="markdownTableBodyRight">138   </td><td class="markdownTableBodyRight">124   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">SYSINFO   </td><td class="markdownTableBodyLeft">System configuration information memory   </td><td class="markdownTableBodyRight">11   </td><td class="markdownTableBodyRight">10   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">TRNG   </td><td class="markdownTableBodyLeft">True random number generator   </td><td class="markdownTableBodyRight">132   </td><td class="markdownTableBodyRight">105   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">TWI   </td><td class="markdownTableBodyLeft">Two-wire interface   </td><td class="markdownTableBodyRight">77   </td><td class="markdownTableBodyRight">46   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">UART   </td><td class="markdownTableBodyLeft">Universal asynchronous receiver/transmitter   </td><td class="markdownTableBodyRight">176   </td><td class="markdownTableBodyRight">132   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">WDT   </td><td class="markdownTableBodyLeft">Watchdog timer   </td><td class="markdownTableBodyRight">60   </td><td class="markdownTableBodyRight">45   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
+<td class="markdownTableBodyLeft">UART   </td><td class="markdownTableBodyLeft">Universal asynchronous receiver/transmitter   </td><td class="markdownTableBodyRight">176   </td><td class="markdownTableBodyRight">132   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">WDT   </td><td class="markdownTableBodyLeft">Watchdog timer   </td><td class="markdownTableBodyRight">60   </td><td class="markdownTableBodyRight">45   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">WISHBONE   </td><td class="markdownTableBodyLeft">External memory interface   </td><td class="markdownTableBodyRight">129   </td><td class="markdownTableBodyRight">104   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0   </td></tr>
 </table>
-<h3><a class="anchor" id="autotoc_md14"></a>
+<h3><a class="anchor" id="autotoc_md26"></a>
 NEORV32 Processor - Exemplary FPGA Setups</h3>
-<p>Exemplary processor implementation results for different FPGA platforms. The processor setup uses <em>the default peripheral configuration</em> (like no <em>CFUs</em> and no <em>TRNG</em>), no external memory interface and only internal instruction and data memories. IMEM uses 16kB and DMEM uses 8kB memory space. The setup's top entity connects most of the processor's <a href="https://github.com/stnolting/neorv32/blob/master/rtl/core/neorv32_top.vhd">top entity</a> signals to FPGA pins - except for the Wishbone bus and the interrupt signals. The "default" strategy of each toolchain is used.</p>
+<p>Exemplary processor implementation results for different FPGA platforms. The processor setup uses <em>the default peripheral configuration</em> (like no <em>CFS</em> and no <em>TRNG</em>), no external memory interface and only internal instruction and data memories. IMEM uses 16kB and DMEM uses 8kB memory space. The setup's top entity connects most of the processor's <a href="https://github.com/stnolting/neorv32/blob/master/rtl/core/neorv32_top.vhd">top entity</a> signals to FPGA pins - except for the Wishbone bus and the interrupt signals. The "default" strategy of each toolchain is used.</p>
 <p>Results generated for hardware version <a href="https://github.com/stnolting/neorv32/blob/master/CHANGELOG.md"><code>1.4.9.0</code></a>.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -389,9 +418,9 @@ NEORV32 Processor - Exemplary FPGA Setups</h3>
 <li>The setups with <code>PMP</code> implement 2 regions with a minimal granularity of 64kB.</li>
 <li>No HPM counters are implemented.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md15"></a>
+<h2><a class="anchor" id="autotoc_md27"></a>
 Performance</h2>
-<h3><a class="anchor" id="autotoc_md16"></a>
+<h3><a class="anchor" id="autotoc_md28"></a>
 CoreMark Benchmark</h3>
 <p>The <a href="https://www.eembc.org/coremark">CoreMark CPU benchmark</a> was executed on the NEORV32 and is available in the <a href="https://github.com/stnolting/neorv32/blob/master/sw/example/coremark">sw/example/coremark</a> project folder. This benchmark tests the capabilities of a CPU itself rather than the functions provided by the whole system / SoC.</p>
 <div class="fragment"><div class="line">**Configuration**</div>
@@ -417,7 +446,7 @@ CoreMark Benchmark</h3>
 </table>
 <p>The <code>FAST_MUL_EN</code> configuration uses DSPs for the multiplier of the <code>M</code> extension (enabled via the <code>FAST_MUL_EN</code> generic). The <code>FAST_SHIFT_EN</code> configuration uses a barrel shifter for CPU shift operations (enabled via the <code>FAST_SHIFT_EN</code> generic).</p>
 <p>When the <code>C</code> extension is enabled, branches to an unaligned uncompressed instruction require additional instruction fetch cycles.</p>
-<h3><a class="anchor" id="autotoc_md17"></a>
+<h3><a class="anchor" id="autotoc_md29"></a>
 Instruction Cycles</h3>
 <p>The NEORV32 CPU is based on a two-stages pipelined architecutre. Each stage uses a multi-cycle processing scheme. Hence, each instruction requires several clock cycles to execute (2 cycles for ALU operations, ..., 40 cycles for divisions). The average CPI (cycles per instruction) depends on the instruction mix of a specific applications and also on the available CPU extensions. <em>By default</em> the CPU-internal shifter (e.g. for the <code>SLL</code> instruction) as well as the multiplier and divider of the <code>M</code> extension use a bit-serial approach and require several cycles for completion.</p>
 <p>The following table shows the performance results for successfully running 2000 CoreMark iterations, which reflects a pretty good "real-life" work load. The average CPI is computed by dividing the total number of required clock cycles (only the timed core to avoid distortion due to IO wait cycles; sampled via the <code>cycle[h]</code> CSRs) by the number of executed instructions (<code>instret[h]</code> CSRs). The executables were generated using optimization <code>-O3</code>.</p>
@@ -438,41 +467,41 @@ Instruction Cycles</h3>
 </table>
 <p>The <code>FAST_MUL_EN</code> configuration uses DSPs for the multiplier of the <code>M</code> extension (enabled via the <code>FAST_MUL_EN</code> generic). The <code>FAST_SHIFT_EN</code> configuration uses a barrel shifter for CPU shift operations (enabled via the <code>FAST_SHIFT_EN</code> generic).</p>
 <p>When the <code>C</code> extension is enabled branches to an unaligned uncompressed instruction require additional instruction fetch cycles.</p>
-<h2><a class="anchor" id="autotoc_md18"></a>
+<h2><a class="anchor" id="autotoc_md30"></a>
 Top Entities</h2>
 <p>The top entity of the <b>NEORV32 Processor</b> (SoC) is <a href="https://github.com/stnolting/neorv32/blob/master/rtl/core/neorv32_top.vhd"><code>rtl/core/neorv32_top.vhd</code></a>.</p>
 <p>All signals of the top entity are of type <em>std_ulogic</em> or <em>std_ulogic_vector</em>, respectively (except for the processor's TWI signals, which are of type <em>std_logic</em>). Leave all unused output ports unconnected (<code>open</code>) and tie all unused input ports to zero (&lsquo;'0&rsquo;<code>or</code>(others =&gt; '0')`, respectively).</p>
 <p>Use the top's generics to configure the system according to your needs. Each generic is initilized with the default configuration. Detailed information regarding the interface signals and configuration generics can be found in the <a href="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/NEORV32.pdf">:page_facing_up: NEORV32 data sheet</a> (pdf).</p>
-<h3><a class="anchor" id="autotoc_md19"></a>
+<h3><a class="anchor" id="autotoc_md31"></a>
 Using the CPU in Stand-Alone Mode</h3>
-<p>If you do not want to use the NEORV32 processor setup, you can also use the CPU in stand-alone mode and build your own system around it. The top entity of the stand-alone <b>NEORV32 CPU</b> is <a href="https://github.com/stnolting/neorv32/blob/master/rtl/core/neorv32_cpu.vhd"><code>rtl/core/neorv32_cpu.vhd</code></a>. Note that the CPU uses a proprietary interface for accessing data and instruction memory. More information can be found in the <a href="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/NEORV32.pdf">:page_facing_up: NEORV32 data sheet</a>.</p>
-<p>:warning: It is recommended to use the processor setup even if you only want to use the CPU. Simply disable all the processor-internal modules via the generics and you will get a "CPU wrapper" that provides a minimal CPU environment and an external memory interface (like AXI4). This setup also allows to further use the default bootloader and application makefiles. From this base you can start building your own processor system.</p>
-<h3><a class="anchor" id="autotoc_md20"></a>
+<p>If you <em>do not</em> want to use the NEORV32 processor setup, you can also use the CPU in stand-alone mode and build your own system around it. The top entity of the stand-alone <b>NEORV32 CPU</b> is <a href="https://github.com/stnolting/neorv32/blob/master/rtl/core/neorv32_cpu.vhd"><code>rtl/core/neorv32_cpu.vhd</code></a>. Note that the CPU uses a proprietary interface for accessing data and instruction memory. More information can be found in the <a href="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/NEORV32.pdf">:page_facing_up: NEORV32 data sheet</a>.</p>
+<p>:information_source: It is recommended to use the processor setup even if you only want to use the CPU. Simply disable all the processor-internal modules via the generics and you will get a "CPU wrapper" that already provides a minimal CPU environment and an external memory interface (like AXI4). This setup also allows to further use the default bootloader and software framework. From this base you can start building your own processor system.</p>
+<h3><a class="anchor" id="autotoc_md32"></a>
 Alternative Top Entities</h3>
 <p><em>Alternative top entities</em>, like the simplified <a href="#Create-a-new-Hardware-Project">"hello world" test setup</a> or CPU/Processor wrappers with resolved port signal types (i.e. <em>std_logic</em>), can be found in <a href="https://github.com/stnolting/neorv32/blob/master/rtl/top_templates"><code>rtl/top_templates</code></a>.</p>
-<h3><a class="anchor" id="autotoc_md21"></a>
+<h3><a class="anchor" id="autotoc_md33"></a>
 AXI4 Connectivity</h3>
 <p>Via the <a href="https://github.com/stnolting/neorv32/blob/master/rtl/top_templates/neorv32_top_axi4lite.vhd"><code>rtl/top_templates/neorv32_top_axi4lite.vhd</code></a> wrapper the NEORV32 provides an <b>AXI4-Lite</b> compatible master interface. This wrapper instantiates the default <a href="https://github.com/stnolting/neorv32/blob/master/rtl/core/neorv32_top.vhd">NEORV32 processor top entitiy</a> and implements a Wishbone to AXI4-Lite bridge.</p>
 <p>The AXI4-Lite interface has been tested using Xilinx Vivado 19.2 block designer:</p>
 <p><img src="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/figures/neorv32_axi_soc.png" alt="AXI-SoC" class="inline"/></p>
 <p>The processor was packed as custom IP using <code>neorv32_top_axi4lite.vhd</code> as top entity. The AXI interface is automatically detected by the packager. All remaining IO interfaces are available as custom signals. The configuration generics are available via the "customize IP" dialog. In the figure above the resulting IP block is named "neorv32_top_axi4lite_v1_0". *(Note: Use Syntheiss option "global" when generating the block design to maintain the internal TWI tri-state drivers.)*</p>
 <p>The setup uses an AXI interconnect to attach two block RAMs to the processor. Since the processor in this example is configured <em>without</em> IMEM and DMEM, the attached block RAMs are used for storing instructions and data: the first RAM is used as instruction memory and is mapped to address <code>0x00000000 - 0x00003fff</code> (16kB), the second RAM is used as data memory and is mapped to address <code>0x80000000 - 0x80001fff</code> (8kB).</p>
-<h2><a class="anchor" id="autotoc_md22"></a>
+<h2><a class="anchor" id="autotoc_md34"></a>
 Getting Started</h2>
 <p>This overview is just a short excerpt from the <em>Let's Get It Started</em> section of the NEORV32 documentary:</p>
 <p><a href="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/NEORV32.pdf">:page_facing_up: NEORV32 data sheet</a></p>
-<h3><a class="anchor" id="autotoc_md23"></a>
+<h3><a class="anchor" id="autotoc_md35"></a>
 Toolchain</h3>
 <p>At first you need the <b>RISC-V GCC toolchain</b>. You can either <a href="https://github.com/riscv/riscv-gnu-toolchain">download the sources</a> and build the toolchain by yourself, or you can download a prebuilt one and install it.</p>
 <p>To build the toolchain by yourself, follow the official <a href="https://github.com/riscv/riscv-gnu-toolchain">build instructions</a>. Make sure to use the <code>ilp32</code> or <code>ilp32e</code> ABI.</p>
 <p><b>Alternatively</b>, you can download a prebuilt toolchain. I have uploaded the toolchains I am using to GitHub. These toolchains were compiled on a 64-bit x86 Ubuntu 20.04 LTS (Ubuntu on Windows, actually). Download the toolchain of choice: <a href="https://github.com/stnolting/riscv-gcc-prebuilt">:octocat: github.com/stnolting/riscv-gcc-prebuilt</a></p>
 <p>You can also use the toolchains provided by <a href="https://github.com/sifive/freedom-tools/releases">SiFive</a>. These are 64-bit toolchains that can also emit 32-bit RISC-V code. They were compiled for more sophisticated machines (<code>imac</code>) so the according hardware extensions are <em>mandatory</em></p>
 <p>:warning: Keep in mind that – for instance – a <code>rv32imc</code> toolchain only provides library code compiled with compressed and <code>mul</code>/<code>div</code> instructions! Hence, this code cannot be executed (without emulation) on an architecture without these extensions!</p>
-<h3><a class="anchor" id="autotoc_md24"></a>
+<h3><a class="anchor" id="autotoc_md36"></a>
 Dowload the NEORV32 Project</h3>
 <p>Get the sources of the NEORV32 Processor project. The simplest way is using <code>git clone</code> (suggested for easy project updates via <code>git pull</code>): </p><pre class="fragment">$ git clone https://github.com/stnolting/neorv32.git
 </pre><p> Alternatively, you can either download a specific <a href="https://github.com/stnolting/neorv32/releases">release</a> or get the most recent version of this project as <a href="https://github.com/stnolting/neorv32/archive/master.zip"><code>*.zip</code> file</a>.</p>
-<h3><a class="anchor" id="autotoc_md25"></a>
+<h3><a class="anchor" id="autotoc_md37"></a>
 Create a new Hardware Project</h3>
 <p>Create a new project with your FPGA design tool of choice. Add all the <code>*.vhd</code> files from the <a href="https://github.com/stnolting/neorv32/blob/master/rtl"><code>rtl/core</code></a> folder to this project. Make sure to add these files to a <b>new design library</b> called <code>neorv32</code>.</p>
 <p>You can either instantiate the <a href="https://github.com/stnolting/neorv32/blob/master/rtl/core/neorv32_top.vhd">processor's top entity</a> or one of its <a href="https://github.com/stnolting/neorv32/blob/master/rtl/top_templates">wrappers</a> in your own project. If you just want to try out the processor, you can use the simple <a href="https://github.com/stnolting/neorv32/blob/master/rtl/top_templates/neorv32_test_setup.vhd">test setup</a> as top entity.</p>
@@ -490,13 +519,13 @@ Create a new Hardware Project</h3>
 <div class="line">    <span class="vhdlchar">uart_rxd_i</span> <span class="vhdlchar">:</span> <span class="keywordflow">in</span>  <span class="keywordtype">std_ulogic</span> <span class="vhdlchar">:=</span> <span class="vhdlchar">&#39;</span><span class="vhdllogic"></span><span class="vhdllogic">0</span><span class="vhdlchar">&#39;</span><span class="comment"> -- UART receive data</span></div>
 <div class="line">  <span class="vhdlchar">)</span>;</div>
 <div class="line"><span class="keywordflow">end</span> neorv32_test_setup;</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md26"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md38"></a>
 Check the Toolchain</h3>
 <p>Make sure <code>GNU Make</code> and a native <code>GCC</code> compiler are installed. To test the installation of the RISC-V toolchain navigate to an example project like <code>sw/example/blink_led</code> and run: </p><pre class="fragment">neorv32/sw/example/blink_led$ make check
-</pre><h3><a class="anchor" id="autotoc_md27"></a>
+</pre><h3><a class="anchor" id="autotoc_md39"></a>
 Compiling an Example Program</h3>
 <p>The NEORV32 project includes some <a href="https://github.com/stnolting/neorv32/tree/master/sw/example">example programs</a> from which you can start your own application. Simply compile one of these projects. This will create a NEORV32 <em>executable</em> <code>neorv32_exe.bin</code> in the same folder: </p><pre class="fragment">neorv32/sw/example/blink_led$ make clean_all exe
-</pre><h3><a class="anchor" id="autotoc_md28"></a>
+</pre><h3><a class="anchor" id="autotoc_md40"></a>
 Upload the Executable via the Bootloader</h3>
 <p>You can upload a generated executable directly from the command line using the makefile's <code>upload</code> target. Replace <code>/dev/ttyUSB0</code> with the according serial port. </p><pre class="fragment">sw/exeample/blink_example$ make COM_PORT=/dev/ttyUSB0` upload
 </pre><p> A more "secure" way is to use a dedicated terminal program. This allows to directly interact with the bootloader console. Connect your FPGA board via UART to your computer and open the according port to interface with the NEORV32 bootloader. The bootloader uses the following default UART configuration:</p>
@@ -537,7 +566,7 @@ Upload the Executable via the Bootloader</h3>
 <div class="line"> </div>
 <div class="line">Blinking LED demo program</div>
 </div><!-- fragment --><p>Going further: Take a look at the <em>Let's Get It Started!</em> chapter of the <a href="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/NEORV32.pdf">:page_facing_up: NEORV32 data sheet</a>.</p>
-<h2><a class="anchor" id="autotoc_md29"></a>
+<h2><a class="anchor" id="autotoc_md41"></a>
 Contribute/Feedback/Questions</h2>
 <p>I'm always thankful for help! So if you have any questions, bug reports, ideas or if you want to give some kind of feedback, feel free to <a href="https://github.com/stnolting/neorv32/issues">:bulb: open a new issue</a>, start a new <a href="https://github.com/stnolting/neorv32/discussions">:sparkles: discussion on GitHub</a> or directly <a href="#" onclick="location.href='mai'+'lto:'+'stn'+'ol'+'tin'+'g@'+'gma'+'il'+'.co'+'m'; return false;">:e-mail: drop me a line</a>.</p>
 <p>If you'd like to directly contribute to this repository:</p>
@@ -550,16 +579,16 @@ Contribute/Feedback/Questions</h2>
 <li>Push to the branch: <code>git push origin awesome_new_feature_branch</code></li>
 <li>Create a new <a href="https://github.com/stnolting/neorv32/pulls">pull request</a></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md30"></a>
+<h2><a class="anchor" id="autotoc_md42"></a>
 Legal</h2>
 <p>This project is released under the BSD 3-Clause license. No copyright infringement intended. Other implied or used projects might have different licensing - see their documentation to get more information.</p>
-<h4><a class="anchor" id="autotoc_md31"></a>
+<h4><a class="anchor" id="autotoc_md43"></a>
 Citing</h4>
 <p>If you are using the NEORV32 or some parts of the project in some kind of publication, please cite it as follows:</p>
 <blockquote class="doxtable">
 <p>S. Nolting, "The NEORV32 Processor", github.com/stnolting/neorv32 </p>
 </blockquote>
-<h4><a class="anchor" id="autotoc_md32"></a>
+<h4><a class="anchor" id="autotoc_md44"></a>
 BSD 3-Clause License</h4>
 <p>Copyright (c) 2021, Stephan Nolting. All rights reserved.</p>
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
@@ -569,16 +598,16 @@ BSD 3-Clause License</h4>
 <li>Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>
 </ol>
 <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
-<h4><a class="anchor" id="autotoc_md33"></a>
+<h4><a class="anchor" id="autotoc_md45"></a>
 Limitation of Liability for External Links</h4>
 <p>Our website contains links to the websites of third parties ("external links"). As the content of these websites is not under our control, we cannot assume any liability for such external content. In all cases, the provider of information of the linked websites is liable for the content and accuracy of the information provided. At the point in time when the links were placed, no infringements of the law were recognisable to us. As soon as an infringement of the law becomes known to us, we will immediately remove the link in question.</p>
-<h4><a class="anchor" id="autotoc_md34"></a>
+<h4><a class="anchor" id="autotoc_md46"></a>
 Proprietary  Notice</h4>
 <p>"Artix" and "Vivado" are trademarks of Xilinx Inc.</p>
 <p>"Cyclone" and "Quartus Prime Lite" are trademarks of Intel Corporation.</p>
 <p>"iCE40", "UltraPlus" and "Radiant" are trademarks of Lattice Semiconductor Corporation.</p>
 <p>"AXI", "AXI4" and "AXI4-Lite" are trademarks of Arm Holdings plc.</p>
-<h2><a class="anchor" id="autotoc_md35"></a>
+<h2><a class="anchor" id="autotoc_md47"></a>
 Acknowledgements</h2>
 <p><a href="https://riscv.org/"><img src="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/figures/riscv_logo.png" alt="RISC-V" class="inline"/></a></p>
 <p><a href="https://riscv.org/">RISC-V</a> - Instruction Sets Want To Be Free!</p>

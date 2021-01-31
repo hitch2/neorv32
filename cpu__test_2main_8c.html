@@ -74,7 +74,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Simple CPU test program.  
+<p>CPU/Processor test program.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;<a class="el" href="neorv32_8h_source.html">neorv32.h</a>&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
@@ -92,17 +92,15 @@ Macros</h2></td></tr>
 <tr class="separator:ad4455691936f92fdd6c37566fc58ba1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25e56390f6f02913fcc69a965d7f91f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpu__test_2main_8c.html#a25e56390f6f02913fcc69a965d7f91f0">ADDR_UNALIGNED</a>&#160;&#160;&#160;0x00000002</td></tr>
 <tr class="separator:a25e56390f6f02913fcc69a965d7f91f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a577145c482d9444e298153c98f37c210"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpu__test_2main_8c.html#a577145c482d9444e298153c98f37c210">ADDR_UNREACHABLE</a>&#160;&#160;&#160;0xFFFFFF00</td></tr>
+<tr class="memitem:a577145c482d9444e298153c98f37c210"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpu__test_2main_8c.html#a577145c482d9444e298153c98f37c210">ADDR_UNREACHABLE</a>&#160;&#160;&#160;(<a class="el" href="neorv32_8h.html#a1eb0cb7fed7e154e15cb4009880a879c">IO_BASE_ADDRESS</a>-4)</td></tr>
 <tr class="separator:a577145c482d9444e298153c98f37c210"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32aece76361713a064649137ee25b1a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpu__test_2main_8c.html#a32aece76361713a064649137ee25b1a4">EXT_MEM_BASE</a>&#160;&#160;&#160;0xF0000000</td></tr>
 <tr class="separator:a32aece76361713a064649137ee25b1a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac788f68748f6519ce11f2315e372159b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpu__test_2main_8c.html#ac788f68748f6519ce11f2315e372159b">sim_trigger_msi</a> (void)</td></tr>
-<tr class="separator:ac788f68748f6519ce11f2315e372159b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fdd214e62a6eb060da2eeb2bc391a01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpu__test_2main_8c.html#a9fdd214e62a6eb060da2eeb2bc391a01">sim_trigger_mei</a> (void)</td></tr>
-<tr class="separator:a9fdd214e62a6eb060da2eeb2bc391a01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada24f2cd9d2d384265517f539711de62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpu__test_2main_8c.html#ada24f2cd9d2d384265517f539711de62">sim_irq_trigger</a> (uint32_t sel)</td></tr>
+<tr class="separator:ada24f2cd9d2d384265517f539711de62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a64ce0ee69c4c32cecc8b2b2746604c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpu__test_2main_8c.html#a9a64ce0ee69c4c32cecc8b2b2746604c">global_trap_handler</a> (void)</td></tr>
 <tr class="separator:a9a64ce0ee69c4c32cecc8b2b2746604c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae61d39109b2747429ec3a3c1b5533598"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cpu__test_2main_8c.html#ae61d39109b2747429ec3a3c1b5533598">test_ok</a> (void)</td></tr>
@@ -136,7 +134,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <tr class="separator:ad38d1de5648875f1e407246c296fb311"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Simple CPU test program. </p>
+<div class="textblock"><p>CPU/Processor test program. </p>
 <dl class="section author"><dt>Author</dt><dd>Stephan Nolting </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a25e56390f6f02913fcc69a965d7f91f0"></a>
@@ -161,7 +159,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ADDR_UNREACHABLE&#160;&#160;&#160;0xFFFFFF00</td>
+          <td class="memname">#define ADDR_UNREACHABLE&#160;&#160;&#160;(<a class="el" href="neorv32_8h.html#a1eb0cb7fed7e154e15cb4009880a879c">IO_BASE_ADDRESS</a>-4)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -285,41 +283,28 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 
 </div>
 </div>
-<a id="a9fdd214e62a6eb060da2eeb2bc391a01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9fdd214e62a6eb060da2eeb2bc391a01">&#9670;&nbsp;</a></span>sim_trigger_mei()</h2>
+<a id="ada24f2cd9d2d384265517f539711de62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada24f2cd9d2d384265517f539711de62">&#9670;&nbsp;</a></span>sim_irq_trigger()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sim_trigger_mei </td>
+          <td class="memname">void sim_irq_trigger </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>sel</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Simulation-based function to trigger CPU MEI (machine external interrupt). </p>
-
-</div>
-</div>
-<a id="ac788f68748f6519ce11f2315e372159b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac788f68748f6519ce11f2315e372159b">&#9670;&nbsp;</a></span>sim_trigger_msi()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sim_trigger_msi </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Simulation-based function to trigger CPU MSI (machine software interrupt). </p>
+<p>Simulation-based function to trigger CPU interrupts (MSI, MEI, FIRQ4..7).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sel</td><td>IRQ select mask (bit positions according to <a class="el" href="neorv32_8h.html#a0e9714690687badee43180c3cb62be33">NEORV32_CSR_MIE_enum</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

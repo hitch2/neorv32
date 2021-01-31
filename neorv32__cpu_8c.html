@@ -79,6 +79,8 @@ $(function() {
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a9f7f4457609153b8d2b2c093534e6fe0"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__cpu_8c.html#a9f7f4457609153b8d2b2c093534e6fe0">__neorv32_cpu_irq_id_check</a> (uint8_t irq_sel)</td></tr>
+<tr class="separator:a9f7f4457609153b8d2b2c093534e6fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0633f560da07ba2df1e693058f5020c"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__cpu_8c.html#ac0633f560da07ba2df1e693058f5020c">__neorv32_cpu_pmp_cfg_read</a> (uint32_t index)</td></tr>
 <tr class="separator:ac0633f560da07ba2df1e693058f5020c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a267d5f2b7453c2df0c7e7effe128fd7d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__cpu_8c.html#a267d5f2b7453c2df0c7e7effe128fd7d">__neorv32_cpu_pmp_cfg_write</a> (uint32_t index, uint32_t data)</td></tr>
@@ -116,6 +118,41 @@ Functions</h2></td></tr>
 <div class="textblock"><p>CPU Core Functions HW driver source file. </p>
 <dl class="section author"><dt>Author</dt><dd>Stephan Nolting </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a9f7f4457609153b8d2b2c093534e6fe0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f7f4457609153b8d2b2c093534e6fe0">&#9670;&nbsp;</a></span>__neorv32_cpu_irq_id_check()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int __neorv32_cpu_irq_id_check </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>irq_sel</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>&gt;Private&lt; helper functions.</p>
+<p>Private function: Check IRQ id.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">irq_sel</td><td>CPU interrupt select. See <a class="el" href="neorv32_8h.html#a0e9714690687badee43180c3cb62be33">NEORV32_CSR_MIE_enum</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if success, 1 if error (invalid irq_sel). </dd></dl>
+
+</div>
+</div>
 <a id="ac0633f560da07ba2df1e693058f5020c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac0633f560da07ba2df1e693058f5020c">&#9670;&nbsp;</a></span>__neorv32_cpu_pmp_cfg_read()</h2>
 
@@ -139,7 +176,6 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>&gt;Private&lt; helper functions.</p>
 <p>Internal helper function: Read PMP configuration register 0..15</p>
 <dl class="section warning"><dt>Warning</dt><dd>This function requires the PMP CPU extension.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>

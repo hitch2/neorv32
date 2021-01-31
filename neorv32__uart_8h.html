@@ -427,9 +427,10 @@ Should only be used in combination with <a class="el" href="neorv32__uart_8c.htm
       </table>
 </div><div class="memdoc">
 <p>Enable and configure UART.</p>
-<dl class="section warning"><dt>Warning</dt><dd>The 'UART_SIM_MODE' compiler flag will configure UART for simulation mode: all UART TX data will be redirected to simulation output. Use this for simulations only! </dd>
+<dl class="section note"><dt>Note</dt><dd>The 'UART_SIM_MODE' compiler flag will configure UART for simulation mode: all UART TX data will be redirected to simulation output. Use this for simulations only! </dd>
 <dd>
 To enable simulation mode add &lt;USER_FLAGS+=-DUART_SIM_MODE&gt; when compiling.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The baud rate is computed using INTEGER operations (truncation errors might occur).</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">baudrate</td><td>Targeted BAUD rate (e.g. 9600). </td></tr>

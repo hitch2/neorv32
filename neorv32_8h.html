@@ -80,7 +80,7 @@ $(function() {
 <code>#include &lt;limits.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="neorv32__cpu_8h_source.html">neorv32_cpu.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="neorv32__rte_8h_source.html">neorv32_rte.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="neorv32__cfu_8h_source.html">neorv32_cfu.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="neorv32__cfs_8h_source.html">neorv32_cfs.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="neorv32__gpio_8h_source.html">neorv32_gpio.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="neorv32__mtime_8h_source.html">neorv32_mtime.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="neorv32__pwm_8h_source.html">neorv32_pwm.h</a>&quot;</code><br />
@@ -116,8 +116,73 @@ Macros</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Address space sections</div></td></tr>
 <tr class="memitem:abd8c9b7d79f49de1722611b2835cde58"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#abd8c9b7d79f49de1722611b2835cde58">BOOTLOADER_BASE_ADDRESS</a>&#160;&#160;&#160;(0xFFFF0000UL)</td></tr>
 <tr class="separator:abd8c9b7d79f49de1722611b2835cde58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1eb0cb7fed7e154e15cb4009880a879c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a1eb0cb7fed7e154e15cb4009880a879c">IO_BASE_ADDRESS</a>&#160;&#160;&#160;(0xFFFFFF80UL)</td></tr>
+<tr class="memitem:a1eb0cb7fed7e154e15cb4009880a879c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a1eb0cb7fed7e154e15cb4009880a879c">IO_BASE_ADDRESS</a>&#160;&#160;&#160;(0xFFFFFF00UL)</td></tr>
 <tr class="separator:a1eb0cb7fed7e154e15cb4009880a879c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">IO Device: Custom Functions Subsystem (CFS)</div></td></tr>
+<tr class="memitem:a3d7834c20bce76af25be37daa5585727"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a3d7834c20bce76af25be37daa5585727">CFS_REG_0</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF00UL))</td></tr>
+<tr class="separator:a3d7834c20bce76af25be37daa5585727"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11df2f0c391c758dada952e665c5dbc9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a11df2f0c391c758dada952e665c5dbc9">CFS_REG_1</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF04UL))</td></tr>
+<tr class="separator:a11df2f0c391c758dada952e665c5dbc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c7d53853ed16dfd022c9089726fe797"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a0c7d53853ed16dfd022c9089726fe797">CFS_REG_2</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF08UL))</td></tr>
+<tr class="separator:a0c7d53853ed16dfd022c9089726fe797"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7850f16342de66791024dba19f77885a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a7850f16342de66791024dba19f77885a">CFS_REG_3</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF0CUL))</td></tr>
+<tr class="separator:a7850f16342de66791024dba19f77885a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae65fa2393198d56ac60f94e41a639733"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#ae65fa2393198d56ac60f94e41a639733">CFS_REG_4</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF10UL))</td></tr>
+<tr class="separator:ae65fa2393198d56ac60f94e41a639733"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59dd2cf78c639c6ce65fb2e28d80c601"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a59dd2cf78c639c6ce65fb2e28d80c601">CFS_REG_5</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF14UL))</td></tr>
+<tr class="separator:a59dd2cf78c639c6ce65fb2e28d80c601"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9761e6c82fa2cef804326695a1633d2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#ae9761e6c82fa2cef804326695a1633d2">CFS_REG_6</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF18UL))</td></tr>
+<tr class="separator:ae9761e6c82fa2cef804326695a1633d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6f2af6b2fc169d17466b7a94b2c00f1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#aa6f2af6b2fc169d17466b7a94b2c00f1">CFS_REG_7</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF1CUL))</td></tr>
+<tr class="separator:aa6f2af6b2fc169d17466b7a94b2c00f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77a05928b8725d87025980aa480a389e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a77a05928b8725d87025980aa480a389e">CFS_REG_8</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF20UL))</td></tr>
+<tr class="separator:a77a05928b8725d87025980aa480a389e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56839af4b3ddba1be57485a8e74f52b0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a56839af4b3ddba1be57485a8e74f52b0">CFS_REG_9</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF24UL))</td></tr>
+<tr class="separator:a56839af4b3ddba1be57485a8e74f52b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22f88dd4296a14a430f5f20a4b83e55b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a22f88dd4296a14a430f5f20a4b83e55b">CFS_REG_10</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF28UL))</td></tr>
+<tr class="separator:a22f88dd4296a14a430f5f20a4b83e55b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95daa731b03a90e453416ccd3312db6f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a95daa731b03a90e453416ccd3312db6f">CFS_REG_11</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF2CUL))</td></tr>
+<tr class="separator:a95daa731b03a90e453416ccd3312db6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fcb148c9edea70d17067329cfcddeed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a6fcb148c9edea70d17067329cfcddeed">CFS_REG_12</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF30UL))</td></tr>
+<tr class="separator:a6fcb148c9edea70d17067329cfcddeed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d08c7296f84f2a884540fc9195d0054"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a4d08c7296f84f2a884540fc9195d0054">CFS_REG_13</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF34UL))</td></tr>
+<tr class="separator:a4d08c7296f84f2a884540fc9195d0054"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a132f47b876563c68795e1008f130cd85"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a132f47b876563c68795e1008f130cd85">CFS_REG_14</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF38UL))</td></tr>
+<tr class="separator:a132f47b876563c68795e1008f130cd85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dd842c8b6fcbae7eca73fc47a133506"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a6dd842c8b6fcbae7eca73fc47a133506">CFS_REG_15</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF3CUL))</td></tr>
+<tr class="separator:a6dd842c8b6fcbae7eca73fc47a133506"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af60431d37fbbdc9e2bb3e62df0b05bff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#af60431d37fbbdc9e2bb3e62df0b05bff">CFS_REG_16</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF40UL))</td></tr>
+<tr class="separator:af60431d37fbbdc9e2bb3e62df0b05bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09553c1d3e4f83a14be31e5e16565a03"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a09553c1d3e4f83a14be31e5e16565a03">CFS_REG_17</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF44UL))</td></tr>
+<tr class="separator:a09553c1d3e4f83a14be31e5e16565a03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9358565e35f7bec1ef1eba1fefbb4ec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#af9358565e35f7bec1ef1eba1fefbb4ec">CFS_REG_18</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF48UL))</td></tr>
+<tr class="separator:af9358565e35f7bec1ef1eba1fefbb4ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a230caa1dce9fb39fa3068da353b5a820"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a230caa1dce9fb39fa3068da353b5a820">CFS_REG_19</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF4CUL))</td></tr>
+<tr class="separator:a230caa1dce9fb39fa3068da353b5a820"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa75f5346b2ca8affe1e5e22b68151a5f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#aa75f5346b2ca8affe1e5e22b68151a5f">CFS_REG_20</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF50UL))</td></tr>
+<tr class="separator:aa75f5346b2ca8affe1e5e22b68151a5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf9bf0bff14925cbfd0dcce76df63beb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#abf9bf0bff14925cbfd0dcce76df63beb">CFS_REG_21</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF54UL))</td></tr>
+<tr class="separator:abf9bf0bff14925cbfd0dcce76df63beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61f1b32c5c3986dafdfbffc649a6435a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a61f1b32c5c3986dafdfbffc649a6435a">CFS_REG_22</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF58UL))</td></tr>
+<tr class="separator:a61f1b32c5c3986dafdfbffc649a6435a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a917ff03fd4bfcfbfce3371f666077b8c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a917ff03fd4bfcfbfce3371f666077b8c">CFS_REG_23</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF5CUL))</td></tr>
+<tr class="separator:a917ff03fd4bfcfbfce3371f666077b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ec78f8deb420ae12395d5bcbdddb50c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a6ec78f8deb420ae12395d5bcbdddb50c">CFS_REG_24</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF60UL))</td></tr>
+<tr class="separator:a6ec78f8deb420ae12395d5bcbdddb50c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6562e8aa8e8edfa849fc16ea5cc4b894"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a6562e8aa8e8edfa849fc16ea5cc4b894">CFS_REG_25</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF64UL))</td></tr>
+<tr class="separator:a6562e8aa8e8edfa849fc16ea5cc4b894"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30af052d9f8efeb3d7a102a6f3c7a13c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a30af052d9f8efeb3d7a102a6f3c7a13c">CFS_REG_26</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF68UL))</td></tr>
+<tr class="separator:a30af052d9f8efeb3d7a102a6f3c7a13c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75db5d5cbb1c90833ca0d3872bc6de4d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a75db5d5cbb1c90833ca0d3872bc6de4d">CFS_REG_27</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF6CUL))</td></tr>
+<tr class="separator:a75db5d5cbb1c90833ca0d3872bc6de4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad100a564bc875246e7ce487d685088a7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#ad100a564bc875246e7ce487d685088a7">CFS_REG_28</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF70UL))</td></tr>
+<tr class="separator:ad100a564bc875246e7ce487d685088a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade532282259cef92c1bf7b2a1edbddf2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#ade532282259cef92c1bf7b2a1edbddf2">CFS_REG_29</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF74UL))</td></tr>
+<tr class="separator:ade532282259cef92c1bf7b2a1edbddf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af497b0ffeaf5060e9045e76d95573b33"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#af497b0ffeaf5060e9045e76d95573b33">CFS_REG_30</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF78UL))</td></tr>
+<tr class="separator:af497b0ffeaf5060e9045e76d95573b33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8009ea28983838c23d9c8513d190406"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#ac8009ea28983838c23d9c8513d190406">CFS_REG_31</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF7CUL))</td></tr>
+<tr class="separator:ac8009ea28983838c23d9c8513d190406"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">IO Device: General Purpose Input/Output Port Unit (GPIO)</div></td></tr>
 <tr class="memitem:a7be6a0cc9aa65da1d4ee5751b4085853"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a7be6a0cc9aa65da1d4ee5751b4085853">GPIO_INPUT</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF80UL))</td></tr>
 <tr class="separator:a7be6a0cc9aa65da1d4ee5751b4085853"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,24 +201,6 @@ Macros</h2></td></tr>
 <tr class="separator:a86dbc666da56fe7a39ea928f97c79299"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bfc9a5f5652e45370287e73011ad03c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a4bfc9a5f5652e45370287e73011ad03c">MTIMECMP</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a24a030e9cb11740f78d45254e1a012f5">IO_REG64</a> (&amp;<a class="el" href="neorv32_8h.html#a9a9b4246b066febfbbfc5d10c6c615b6">MTIMECMP_LO</a>)))</td></tr>
 <tr class="separator:a4bfc9a5f5652e45370287e73011ad03c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">IO Device: Custom Functions Unit 0 (CFU0)</div></td></tr>
-<tr class="memitem:ad892a8961441307be9e0b0728b170c01"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#ad892a8961441307be9e0b0728b170c01">CFU0_REG_0</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFC0UL))</td></tr>
-<tr class="separator:ad892a8961441307be9e0b0728b170c01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af83e8bc5c5e870f151d0c8abf8f1754f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#af83e8bc5c5e870f151d0c8abf8f1754f">CFU0_REG_1</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFC4UL))</td></tr>
-<tr class="separator:af83e8bc5c5e870f151d0c8abf8f1754f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63a9b2018a63463a1316d54374348f5f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a63a9b2018a63463a1316d54374348f5f">CFU0_REG_2</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFC8UL))</td></tr>
-<tr class="separator:a63a9b2018a63463a1316d54374348f5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bc615880c78670f3e2cb57145d7093f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a9bc615880c78670f3e2cb57145d7093f">CFU0_REG_3</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFCCUL))</td></tr>
-<tr class="separator:a9bc615880c78670f3e2cb57145d7093f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">IO Device: Custom Functions Unit 1 (CFU1)</div></td></tr>
-<tr class="memitem:a029577d89c2cb9aa2d11168362883879"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a029577d89c2cb9aa2d11168362883879">CFU1_REG_0</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFD0UL))</td></tr>
-<tr class="separator:a029577d89c2cb9aa2d11168362883879"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20e0aa0a6af3c8d866f678db3f2aadea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a20e0aa0a6af3c8d866f678db3f2aadea">CFU1_REG_1</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFD4UL))</td></tr>
-<tr class="separator:a20e0aa0a6af3c8d866f678db3f2aadea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f0ea8ffc8caaaeab6afe6cdac0bc0ba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a2f0ea8ffc8caaaeab6afe6cdac0bc0ba">CFU1_REG_2</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFD8UL))</td></tr>
-<tr class="separator:a2f0ea8ffc8caaaeab6afe6cdac0bc0ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7be36483c1db272a251678589da4b633"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a7be36483c1db272a251678589da4b633">CFU1_REG_3</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFDCUL))</td></tr>
-<tr class="separator:a7be36483c1db272a251678589da4b633"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">IO Device: System Configuration Info Memory (SYSINFO)</div></td></tr>
 <tr class="memitem:ace0f30d1fb10e945b71a24511756072e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#ace0f30d1fb10e945b71a24511756072e">SYSINFO_CLK</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a309a383492733f09f05ad9b0e00efd26">IO_ROM32</a> 0xFFFFFFE0UL))</td></tr>
 <tr class="separator:ace0f30d1fb10e945b71a24511756072e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -523,6 +570,11 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="neorv32_8h.html#a0e9714690687badee43180c3cb62be33ac1e1d44becec1b393f79a118ed3d8beb">CSR_MIE_FIRQ1E</a> = 17
 , <a class="el" href="neorv32_8h.html#a0e9714690687badee43180c3cb62be33afc805280e20ffface116ca61e11645f7">CSR_MIE_FIRQ2E</a> = 18
 , <a class="el" href="neorv32_8h.html#a0e9714690687badee43180c3cb62be33a666066099d6cebadbef21d81c179e8db">CSR_MIE_FIRQ3E</a> = 19
+, <a class="el" href="neorv32_8h.html#a0e9714690687badee43180c3cb62be33a592939f1b7d79097f7f13d6ab0c268dc">CSR_MIE_FIRQ4E</a> = 20
+, <br />
+&#160;&#160;<a class="el" href="neorv32_8h.html#a0e9714690687badee43180c3cb62be33a3079a8fbf3b8e376865bff76f2173698">CSR_MIE_FIRQ5E</a> = 21
+, <a class="el" href="neorv32_8h.html#a0e9714690687badee43180c3cb62be33a96315d6b5b9531bcbc1e78a3c9ab166a">CSR_MIE_FIRQ6E</a> = 22
+, <a class="el" href="neorv32_8h.html#a0e9714690687badee43180c3cb62be33a3d9d729940170609affbc6813054ebe8">CSR_MIE_FIRQ7E</a> = 23
 <br />
  }</td></tr>
 <tr class="separator:a0e9714690687badee43180c3cb62be33"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -535,6 +587,11 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="neorv32_8h.html#a6301c554bf831b97fc28f9984a1ec21ba2b577b1da1074c29ad58005af1f91d52">CSR_MIP_FIRQ1P</a> = 17
 , <a class="el" href="neorv32_8h.html#a6301c554bf831b97fc28f9984a1ec21badf45c5a135431f958fa63574c1dfac6e">CSR_MIP_FIRQ2P</a> = 18
 , <a class="el" href="neorv32_8h.html#a6301c554bf831b97fc28f9984a1ec21ba7512bb6c4841ddd477422b49ebb2a155">CSR_MIP_FIRQ3P</a> = 19
+, <a class="el" href="neorv32_8h.html#a6301c554bf831b97fc28f9984a1ec21bab6421f242bb8a487a986346e11196eb8">CSR_MIP_FIRQ4P</a> = 20
+, <br />
+&#160;&#160;<a class="el" href="neorv32_8h.html#a6301c554bf831b97fc28f9984a1ec21baaa55d19f9a47889bc364c94bda04b677">CSR_MIP_FIRQ5P</a> = 21
+, <a class="el" href="neorv32_8h.html#a6301c554bf831b97fc28f9984a1ec21baffa7342631aa0526aaa44c0c549b1f3e">CSR_MIP_FIRQ6P</a> = 22
+, <a class="el" href="neorv32_8h.html#a6301c554bf831b97fc28f9984a1ec21baad691486001a68f2375dcf5793ee795a">CSR_MIP_FIRQ7P</a> = 23
 <br />
  }</td></tr>
 <tr class="separator:a6301c554bf831b97fc28f9984a1ec21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -603,6 +660,11 @@ Enumerations</h2></td></tr>
 , <br />
 &#160;&#160;<a class="el" href="neorv32_8h.html#acb0fcbc551fec4c45676ff1317be24e1ad753d3e2563b4fd663430af9f3888dc7">TRAP_CODE_FIRQ_2</a> = 0x80000012
 , <a class="el" href="neorv32_8h.html#acb0fcbc551fec4c45676ff1317be24e1a356f8485166529503d0fb246bd0aeeb0">TRAP_CODE_FIRQ_3</a> = 0x80000013
+, <a class="el" href="neorv32_8h.html#acb0fcbc551fec4c45676ff1317be24e1aaa8e7bb251852ef75a78be71eef0b547">TRAP_CODE_FIRQ_4</a> = 0x80000014
+, <a class="el" href="neorv32_8h.html#acb0fcbc551fec4c45676ff1317be24e1a5789dfabd8ec265fa0734ddd94e98757">TRAP_CODE_FIRQ_5</a> = 0x80000015
+, <br />
+&#160;&#160;<a class="el" href="neorv32_8h.html#acb0fcbc551fec4c45676ff1317be24e1a809e997f55e83c6812c965655511d473">TRAP_CODE_FIRQ_6</a> = 0x80000016
+, <a class="el" href="neorv32_8h.html#acb0fcbc551fec4c45676ff1317be24e1aeab719bcce9e9551bd6da65a7ae08a26">TRAP_CODE_FIRQ_7</a> = 0x80000017
 <br />
  }</td></tr>
 <tr class="separator:acb0fcbc551fec4c45676ff1317be24e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -637,10 +699,8 @@ Enumerations</h2></td></tr>
 , <br />
 &#160;&#160;<a class="el" href="neorv32_8h.html#a7c2df941d0405641ae6c4c9c8b4cb18da1585c76a9a36be3a87e4ff559619d15e">SYSINFO_FEATURES_IO_PWM</a> = 21
 , <a class="el" href="neorv32_8h.html#a7c2df941d0405641ae6c4c9c8b4cb18da48cbde9508244695c3047b0f557ad3cc">SYSINFO_FEATURES_IO_WDT</a> = 22
-, <a class="el" href="neorv32_8h.html#a7c2df941d0405641ae6c4c9c8b4cb18dae35c3d30830d029723b01d1e11cea205">SYSINFO_FEATURES_IO_CFU0</a> = 23
+, <a class="el" href="neorv32_8h.html#a7c2df941d0405641ae6c4c9c8b4cb18dab45fe1fb4aacd6053598ef9b1c9bd8b2">SYSINFO_FEATURES_IO_CFS</a> = 23
 , <a class="el" href="neorv32_8h.html#a7c2df941d0405641ae6c4c9c8b4cb18da7348e207ac6329a426d58febeae12e20">SYSINFO_FEATURES_IO_TRNG</a> = 24
-, <br />
-&#160;&#160;<a class="el" href="neorv32_8h.html#a7c2df941d0405641ae6c4c9c8b4cb18da32965bc955c268aa563a14173b24cf65">SYSINFO_FEATURES_IO_CFU1</a> = 25
 <br />
  }</td></tr>
 <tr class="separator:a7c2df941d0405641ae6c4c9c8b4cb18d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -847,123 +907,483 @@ Enumerations</h2></td></tr>
 
 </div>
 </div>
-<a id="ad892a8961441307be9e0b0728b170c01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad892a8961441307be9e0b0728b170c01">&#9670;&nbsp;</a></span>CFU0_REG_0</h2>
+<a id="a3d7834c20bce76af25be37daa5585727"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d7834c20bce76af25be37daa5585727">&#9670;&nbsp;</a></span>CFS_REG_0</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define CFU0_REG_0&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFC0UL))</td>
+          <td class="memname">#define CFS_REG_0&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF00UL))</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>CFU0 register 0 ((r)/(w)) </p>
+<p>custom CFS register 0 </p>
 
 </div>
 </div>
-<a id="af83e8bc5c5e870f151d0c8abf8f1754f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af83e8bc5c5e870f151d0c8abf8f1754f">&#9670;&nbsp;</a></span>CFU0_REG_1</h2>
+<a id="a11df2f0c391c758dada952e665c5dbc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11df2f0c391c758dada952e665c5dbc9">&#9670;&nbsp;</a></span>CFS_REG_1</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define CFU0_REG_1&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFC4UL))</td>
+          <td class="memname">#define CFS_REG_1&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF04UL))</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>CFU0 register 1 ((r)/(w)) </p>
+<p>custom CFS register 1 </p>
 
 </div>
 </div>
-<a id="a63a9b2018a63463a1316d54374348f5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63a9b2018a63463a1316d54374348f5f">&#9670;&nbsp;</a></span>CFU0_REG_2</h2>
+<a id="a22f88dd4296a14a430f5f20a4b83e55b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22f88dd4296a14a430f5f20a4b83e55b">&#9670;&nbsp;</a></span>CFS_REG_10</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define CFU0_REG_2&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFC8UL))</td>
+          <td class="memname">#define CFS_REG_10&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF28UL))</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>CFU0 register 2 ((r)/(w)) </p>
+<p>custom CFS register 10 </p>
 
 </div>
 </div>
-<a id="a9bc615880c78670f3e2cb57145d7093f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bc615880c78670f3e2cb57145d7093f">&#9670;&nbsp;</a></span>CFU0_REG_3</h2>
+<a id="a95daa731b03a90e453416ccd3312db6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95daa731b03a90e453416ccd3312db6f">&#9670;&nbsp;</a></span>CFS_REG_11</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define CFU0_REG_3&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFCCUL))</td>
+          <td class="memname">#define CFS_REG_11&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF2CUL))</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>CFU0 register 3 ((r)/(w)) </p>
+<p>custom CFS register 11 </p>
 
 </div>
 </div>
-<a id="a029577d89c2cb9aa2d11168362883879"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a029577d89c2cb9aa2d11168362883879">&#9670;&nbsp;</a></span>CFU1_REG_0</h2>
+<a id="a6fcb148c9edea70d17067329cfcddeed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fcb148c9edea70d17067329cfcddeed">&#9670;&nbsp;</a></span>CFS_REG_12</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define CFU1_REG_0&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFD0UL))</td>
+          <td class="memname">#define CFS_REG_12&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF30UL))</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>CFU1 register 0 ((r)/(w)) </p>
+<p>custom CFS register 12 </p>
 
 </div>
 </div>
-<a id="a20e0aa0a6af3c8d866f678db3f2aadea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20e0aa0a6af3c8d866f678db3f2aadea">&#9670;&nbsp;</a></span>CFU1_REG_1</h2>
+<a id="a4d08c7296f84f2a884540fc9195d0054"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d08c7296f84f2a884540fc9195d0054">&#9670;&nbsp;</a></span>CFS_REG_13</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define CFU1_REG_1&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFD4UL))</td>
+          <td class="memname">#define CFS_REG_13&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF34UL))</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>CFU1 register 1 ((r)/(w)) </p>
+<p>custom CFS register 13 </p>
 
 </div>
 </div>
-<a id="a2f0ea8ffc8caaaeab6afe6cdac0bc0ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f0ea8ffc8caaaeab6afe6cdac0bc0ba">&#9670;&nbsp;</a></span>CFU1_REG_2</h2>
+<a id="a132f47b876563c68795e1008f130cd85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a132f47b876563c68795e1008f130cd85">&#9670;&nbsp;</a></span>CFS_REG_14</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define CFU1_REG_2&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFD8UL))</td>
+          <td class="memname">#define CFS_REG_14&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF38UL))</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>CFU1 register 2 ((r)/(w)) </p>
+<p>custom CFS register 14 </p>
 
 </div>
 </div>
-<a id="a7be36483c1db272a251678589da4b633"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7be36483c1db272a251678589da4b633">&#9670;&nbsp;</a></span>CFU1_REG_3</h2>
+<a id="a6dd842c8b6fcbae7eca73fc47a133506"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dd842c8b6fcbae7eca73fc47a133506">&#9670;&nbsp;</a></span>CFS_REG_15</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define CFU1_REG_3&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFDCUL))</td>
+          <td class="memname">#define CFS_REG_15&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF3CUL))</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>CFU1 register 3 ((r)/(w)) </p>
+<p>custom CFS register 15 </p>
+
+</div>
+</div>
+<a id="af60431d37fbbdc9e2bb3e62df0b05bff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af60431d37fbbdc9e2bb3e62df0b05bff">&#9670;&nbsp;</a></span>CFS_REG_16</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_16&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF40UL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 16 </p>
+
+</div>
+</div>
+<a id="a09553c1d3e4f83a14be31e5e16565a03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09553c1d3e4f83a14be31e5e16565a03">&#9670;&nbsp;</a></span>CFS_REG_17</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_17&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF44UL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 17 </p>
+
+</div>
+</div>
+<a id="af9358565e35f7bec1ef1eba1fefbb4ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9358565e35f7bec1ef1eba1fefbb4ec">&#9670;&nbsp;</a></span>CFS_REG_18</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_18&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF48UL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 18 </p>
+
+</div>
+</div>
+<a id="a230caa1dce9fb39fa3068da353b5a820"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a230caa1dce9fb39fa3068da353b5a820">&#9670;&nbsp;</a></span>CFS_REG_19</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_19&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF4CUL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 19 </p>
+
+</div>
+</div>
+<a id="a0c7d53853ed16dfd022c9089726fe797"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c7d53853ed16dfd022c9089726fe797">&#9670;&nbsp;</a></span>CFS_REG_2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_2&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF08UL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 2 </p>
+
+</div>
+</div>
+<a id="aa75f5346b2ca8affe1e5e22b68151a5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa75f5346b2ca8affe1e5e22b68151a5f">&#9670;&nbsp;</a></span>CFS_REG_20</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_20&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF50UL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 20 </p>
+
+</div>
+</div>
+<a id="abf9bf0bff14925cbfd0dcce76df63beb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf9bf0bff14925cbfd0dcce76df63beb">&#9670;&nbsp;</a></span>CFS_REG_21</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_21&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF54UL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 21 </p>
+
+</div>
+</div>
+<a id="a61f1b32c5c3986dafdfbffc649a6435a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61f1b32c5c3986dafdfbffc649a6435a">&#9670;&nbsp;</a></span>CFS_REG_22</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_22&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF58UL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 22 </p>
+
+</div>
+</div>
+<a id="a917ff03fd4bfcfbfce3371f666077b8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a917ff03fd4bfcfbfce3371f666077b8c">&#9670;&nbsp;</a></span>CFS_REG_23</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_23&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF5CUL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 23 </p>
+
+</div>
+</div>
+<a id="a6ec78f8deb420ae12395d5bcbdddb50c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ec78f8deb420ae12395d5bcbdddb50c">&#9670;&nbsp;</a></span>CFS_REG_24</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_24&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF60UL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 24 </p>
+
+</div>
+</div>
+<a id="a6562e8aa8e8edfa849fc16ea5cc4b894"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6562e8aa8e8edfa849fc16ea5cc4b894">&#9670;&nbsp;</a></span>CFS_REG_25</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_25&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF64UL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 25 </p>
+
+</div>
+</div>
+<a id="a30af052d9f8efeb3d7a102a6f3c7a13c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30af052d9f8efeb3d7a102a6f3c7a13c">&#9670;&nbsp;</a></span>CFS_REG_26</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_26&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF68UL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 26 </p>
+
+</div>
+</div>
+<a id="a75db5d5cbb1c90833ca0d3872bc6de4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75db5d5cbb1c90833ca0d3872bc6de4d">&#9670;&nbsp;</a></span>CFS_REG_27</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_27&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF6CUL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 27 </p>
+
+</div>
+</div>
+<a id="ad100a564bc875246e7ce487d685088a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad100a564bc875246e7ce487d685088a7">&#9670;&nbsp;</a></span>CFS_REG_28</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_28&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF70UL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 28 </p>
+
+</div>
+</div>
+<a id="ade532282259cef92c1bf7b2a1edbddf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade532282259cef92c1bf7b2a1edbddf2">&#9670;&nbsp;</a></span>CFS_REG_29</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_29&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF74UL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 29 </p>
+
+</div>
+</div>
+<a id="a7850f16342de66791024dba19f77885a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7850f16342de66791024dba19f77885a">&#9670;&nbsp;</a></span>CFS_REG_3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_3&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF0CUL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 3 </p>
+
+</div>
+</div>
+<a id="af497b0ffeaf5060e9045e76d95573b33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af497b0ffeaf5060e9045e76d95573b33">&#9670;&nbsp;</a></span>CFS_REG_30</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_30&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF78UL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 30 </p>
+
+</div>
+</div>
+<a id="ac8009ea28983838c23d9c8513d190406"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8009ea28983838c23d9c8513d190406">&#9670;&nbsp;</a></span>CFS_REG_31</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_31&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF7CUL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 31 </p>
+
+</div>
+</div>
+<a id="ae65fa2393198d56ac60f94e41a639733"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae65fa2393198d56ac60f94e41a639733">&#9670;&nbsp;</a></span>CFS_REG_4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_4&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF10UL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 4 </p>
+
+</div>
+</div>
+<a id="a59dd2cf78c639c6ce65fb2e28d80c601"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59dd2cf78c639c6ce65fb2e28d80c601">&#9670;&nbsp;</a></span>CFS_REG_5</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_5&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF14UL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 5 </p>
+
+</div>
+</div>
+<a id="ae9761e6c82fa2cef804326695a1633d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9761e6c82fa2cef804326695a1633d2">&#9670;&nbsp;</a></span>CFS_REG_6</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_6&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF18UL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 6 </p>
+
+</div>
+</div>
+<a id="aa6f2af6b2fc169d17466b7a94b2c00f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6f2af6b2fc169d17466b7a94b2c00f1">&#9670;&nbsp;</a></span>CFS_REG_7</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_7&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF1CUL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 7 </p>
+
+</div>
+</div>
+<a id="a77a05928b8725d87025980aa480a389e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77a05928b8725d87025980aa480a389e">&#9670;&nbsp;</a></span>CFS_REG_8</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_8&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF20UL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 8 </p>
+
+</div>
+</div>
+<a id="a56839af4b3ddba1be57485a8e74f52b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56839af4b3ddba1be57485a8e74f52b0">&#9670;&nbsp;</a></span>CFS_REG_9</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CFS_REG_9&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFF24UL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>custom CFS register 9 </p>
 
 </div>
 </div>
@@ -1004,7 +1424,7 @@ Enumerations</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define IO_BASE_ADDRESS&#160;&#160;&#160;(0xFFFFFF80UL)</td>
+          <td class="memname">#define IO_BASE_ADDRESS&#160;&#160;&#160;(0xFFFFFF00UL)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2160,6 +2580,14 @@ Enumerations</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a0e9714690687badee43180c3cb62be33a666066099d6cebadbef21d81c179e8db"></a>CSR_MIE_FIRQ3E&#160;</td><td class="fielddoc"><p>CPU mie CSR (19): FIRQ3E - Fast interrupt channel 3 enable bit (r/w) </p>
 </td></tr>
+<tr><td class="fieldname"><a id="a0e9714690687badee43180c3cb62be33a592939f1b7d79097f7f13d6ab0c268dc"></a>CSR_MIE_FIRQ4E&#160;</td><td class="fielddoc"><p>CPU mie CSR (20): FIRQ4E - Fast interrupt channel 4 enable bit (r/w) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a0e9714690687badee43180c3cb62be33a3079a8fbf3b8e376865bff76f2173698"></a>CSR_MIE_FIRQ5E&#160;</td><td class="fielddoc"><p>CPU mie CSR (21): FIRQ5E - Fast interrupt channel 5 enable bit (r/w) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a0e9714690687badee43180c3cb62be33a96315d6b5b9531bcbc1e78a3c9ab166a"></a>CSR_MIE_FIRQ6E&#160;</td><td class="fielddoc"><p>CPU mie CSR (22): FIRQ6E - Fast interrupt channel 6 enable bit (r/w) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a0e9714690687badee43180c3cb62be33a3d9d729940170609affbc6813054ebe8"></a>CSR_MIE_FIRQ7E&#160;</td><td class="fielddoc"><p>CPU mie CSR (23): FIRQ7E - Fast interrupt channel 7 enable bit (r/w) </p>
+</td></tr>
 </table>
 
 </div>
@@ -2190,6 +2618,14 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="a6301c554bf831b97fc28f9984a1ec21badf45c5a135431f958fa63574c1dfac6e"></a>CSR_MIP_FIRQ2P&#160;</td><td class="fielddoc"><p>CPU mip CSR (18): FIRQ2P - Fast interrupt channel 2 pending (r/-) </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a6301c554bf831b97fc28f9984a1ec21ba7512bb6c4841ddd477422b49ebb2a155"></a>CSR_MIP_FIRQ3P&#160;</td><td class="fielddoc"><p>CPU mip CSR (19): FIRQ3P - Fast interrupt channel 3 pending (r/-) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6301c554bf831b97fc28f9984a1ec21bab6421f242bb8a487a986346e11196eb8"></a>CSR_MIP_FIRQ4P&#160;</td><td class="fielddoc"><p>CPU mip CSR (20): FIRQ4P - Fast interrupt channel 4 pending (r/-) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6301c554bf831b97fc28f9984a1ec21baaa55d19f9a47889bc364c94bda04b677"></a>CSR_MIP_FIRQ5P&#160;</td><td class="fielddoc"><p>CPU mip CSR (21): FIRQ5P - Fast interrupt channel 5 pending (r/-) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6301c554bf831b97fc28f9984a1ec21baffa7342631aa0526aaa44c0c549b1f3e"></a>CSR_MIP_FIRQ6P&#160;</td><td class="fielddoc"><p>CPU mip CSR (22): FIRQ6P - Fast interrupt channel 6 pending (r/-) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6301c554bf831b97fc28f9984a1ec21baad691486001a68f2375dcf5793ee795a"></a>CSR_MIP_FIRQ7P&#160;</td><td class="fielddoc"><p>CPU mip CSR (23): FIRQ7P - Fast interrupt channel 7 pending (r/-) </p>
 </td></tr>
 </table>
 
@@ -2349,6 +2785,14 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="acb0fcbc551fec4c45676ff1317be24e1ad753d3e2563b4fd663430af9f3888dc7"></a>TRAP_CODE_FIRQ_2&#160;</td><td class="fielddoc"><p>1.18: Fast interrupt channel 2 </p>
 </td></tr>
 <tr><td class="fieldname"><a id="acb0fcbc551fec4c45676ff1317be24e1a356f8485166529503d0fb246bd0aeeb0"></a>TRAP_CODE_FIRQ_3&#160;</td><td class="fielddoc"><p>1.19: Fast interrupt channel 3 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="acb0fcbc551fec4c45676ff1317be24e1aaa8e7bb251852ef75a78be71eef0b547"></a>TRAP_CODE_FIRQ_4&#160;</td><td class="fielddoc"><p>1.20: Fast interrupt channel 4 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="acb0fcbc551fec4c45676ff1317be24e1a5789dfabd8ec265fa0734ddd94e98757"></a>TRAP_CODE_FIRQ_5&#160;</td><td class="fielddoc"><p>1.21: Fast interrupt channel 5 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="acb0fcbc551fec4c45676ff1317be24e1a809e997f55e83c6812c965655511d473"></a>TRAP_CODE_FIRQ_6&#160;</td><td class="fielddoc"><p>1.22: Fast interrupt channel 6 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="acb0fcbc551fec4c45676ff1317be24e1aeab719bcce9e9551bd6da65a7ae08a26"></a>TRAP_CODE_FIRQ_7&#160;</td><td class="fielddoc"><p>1.23: Fast interrupt channel 7 </p>
 </td></tr>
 </table>
 
@@ -2598,11 +3042,9 @@ Enumerations</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a7c2df941d0405641ae6c4c9c8b4cb18da48cbde9508244695c3047b0f557ad3cc"></a>SYSINFO_FEATURES_IO_WDT&#160;</td><td class="fielddoc"><p>SYSINFO_FEATURES (22) (r/-): Watchdog timer implemented when 1 (via IO_WDT_EN generic) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a7c2df941d0405641ae6c4c9c8b4cb18dae35c3d30830d029723b01d1e11cea205"></a>SYSINFO_FEATURES_IO_CFU0&#160;</td><td class="fielddoc"><p>SYSINFO_FEATURES (23) (r/-): Custom functions unit 0 implemented when 1 (via IO_CFU0_EN generic) </p>
+<tr><td class="fieldname"><a id="a7c2df941d0405641ae6c4c9c8b4cb18dab45fe1fb4aacd6053598ef9b1c9bd8b2"></a>SYSINFO_FEATURES_IO_CFS&#160;</td><td class="fielddoc"><p>SYSINFO_FEATURES (23) (r/-): Custom functions subsystem implemented when 1 (via IO_CFS_EN generic) </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a7c2df941d0405641ae6c4c9c8b4cb18da7348e207ac6329a426d58febeae12e20"></a>SYSINFO_FEATURES_IO_TRNG&#160;</td><td class="fielddoc"><p>SYSINFO_FEATURES (24) (r/-): True random number generator implemented when 1 (via IO_TRNG_EN generic) </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a7c2df941d0405641ae6c4c9c8b4cb18da32965bc955c268aa563a14173b24cf65"></a>SYSINFO_FEATURES_IO_CFU1&#160;</td><td class="fielddoc"><p>SYSINFO_FEATURES (25) (r/-): Custom functions unit 1 implemented when 1 (via IO_CFU1_EN generic) </p>
 </td></tr>
 </table>
 
