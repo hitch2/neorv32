@@ -82,8 +82,8 @@ $(function() {
 Functions</h2></td></tr>
 <tr class="memitem:a0f89b5d3de3abeca32b85eb1312eed7e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8c.html#a0f89b5d3de3abeca32b85eb1312eed7e">neorv32_uart_available</a> (void)</td></tr>
 <tr class="separator:a0f89b5d3de3abeca32b85eb1312eed7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58f214abde08a20550680f501d1127d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8c.html#a58f214abde08a20550680f501d1127d7">neorv32_uart_setup</a> (uint32_t baudrate, uint8_t parity, uint8_t rx_irq, uint8_t tx_irq)</td></tr>
-<tr class="separator:a58f214abde08a20550680f501d1127d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1123cab3985cabacdf514139ff4e1341"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8c.html#a1123cab3985cabacdf514139ff4e1341">neorv32_uart_setup</a> (uint32_t baudrate, uint8_t parity)</td></tr>
+<tr class="separator:a1123cab3985cabacdf514139ff4e1341"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72b372793051f921cef52612bbbf330e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8c.html#a72b372793051f921cef52612bbbf330e">neorv32_uart_disable</a> (void)</td></tr>
 <tr class="separator:a72b372793051f921cef52612bbbf330e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a83ed2e408459aa0ecb6d0a06a62949"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8c.html#a0a83ed2e408459aa0ecb6d0a06a62949">neorv32_uart_putc</a> (char c)</td></tr>
@@ -481,8 +481,8 @@ Should only be used in combination with <a class="el" href="neorv32__uart_8c.htm
 
 </div>
 </div>
-<a id="a58f214abde08a20550680f501d1127d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58f214abde08a20550680f501d1127d7">&#9670;&nbsp;</a></span>neorv32_uart_setup()</h2>
+<a id="a1123cab3985cabacdf514139ff4e1341"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1123cab3985cabacdf514139ff4e1341">&#9670;&nbsp;</a></span>neorv32_uart_setup()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -497,19 +497,7 @@ Should only be used in combination with <a class="el" href="neorv32__uart_8c.htm
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>parity</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>rx_irq</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>tx_irq</em>&#160;</td>
+          <td class="paramname"><em>parity</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -527,8 +515,6 @@ To enable simulation mode add &lt;USER_FLAGS+=-DUART_SIM_MODE&gt; when compiling
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">baudrate</td><td>Targeted BAUD rate (e.g. 9600). </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">parity</td><td>PArity configuration (00=off, 10=even, 11=odd). </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">rx_irq</td><td>Enable RX interrupt (data received) when 1. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">tx_irq</td><td>Enable TX interrupt (transmission done) when 1. </td></tr>
   </table>
   </dd>
 </dl>

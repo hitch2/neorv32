@@ -127,7 +127,7 @@ Key Features</h3>
 <li>bootloader with UART interface console</li>
 <li>runtime environment</li>
 <li>several example programs</li>
-<li><a href="https://github.com/stnolting/neorv32/blob/master/docs/doxygen_makefile_sw">doxygen-based</a> documentation: available on <a href="https://stnolting.github.io/neorv32/files.html">GitHub pages</a></li>
+<li><a href="https://github.com/stnolting/neorv32/blob/master/docs/doxygen_makefile_sw">doxygen-based</a> software documentation: available on <a href="https://stnolting.github.io/neorv32/files.html">GitHub pages</a></li>
 <li><a href="https://github.com/stnolting/neorv32/blob/master/sw/example/demo_freeRTOS">FreeRTOS port</a> available</li>
 </ul>
 </li>
@@ -202,6 +202,7 @@ NEORV32 Processor Features</h3>
 <li>PWM controller with 4 channels and 8-bit duty cycle resolution (<b>PWM</b>)</li>
 <li>ring-oscillator-based true random number generator (<b>TRNG</b>)</li>
 <li>custom functions subsystem (<b>CFS</b>) for tightly-coupled custom co-processor extensions</li>
+<li>numerically-controlled oscillator (<b>NCO</b>) with three independent channels</li>
 <li>system configuration information memory to check hardware configuration by software (<b>SYSINFO</b>, mandatory - not <em>optional</em>)</li>
 </ul>
 <h3><a class="anchor" id="autotoc_md8"></a>
@@ -275,7 +276,7 @@ Privileged architecture - User mode (&lt;tt&gt;U&lt;/tt&gt; extension)</h4>
 NEORV32-specific CPU extensions (&lt;tt&gt;X&lt;/tt&gt; extension)</h4>
 <ul>
 <li>The NEORV32-specific extensions are always enabled and are indicated via the <code>X</code> bit set in the <code>misa</code> CSR.</li>
-<li>Eight <em>fast interrupt</em> request channels with according control/status bits in <code>mie</code> and <code>mip</code> and custom exception codes in <code>mcause</code></li>
+<li>16 <em>fast interrupt</em> request channels with according control/status bits in <code>mie</code> and <code>mip</code> and custom exception codes in <code>mcause</code></li>
 <li><code>mzext</code> CSR to check for implemented <code>Z*</code> CPU extensions (like <code>Zifencei</code>)</li>
 <li>All undefined/umimplemented/malformed/illegal instructions do raise an illegal instruction exception</li>
 </ul>
@@ -360,7 +361,7 @@ NEORV32 CPU</h3>
 <p>Setups with enabled "embedded CPU extension" <code>E</code> show the same LUT and FF utilization and identical f_max. However, the size of the register file is cut in half.</p>
 <h3><a class="anchor" id="autotoc_md25"></a>
 NEORV32 Processor-Internal Peripherals and Memories</h3>
-<p>Results generated for hardware version <a href="https://github.com/stnolting/neorv32/blob/master/CHANGELOG.md"><code>1.5.0.3</code></a>.</p>
+<p>Results generated for hardware version <a href="https://github.com/stnolting/neorv32/blob/master/CHANGELOG.md"><code>1.5.1.2</code></a>.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Module   </th><th class="markdownTableHeadLeft">Description   </th><th class="markdownTableHeadRight">LEs   </th><th class="markdownTableHeadRight">FFs   </th><th class="markdownTableHeadRight">Memory bits   </th><th class="markdownTableHeadRight">DSPs    </th></tr>
@@ -381,20 +382,22 @@ NEORV32 Processor-Internal Peripherals and Memories</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">MTIME   </td><td class="markdownTableBodyLeft">Machine system timer   </td><td class="markdownTableBodyRight">274   </td><td class="markdownTableBodyRight">166   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">NCO   </td><td class="markdownTableBodyLeft">Numerically-controlled oscillator   </td><td class="markdownTableBodyRight">254   </td><td class="markdownTableBodyRight">226   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">PWM   </td><td class="markdownTableBodyLeft">Pulse-width modulation controller   </td><td class="markdownTableBodyRight">71   </td><td class="markdownTableBodyRight">69   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">SPI   </td><td class="markdownTableBodyLeft">Serial peripheral interface   </td><td class="markdownTableBodyRight">138   </td><td class="markdownTableBodyRight">124   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">SYSINFO   </td><td class="markdownTableBodyLeft">System configuration information memory   </td><td class="markdownTableBodyRight">11   </td><td class="markdownTableBodyRight">10   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">TRNG   </td><td class="markdownTableBodyLeft">True random number generator   </td><td class="markdownTableBodyRight">132   </td><td class="markdownTableBodyRight">105   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">TWI   </td><td class="markdownTableBodyLeft">Two-wire interface   </td><td class="markdownTableBodyRight">77   </td><td class="markdownTableBodyRight">46   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">UART   </td><td class="markdownTableBodyLeft">Universal asynchronous receiver/transmitter   </td><td class="markdownTableBodyRight">176   </td><td class="markdownTableBodyRight">132   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">WDT   </td><td class="markdownTableBodyLeft">Watchdog timer   </td><td class="markdownTableBodyRight">60   </td><td class="markdownTableBodyRight">45   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
+<td class="markdownTableBodyLeft">UART   </td><td class="markdownTableBodyLeft">Universal asynchronous receiver/transmitter   </td><td class="markdownTableBodyRight">176   </td><td class="markdownTableBodyRight">132   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">WDT   </td><td class="markdownTableBodyLeft">Watchdog timer   </td><td class="markdownTableBodyRight">60   </td><td class="markdownTableBodyRight">45   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">WISHBONE   </td><td class="markdownTableBodyLeft">External memory interface   </td><td class="markdownTableBodyRight">129   </td><td class="markdownTableBodyRight">104   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0   </td></tr>
 </table>
 <h3><a class="anchor" id="autotoc_md26"></a>

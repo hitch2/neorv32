@@ -71,6 +71,7 @@ var menudata={children:[
 {text:"c",url:"globals_eval.html#index_c"},
 {text:"e",url:"globals_eval_e.html#index_e"},
 {text:"h",url:"globals_eval_h.html#index_h"},
+{text:"n",url:"globals_eval_n.html#index_n"},
 {text:"p",url:"globals_eval_p.html#index_p"},
 {text:"r",url:"globals_eval_r.html#index_r"},
 {text:"s",url:"globals_eval_s.html#index_s"},
