@@ -90,9 +90,9 @@ Overview</h2>
 Key Features</h3>
 <ul>
 <li>RISC-V 32-bit <code>rv32i</code> <a href="#NEORV32-CPU-Features"><b>NEORV32 CPU</b></a>, compliant to<ul>
-<li>Subset of the <em>Unprivileged ISA Specification</em> <a href="https://github.com/stnolting/neorv32/blob/master/docs/riscv-privileged.pdf">(Version 2.2)</a></li>
-<li>Subset of the <em>Privileged Architecture Specification</em> <a href="https://github.com/stnolting/neorv32/blob/master/docs/riscv-spec.pdf">(Version 1.12-draft)</a></li>
-<li>Passes the <a href="#Status">offcial RISC-V compliance tests</a></li>
+<li>subset of the <em>Unprivileged ISA Specification</em> <a href="https://github.com/stnolting/neorv32/blob/master/docs/riscv-privileged.pdf">(Version 2.2)</a></li>
+<li>subset of the <em>Privileged Architecture Specification</em> <a href="https://github.com/stnolting/neorv32/blob/master/docs/riscv-spec.pdf">(Version 1.12-draft)</a></li>
+<li>the <a href="#Status">offcial RISC-V compliance tests</a> (<em>passing</em>)</li>
 </ul>
 </li>
 <li>Configurable RISC-V-compliant CPU extensions<ul>
@@ -157,7 +157,7 @@ Status</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><a href="https://github.com/stnolting/neorv32">NEORV32 processor</a>   </td><td class="markdownTableBodyLeft"><a href="https://github.com/stnolting/neorv32/actions?query=workflow%3A%22Processor+Check%22"><img src="https://github.com/stnolting/neorv32/workflows/Processor%20Check/badge.svg" alt="Processor Check" style="pointer-events: none;" class="inline"/></a>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><a href="https://stnolting.github.io/neorv32/files.html">SW Framework Documentation (online)</a>   </td><td class="markdownTableBodyLeft"><a href="https://stnolting.github.io/neorv32/files.html"><img src="https://github.com/stnolting/neorv32/workflows/Deploy%20SW%20Framework%20Documentation%20to%20GitHub-Pages/badge.svg" alt="Doc@GitHub-pages" style="pointer-events: none;" class="inline"/></a>    </td></tr>
+<td class="markdownTableBodyLeft"><a href="https://stnolting.github.io/neorv32/files.html">SW Framework Documentation (online @GH-pages)</a>   </td><td class="markdownTableBodyLeft"><a href="https://stnolting.github.io/neorv32/files.html"><img src="https://github.com/stnolting/neorv32/workflows/Deploy%20SW%20Framework%20Documentation%20to%20GitHub-Pages/badge.svg" alt="Doc@GitHub-pages" style="pointer-events: none;" class="inline"/></a>    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><a href="https://github.com/stnolting/riscv-gcc-prebuilt">Pre-built toolchains</a>   </td><td class="markdownTableBodyLeft"><a href="https://github.com/stnolting/riscv-gcc-prebuilt/actions?query=workflow%3A%22Test+Toolchains%22"><img src="https://github.com/stnolting/riscv-gcc-prebuilt/workflows/Test%20Toolchains/badge.svg" alt="Test Toolchains" style="pointer-events: none;" class="inline"/></a>    </td></tr>
 <tr class="markdownTableRowEven">
@@ -172,8 +172,8 @@ To-Do / Wish List / Help Wanted</h3>
 <li>Add data cache?</li>
 <li>Burst mode for the external memory/bus interface?</li>
 <li>RISC-V <code>F</code> (using <a href="https://github.com/riscv/riscv-zfinx/blob/master/Zfinx_spec.adoc"><code>Zfinx</code></a>?) CPU extension (single-precision floating point)</li>
-<li>Add template (HW module + intrinsics skeleton) for custom instructions?</li>
-<li>Implement further RISC-V (or custom) CPU extensions?</li>
+<li>Add template (HW module + SW intrinsics skeleton) for custom instructions?</li>
+<li>Implement further RISC-V CPU extensions?</li>
 <li>More support for FreeRTOS (like <em>all</em> traps)?</li>
 <li>Port additional RTOSs (like <a href="https://github.com/zephyrproject-rtos/zephyr">Zephyr</a> or <a href="https://www.riot-os.org">RIOT</a>)?</li>
 <li>Add debugger (<a href="https://github.com/riscv/riscv-debug-spec">RISC-V debug spec</a>)?</li>
@@ -340,35 +340,39 @@ Privileged architecture - Hardware performance monitors (&lt;tt&gt;HPM&lt;/tt&gt
 FPGA Implementation Results</h2>
 <h3><a class="anchor" id="autotoc_md24"></a>
 NEORV32 CPU</h3>
-<p>This chapter shows exemplary implementation results of the NEORV32 CPU for an <b>Intel Cyclone IV EP4CE22F17C6N FPGA</b> on a DE0-nano board. The design was synthesized using <b>Intel Quartus Prime Lite 20.1</b> ("balanced implementation"). The timing information is derived from the Timing Analyzer / Slow 1200mV 0C Model. If not otherwise specified, the default configuration of the CPU's generics is assumed (e.g. no physical memory protection, no hardware performance monitors). No constraints were used at all. The <code>u</code> and <code>Zifencei</code> extensions have a negligible impact on the hardware requirements.</p>
-<p>Results generated for hardware version <a href="https://github.com/stnolting/neorv32/blob/master/CHANGELOG.md"><code>1.5.0.3</code></a>.</p>
+<p>This chapter shows exemplary implementation results of the NEORV32 CPU for an <b>Intel Cyclone IV EP4CE22F17C6N FPGA</b> on a DE0-nano board. The design was synthesized using <b>Intel Quartus Prime Lite 20.1</b> ("balanced implementation"). The timing information is derived from the Timing Analyzer / Slow 1200mV 0C Model. If not otherwise specified, the default configuration of the CPU's generics is assumed (e.g. no physical memory protection, no hardware performance monitors). No constraints were used at all.</p>
+<p>Results generated for hardware version <a href="https://github.com/stnolting/neorv32/blob/master/CHANGELOG.md"><code>1.5.1.4</code></a>.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">CPU Configuration   </th><th class="markdownTableHeadCenter">LEs   </th><th class="markdownTableHeadCenter">FFs   </th><th class="markdownTableHeadCenter">Memory bits   </th><th class="markdownTableHeadCenter">DSPs   </th><th class="markdownTableHeadCenter">f_max    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><code>rv32i</code>   </td><td class="markdownTableBodyCenter">1190   </td><td class="markdownTableBodyCenter">512   </td><td class="markdownTableBodyCenter">1024   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">120 MHz    </td></tr>
+<td class="markdownTableBodyLeft"><code>rv32i</code>   </td><td class="markdownTableBodyCenter">979   </td><td class="markdownTableBodyCenter">409   </td><td class="markdownTableBodyCenter">1024   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">123 MHz    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><code>rv32i</code> + <code>u</code> + <code>Zicsr</code> + <code>Zifencei</code>   </td><td class="markdownTableBodyCenter">1927   </td><td class="markdownTableBodyCenter">903   </td><td class="markdownTableBodyCenter">1024   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">123 MHz    </td></tr>
+<td class="markdownTableBodyLeft"><code>rv32i</code> + <code>Zicsr</code>   </td><td class="markdownTableBodyCenter">1789   </td><td class="markdownTableBodyCenter">847   </td><td class="markdownTableBodyCenter">1024   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">122 MHz    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><code>rv32im</code> + <code>u</code> + <code>Zicsr</code> + <code>Zifencei</code>   </td><td class="markdownTableBodyCenter">2471   </td><td class="markdownTableBodyCenter">1148   </td><td class="markdownTableBodyCenter">1024   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">120 MHz    </td></tr>
+<td class="markdownTableBodyLeft"><code>rv32im</code> + <code>Zicsr</code>   </td><td class="markdownTableBodyCenter">2381   </td><td class="markdownTableBodyCenter">1125   </td><td class="markdownTableBodyCenter">1024   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">122 MHz    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><code>rv32imc</code> + <code>u</code> + <code>Zicsr</code> + <code>Zifencei</code>   </td><td class="markdownTableBodyCenter">2716   </td><td class="markdownTableBodyCenter">1165   </td><td class="markdownTableBodyCenter">1024   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">120 MHz    </td></tr>
+<td class="markdownTableBodyLeft"><code>rv32imc</code> + <code>Zicsr</code>   </td><td class="markdownTableBodyCenter">2608   </td><td class="markdownTableBodyCenter">1140   </td><td class="markdownTableBodyCenter">1024   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">122 MHz    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><code>rv32imac</code> + <code>u</code> + <code>Zicsr</code> + <code>Zifencei</code>   </td><td class="markdownTableBodyCenter">2736   </td><td class="markdownTableBodyCenter">1168   </td><td class="markdownTableBodyCenter">1024   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">120 MHz    </td></tr>
+<td class="markdownTableBodyLeft"><code>rv32imac</code> + <code>Zicsr</code>   </td><td class="markdownTableBodyCenter">2621   </td><td class="markdownTableBodyCenter">1144   </td><td class="markdownTableBodyCenter">1024   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">122 MHz    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><code>rv32imacb</code> + <code>u</code> + <code>Zicsr</code> + <code>Zifencei</code>   </td><td class="markdownTableBodyCenter">3045   </td><td class="markdownTableBodyCenter">1260   </td><td class="markdownTableBodyCenter">1024   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">116 MHz   </td></tr>
+<td class="markdownTableBodyLeft"><code>rv32imacb</code> + <code>Zicsr</code>   </td><td class="markdownTableBodyCenter">3013   </td><td class="markdownTableBodyCenter">1310   </td><td class="markdownTableBodyCenter">1024   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">122 MHz    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><code>rv32imacb</code> + <code>Zicsr</code> + <code>u</code>   </td><td class="markdownTableBodyCenter">3031   </td><td class="markdownTableBodyCenter">1313   </td><td class="markdownTableBodyCenter">1024   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">122 MHz    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><code>rv32imacb</code> + <code>Zicsr</code> + <code>u</code> + <code>Zifencei</code>   </td><td class="markdownTableBodyCenter">3050   </td><td class="markdownTableBodyCenter">1313   </td><td class="markdownTableBodyCenter">1024   </td><td class="markdownTableBodyCenter">0   </td><td class="markdownTableBodyCenter">116 MHz   </td></tr>
 </table>
-<p>Setups with enabled "embedded CPU extension" <code>E</code> show the same LUT and FF utilization and identical f_max. However, the size of the register file is cut in half.</p>
+<p>Setups with enabled "embedded CPU extension" <code>E</code> show the same LUT and FF utilization and identical f_max as the according <code>I</code> configuration. However, the size of the register file is cut in half.</p>
 <h3><a class="anchor" id="autotoc_md25"></a>
 NEORV32 Processor-Internal Peripherals and Memories</h3>
-<p>Results generated for hardware version <a href="https://github.com/stnolting/neorv32/blob/master/CHANGELOG.md"><code>1.5.1.2</code></a>.</p>
+<p>Results generated for hardware version <a href="https://github.com/stnolting/neorv32/blob/master/CHANGELOG.md"><code>1.5.1.4</code></a>.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Module   </th><th class="markdownTableHeadLeft">Description   </th><th class="markdownTableHeadRight">LEs   </th><th class="markdownTableHeadRight">FFs   </th><th class="markdownTableHeadRight">Memory bits   </th><th class="markdownTableHeadRight">DSPs    </th></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">BOOT ROM   </td><td class="markdownTableBodyLeft">Bootloader ROM (default 4kB)   </td><td class="markdownTableBodyRight">3   </td><td class="markdownTableBodyRight">1   </td><td class="markdownTableBodyRight">32 768   </td><td class="markdownTableBodyRight">0    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">BUSSWITCH   </td><td class="markdownTableBodyLeft">Mux for CPU I &amp; D interfaces   </td><td class="markdownTableBodyRight">65   </td><td class="markdownTableBodyRight">8   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
+<td class="markdownTableBodyLeft">BUSSWITCH   </td><td class="markdownTableBodyLeft">Bus mux for CPU instr. &amp; data interfaces   </td><td class="markdownTableBodyRight">65   </td><td class="markdownTableBodyRight">8   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">i-CACHE   </td><td class="markdownTableBodyLeft">Proc.-int. nstruction cache (default 1x4x64 bytes)   </td><td class="markdownTableBodyRight">234   </td><td class="markdownTableBodyRight">156   </td><td class="markdownTableBodyRight">8 192   </td><td class="markdownTableBodyRight">0    </td></tr>
 <tr class="markdownTableRowEven">
