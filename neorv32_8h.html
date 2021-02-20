@@ -724,7 +724,7 @@ Enumerations</h2></td></tr>
 , <a class="el" href="neorv32_8h.html#a7c2df941d0405641ae6c4c9c8b4cb18da28d81c67513c62f0c5da4a80f8f80e7c">SYSINFO_FEATURES_IO_GPIO</a> = 16
 , <br />
 &#160;&#160;<a class="el" href="neorv32_8h.html#a7c2df941d0405641ae6c4c9c8b4cb18da9504bfe0f793e3cc01a69aad4a61e696">SYSINFO_FEATURES_IO_MTIME</a> = 17
-, <a class="el" href="neorv32_8h.html#a7c2df941d0405641ae6c4c9c8b4cb18da310dd230c346fc33e32782481766f2ec">SYSINFO_FEATURES_IO_UART</a> = 18
+, <a class="el" href="neorv32_8h.html#a7c2df941d0405641ae6c4c9c8b4cb18da0b03a86e0cd87cdfc6f92487cfd55971">SYSINFO_FEATURES_IO_UART0</a> = 18
 , <a class="el" href="neorv32_8h.html#a7c2df941d0405641ae6c4c9c8b4cb18da8cf1612b8328feed402785994ecc3af8">SYSINFO_FEATURES_IO_SPI</a> = 19
 , <a class="el" href="neorv32_8h.html#a7c2df941d0405641ae6c4c9c8b4cb18da25d7b51ee51263c0bccbd395697414f1">SYSINFO_FEATURES_IO_TWI</a> = 20
 , <br />
@@ -734,6 +734,7 @@ Enumerations</h2></td></tr>
 , <a class="el" href="neorv32_8h.html#a7c2df941d0405641ae6c4c9c8b4cb18da7348e207ac6329a426d58febeae12e20">SYSINFO_FEATURES_IO_TRNG</a> = 24
 , <br />
 &#160;&#160;<a class="el" href="neorv32_8h.html#a7c2df941d0405641ae6c4c9c8b4cb18da58ee655471a1381032d8c069a2edf958">SYSINFO_FEATURES_IO_NCO</a> = 25
+, <a class="el" href="neorv32_8h.html#a7c2df941d0405641ae6c4c9c8b4cb18dab2c90adb1f7d8012ed6a69a91720e87f">SYSINFO_FEATURES_IO_UART1</a> = 26
 <br />
  }</td></tr>
 <tr class="separator:a7c2df941d0405641ae6c4c9c8b4cb18d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -790,11 +791,15 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="separator:afc01fe45ebae4939dd49aead845a5322"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader">IO Device: Universal Asynchronous Receiver and Transmitter (UART)</h2></td></tr>
-<tr class="memitem:add80bf63566866d28e6bed5190a841b5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#add80bf63566866d28e6bed5190a841b5">UART_CT</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFA0UL))</td></tr>
-<tr class="separator:add80bf63566866d28e6bed5190a841b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8063fe1a693e0f849bd626b28a5447c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#ae8063fe1a693e0f849bd626b28a5447c">UART_DATA</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFA4UL))</td></tr>
-<tr class="separator:ae8063fe1a693e0f849bd626b28a5447c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader">IO Device: Primary/Secondary Universal Asynchronous Receiver and Transmitter (UART0 / UART1)</h2></td></tr>
+<tr class="memitem:a6ec3803d2b69338976b9633eeefaee5c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a6ec3803d2b69338976b9633eeefaee5c">UART0_CT</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFA0UL))</td></tr>
+<tr class="separator:a6ec3803d2b69338976b9633eeefaee5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a804851f5c7db55ac6d32a96862ea326f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a804851f5c7db55ac6d32a96862ea326f">UART0_DATA</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFA4UL))</td></tr>
+<tr class="separator:a804851f5c7db55ac6d32a96862ea326f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7231bd478d6c08551f323650287e27ed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a7231bd478d6c08551f323650287e27ed">UART1_CT</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFD0UL))</td></tr>
+<tr class="separator:a7231bd478d6c08551f323650287e27ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a487fe772b17de5e5453cb9616f06b964"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a487fe772b17de5e5453cb9616f06b964">UART1_DATA</a>&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFD4UL))</td></tr>
+<tr class="separator:a487fe772b17de5e5453cb9616f06b964"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a646d58f8525325a98fbcdd022983bdc4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a646d58f8525325a98fbcdd022983bdc4">NEORV32_UART_CT_enum</a> { <br />
 &#160;&#160;<a class="el" href="neorv32_8h.html#a646d58f8525325a98fbcdd022983bdc4a9190a609ce1fc6bff32dc46584f6aa35">UART_CT_BAUD00</a> = 0
 , <a class="el" href="neorv32_8h.html#a646d58f8525325a98fbcdd022983bdc4acefea03af032f2fc95a9acfc4085d48c">UART_CT_BAUD01</a> = 1
@@ -2038,33 +2043,63 @@ Enumerations</h2></td></tr>
 
 </div>
 </div>
-<a id="add80bf63566866d28e6bed5190a841b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add80bf63566866d28e6bed5190a841b5">&#9670;&nbsp;</a></span>UART_CT</h2>
+<a id="a6ec3803d2b69338976b9633eeefaee5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ec3803d2b69338976b9633eeefaee5c">&#9670;&nbsp;</a></span>UART0_CT</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define UART_CT&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFA0UL))</td>
+          <td class="memname">#define UART0_CT&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFA0UL))</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>UART control register (r/w) </p>
+<p>UART0 control register (r/w) </p>
 
 </div>
 </div>
-<a id="ae8063fe1a693e0f849bd626b28a5447c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8063fe1a693e0f849bd626b28a5447c">&#9670;&nbsp;</a></span>UART_DATA</h2>
+<a id="a804851f5c7db55ac6d32a96862ea326f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a804851f5c7db55ac6d32a96862ea326f">&#9670;&nbsp;</a></span>UART0_DATA</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define UART_DATA&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFA4UL))</td>
+          <td class="memname">#define UART0_DATA&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFA4UL))</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>UART receive/transmit data register (r/w) </p>
+<p>UART0 receive/transmit data register (r/w) </p>
+
+</div>
+</div>
+<a id="a7231bd478d6c08551f323650287e27ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7231bd478d6c08551f323650287e27ed">&#9670;&nbsp;</a></span>UART1_CT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UART1_CT&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFD0UL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>UART1 control register (r/w) </p>
+
+</div>
+</div>
+<a id="a487fe772b17de5e5453cb9616f06b964"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a487fe772b17de5e5453cb9616f06b964">&#9670;&nbsp;</a></span>UART1_DATA</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UART1_DATA&#160;&#160;&#160;(*(<a class="el" href="neorv32_8h.html#a3b61ddcb0ba2be60072440c54570e1f3">IO_REG32</a> 0xFFFFFFD4UL))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>UART1 receive/transmit data register (r/w) </p>
 
 </div>
 </div>
@@ -3313,7 +3348,7 @@ Enumerations</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a7c2df941d0405641ae6c4c9c8b4cb18da9504bfe0f793e3cc01a69aad4a61e696"></a>SYSINFO_FEATURES_IO_MTIME&#160;</td><td class="fielddoc"><p>SYSINFO_FEATURES (17) (r/-): Machine system timer implemented when 1 (via IO_MTIME_EN generic) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a7c2df941d0405641ae6c4c9c8b4cb18da310dd230c346fc33e32782481766f2ec"></a>SYSINFO_FEATURES_IO_UART&#160;</td><td class="fielddoc"><p>SYSINFO_FEATURES (18) (r/-): Universal asynchronous receiver/transmitter implemented when 1 (via IO_UART_EN generic) </p>
+<tr><td class="fieldname"><a id="a7c2df941d0405641ae6c4c9c8b4cb18da0b03a86e0cd87cdfc6f92487cfd55971"></a>SYSINFO_FEATURES_IO_UART0&#160;</td><td class="fielddoc"><p>SYSINFO_FEATURES (18) (r/-): Primary universal asynchronous receiver/transmitter 0 implemented when 1 (via IO_UART0_EN generic) </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a7c2df941d0405641ae6c4c9c8b4cb18da8cf1612b8328feed402785994ecc3af8"></a>SYSINFO_FEATURES_IO_SPI&#160;</td><td class="fielddoc"><p>SYSINFO_FEATURES (19) (r/-): Serial peripheral interface implemented when 1 (via IO_SPI_EN generic) </p>
 </td></tr>
@@ -3328,6 +3363,8 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="a7c2df941d0405641ae6c4c9c8b4cb18da7348e207ac6329a426d58febeae12e20"></a>SYSINFO_FEATURES_IO_TRNG&#160;</td><td class="fielddoc"><p>SYSINFO_FEATURES (24) (r/-): True random number generator implemented when 1 (via IO_TRNG_EN generic) </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a7c2df941d0405641ae6c4c9c8b4cb18da58ee655471a1381032d8c069a2edf958"></a>SYSINFO_FEATURES_IO_NCO&#160;</td><td class="fielddoc"><p>SYSINFO_FEATURES (25) (r/-): Numerically-controlled oscillator implemented when 1 (via IO_NCO_EN generic) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7c2df941d0405641ae6c4c9c8b4cb18dab2c90adb1f7d8012ed6a69a91720e87f"></a>SYSINFO_FEATURES_IO_UART1&#160;</td><td class="fielddoc"><p>SYSINFO_FEATURES (26) (r/-): Secondary universal asynchronous receiver/transmitter 1 implemented when 1 (via IO_UART1_EN generic) </p>
 </td></tr>
 </table>
 
@@ -3427,31 +3464,31 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>UART control register bits </p>
+<p>UART0/UART1 control register bits </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a9190a609ce1fc6bff32dc46584f6aa35"></a>UART_CT_BAUD00&#160;</td><td class="fielddoc"><p>UART control register(0) (r/w): BAUD rate config value lsb (12-bi, bit 0) </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a9190a609ce1fc6bff32dc46584f6aa35"></a>UART_CT_BAUD00&#160;</td><td class="fielddoc"><p>UART control register(0) (r/w): BAUD rate config value lsb (12-bit, bit 0) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4acefea03af032f2fc95a9acfc4085d48c"></a>UART_CT_BAUD01&#160;</td><td class="fielddoc"><p>UART control register(1) (r/w): BAUD rate config value (12-bi, bit 1) </p>
+<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4acefea03af032f2fc95a9acfc4085d48c"></a>UART_CT_BAUD01&#160;</td><td class="fielddoc"><p>UART control register(1) (r/w): BAUD rate config value (12-bit, bit 1) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a2f90c0d908fc539f57378edb63f155d7"></a>UART_CT_BAUD02&#160;</td><td class="fielddoc"><p>UART control register(2) (r/w): BAUD rate config value (12-bi, bit 2) </p>
+<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a2f90c0d908fc539f57378edb63f155d7"></a>UART_CT_BAUD02&#160;</td><td class="fielddoc"><p>UART control register(2) (r/w): BAUD rate config value (12-bit, bit 2) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a758d7b58d0cb5e1bb4fe017d0c0fc29d"></a>UART_CT_BAUD03&#160;</td><td class="fielddoc"><p>UART control register(3) (r/w): BAUD rate config value (12-bi, bit 3) </p>
+<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a758d7b58d0cb5e1bb4fe017d0c0fc29d"></a>UART_CT_BAUD03&#160;</td><td class="fielddoc"><p>UART control register(3) (r/w): BAUD rate config value (12-bit, bit 3) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4af2b7ae3bcc92ee1adba386b9ad029e79"></a>UART_CT_BAUD04&#160;</td><td class="fielddoc"><p>UART control register(4) (r/w): BAUD rate config value (12-bi, bit 4) </p>
+<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4af2b7ae3bcc92ee1adba386b9ad029e79"></a>UART_CT_BAUD04&#160;</td><td class="fielddoc"><p>UART control register(4) (r/w): BAUD rate config value (12-bit, bit 4) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a5010e889a2abdc7186ad7655f7f73fd0"></a>UART_CT_BAUD05&#160;</td><td class="fielddoc"><p>UART control register(5) (r/w): BAUD rate config value (12-bi, bit 4) </p>
+<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a5010e889a2abdc7186ad7655f7f73fd0"></a>UART_CT_BAUD05&#160;</td><td class="fielddoc"><p>UART control register(5) (r/w): BAUD rate config value (12-bit, bit 4) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a63a0f3a4cedf8ee308bc9595745ede10"></a>UART_CT_BAUD06&#160;</td><td class="fielddoc"><p>UART control register(6) (r/w): BAUD rate config value (12-bi, bit 5) </p>
+<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a63a0f3a4cedf8ee308bc9595745ede10"></a>UART_CT_BAUD06&#160;</td><td class="fielddoc"><p>UART control register(6) (r/w): BAUD rate config value (12-bit, bit 5) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4ac62e8cad071ff1044cf773e289ba0e8d"></a>UART_CT_BAUD07&#160;</td><td class="fielddoc"><p>UART control register(7) (r/w): BAUD rate config value (12-bi, bit 6) </p>
+<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4ac62e8cad071ff1044cf773e289ba0e8d"></a>UART_CT_BAUD07&#160;</td><td class="fielddoc"><p>UART control register(7) (r/w): BAUD rate config value (12-bit, bit 6) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a11b911f6ac55b43efb7e85cb84b33b14"></a>UART_CT_BAUD08&#160;</td><td class="fielddoc"><p>UART control register(8) (r/w): BAUD rate config value (12-bi, bit 7) </p>
+<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a11b911f6ac55b43efb7e85cb84b33b14"></a>UART_CT_BAUD08&#160;</td><td class="fielddoc"><p>UART control register(8) (r/w): BAUD rate config value (12-bit, bit 7) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a000eb0c0811ffb698016137ce582c3fb"></a>UART_CT_BAUD09&#160;</td><td class="fielddoc"><p>UART control register(9) (r/w): BAUD rate config value (12-bi, bit 8) </p>
+<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a000eb0c0811ffb698016137ce582c3fb"></a>UART_CT_BAUD09&#160;</td><td class="fielddoc"><p>UART control register(9) (r/w): BAUD rate config value (12-bit, bit 8) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4ada001b26ff4bdeb7bbaab413db998ce7"></a>UART_CT_BAUD10&#160;</td><td class="fielddoc"><p>UART control register(10) (r/w): BAUD rate config value (12-bi, bit 9) </p>
+<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4ada001b26ff4bdeb7bbaab413db998ce7"></a>UART_CT_BAUD10&#160;</td><td class="fielddoc"><p>UART control register(10) (r/w): BAUD rate config value (12-bit, bit 9) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a44ab7374b6fe5da4fb30b9e7f9ff41d5"></a>UART_CT_BAUD11&#160;</td><td class="fielddoc"><p>UART control register(11) (r/w): BAUD rate config value msb (12-bi, bit 0) </p>
+<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a44ab7374b6fe5da4fb30b9e7f9ff41d5"></a>UART_CT_BAUD11&#160;</td><td class="fielddoc"><p>UART control register(11) (r/w): BAUD rate config value msb (12-bit, bit 0) </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a27693c922fb3cb7dcc2a17c197db03ad"></a>UART_CT_SIM_MODE&#160;</td><td class="fielddoc"><p>UART control register(12) (r/w): Simulation output override enable, for use in simulation only </p>
 </td></tr>
@@ -3484,7 +3521,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>UART receive/transmit data register bits </p>
+<p>UART0/UART1 receive/transmit data register bits </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="adcf35350a9ea18a59c32c35f528643f2ab58c4f78a8089cb8092f8e5a3b3297a4"></a>UART_DATA_LSB&#160;</td><td class="fielddoc"><p>UART receive/transmit data register(0) (r/w): Receive/transmit data LSB (bit 0) </p>
 </td></tr>

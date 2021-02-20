@@ -92,7 +92,7 @@ Key Features</h3>
 <li>RISC-V 32-bit <code>rv32i</code> <a href="#NEORV32-CPU-Features"><b>NEORV32 CPU</b></a>, compliant to<ul>
 <li>subset of the <em>Unprivileged ISA Specification</em> <a href="https://github.com/stnolting/neorv32/blob/master/docs/riscv-privileged.pdf">(Version 2.2)</a></li>
 <li>subset of the <em>Privileged Architecture Specification</em> <a href="https://github.com/stnolting/neorv32/blob/master/docs/riscv-spec.pdf">(Version 1.12-draft)</a></li>
-<li>the <a href="#Status">offcial RISC-V compliance tests</a> (<em>passing</em>)</li>
+<li>the <a href="#Status">official RISC-V compliance tests</a> (<em>passing</em>)</li>
 </ul>
 </li>
 <li>Configurable RISC-V-compliant CPU extensions<ul>
@@ -113,7 +113,7 @@ Key Features</h3>
 <li>Full-scale RISC-V microcontroller system / <b>SoC</b> <a href="#NEORV32-Processor-Features"><b>NEORV32 Processor</b></a> with optional submodules<ul>
 <li>optional embedded memories (instructions/data/bootloader, RAM/ROM) and caches</li>
 <li>timers (watch dog, RISC-V-compliant machine timer)</li>
-<li>serial interfaces (SPI, TWI, UART)</li>
+<li>serial interfaces (SPI, TWI, UARTs)</li>
 <li>general purpose IO and PWM channels</li>
 <li>external bus interface (Wishbone / <a href="#AXI4-Connectivity">AXI4</a>)</li>
 <li>subsystem for custom co-processors</li>
@@ -177,7 +177,6 @@ To-Do / Wish List / Help Wanted</h3>
 <li>More support for FreeRTOS (like <em>all</em> traps)?</li>
 <li>Port additional RTOSs (like <a href="https://github.com/zephyrproject-rtos/zephyr">Zephyr</a> or <a href="https://www.riot-os.org">RIOT</a>)?</li>
 <li>Add debugger (<a href="https://github.com/riscv/riscv-debug-spec">RISC-V debug spec</a>)?</li>
-<li>Add encryption/decryption/hash accelerator (maybe <a href="https://en.wikipedia.org/wiki/XTEA">XTEA</a>)?</li>
 <li>...</li>
 <li><a href="#ContributeFeedbackQuestions">Ideas?</a></li>
 </ul>
@@ -193,7 +192,7 @@ NEORV32 Processor Features</h3>
 <li>bootloader (<b>BOOTLDROM</b>) with UART console and automatic application boot from SPI flash option</li>
 <li>machine system timer (<b>MTIME</b>), RISC-V-compliant</li>
 <li>watchdog timer (<b>WDT</b>)</li>
-<li>universal asynchronous receiver and transmitter (<b>UART</b>) with simulation output option via text.io</li>
+<li>two independent universal asynchronous receiver and transmitter (<b>UART0</b> &amp; <b>UART1</b>) with fast simulation output option</li>
 <li>8/16/24/32-bit serial peripheral interface controller (<b>SPI</b>) with 8 dedicated chip select lines</li>
 <li>two wire serial interface controller (<b>TWI</b>), with optional clock-stretching, compatible to the I²C standard</li>
 <li>general purpose parallel IO port (<b>GPIO</b>), 32xOut &amp; 32xIn, with pin-change interrupt</li>
@@ -398,7 +397,7 @@ NEORV32 Processor-Internal Peripherals and Memories</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">TWI   </td><td class="markdownTableBodyLeft">Two-wire interface   </td><td class="markdownTableBodyRight">77   </td><td class="markdownTableBodyRight">46   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">UART   </td><td class="markdownTableBodyLeft">Universal asynchronous receiver/transmitter   </td><td class="markdownTableBodyRight">176   </td><td class="markdownTableBodyRight">132   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
+<td class="markdownTableBodyLeft">UART0/1   </td><td class="markdownTableBodyLeft">Universal asynchronous receiver/transmitter 0/1   </td><td class="markdownTableBodyRight">176   </td><td class="markdownTableBodyRight">132   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">WDT   </td><td class="markdownTableBodyLeft">Watchdog timer   </td><td class="markdownTableBodyRight">60   </td><td class="markdownTableBodyRight">45   </td><td class="markdownTableBodyRight">0   </td><td class="markdownTableBodyRight">0    </td></tr>
 <tr class="markdownTableRowOdd">
@@ -513,17 +512,17 @@ Create a new Hardware Project</h3>
 <p>Create a new project with your FPGA design tool of choice. Add all the <code>*.vhd</code> files from the <a href="https://github.com/stnolting/neorv32/blob/master/rtl"><code>rtl/core</code></a> folder to this project. Make sure to add these files to a <b>new design library</b> called <code>neorv32</code>.</p>
 <p>You can either instantiate the <a href="https://github.com/stnolting/neorv32/blob/master/rtl/core/neorv32_top.vhd">processor's top entity</a> or one of its <a href="https://github.com/stnolting/neorv32/blob/master/rtl/top_templates">wrappers</a> in your own project. If you just want to try out the processor, you can use the simple <a href="https://github.com/stnolting/neorv32/blob/master/rtl/top_templates/neorv32_test_setup.vhd">test setup</a> as top entity.</p>
 <p><img src="https://raw.githubusercontent.com/stnolting/neorv32/master/docs/figures/neorv32_test_setup.png" alt="neorv32 test setup" class="inline"/></p>
-<p>This test setup instantiates the processor and implements most of the peripherals and some ISA extensions. Only the UART lines, clock, reset and some GPIO output signals are propagated as actual entity signals. Basically, it is a FPGA "hello world" example:</p>
+<p>This test setup instantiates the processor and implements most of the peripherals and some ISA extensions. Only the UART0 lines, clock, reset and some GPIO output signals are propagated as actual entity signals. Basically, it is a FPGA "hello world" example:</p>
 <div class="fragment"><div class="line"><span class="keywordflow">entity </span>neorv32_test_setup <span class="keywordflow">is</span></div>
 <div class="line">  <span class="keywordflow">port</span> <span class="vhdlchar">(</span></div>
 <div class="line"><span class="comment">    -- Global control --</span></div>
-<div class="line">    <span class="vhdlchar">clk_i</span>      <span class="vhdlchar">:</span> <span class="keywordflow">in</span>  <span class="keywordtype">std_ulogic</span> <span class="vhdlchar">:=</span> <span class="vhdlchar">&#39;</span><span class="vhdllogic"></span><span class="vhdllogic">0</span><span class="vhdlchar">&#39;</span>;<span class="comment"> -- global clock, rising edge</span></div>
-<div class="line">    <span class="vhdlchar">rstn_i</span>     <span class="vhdlchar">:</span> <span class="keywordflow">in</span>  <span class="keywordtype">std_ulogic</span> <span class="vhdlchar">:=</span> <span class="vhdlchar">&#39;</span><span class="vhdllogic"></span><span class="vhdllogic">0</span><span class="vhdlchar">&#39;</span>;<span class="comment"> -- global reset, low-active, async</span></div>
+<div class="line">    <span class="vhdlchar">clk_i</span>       <span class="vhdlchar">:</span> <span class="keywordflow">in</span>  <span class="keywordtype">std_ulogic</span> <span class="vhdlchar">:=</span> <span class="vhdlchar">&#39;</span><span class="vhdllogic"></span><span class="vhdllogic">0</span><span class="vhdlchar">&#39;</span>;<span class="comment"> -- global clock, rising edge</span></div>
+<div class="line">    <span class="vhdlchar">rstn_i</span>      <span class="vhdlchar">:</span> <span class="keywordflow">in</span>  <span class="keywordtype">std_ulogic</span> <span class="vhdlchar">:=</span> <span class="vhdlchar">&#39;</span><span class="vhdllogic"></span><span class="vhdllogic">0</span><span class="vhdlchar">&#39;</span>;<span class="comment"> -- global reset, low-active, async</span></div>
 <div class="line"><span class="comment">    -- GPIO --</span></div>
-<div class="line">    <span class="vhdlchar">gpio_o</span>     <span class="vhdlchar">:</span> <span class="keywordflow">out</span> <span class="keywordtype">std_ulogic_vector</span><span class="vhdlchar">(</span><span class="vhdllogic"></span><span class="vhdllogic">7</span> <span class="keywordflow">downto</span> <span class="vhdllogic"></span><span class="vhdllogic">0</span><span class="vhdlchar">)</span>;<span class="comment"> -- parallel output</span></div>
-<div class="line"><span class="comment">    -- UART --</span></div>
-<div class="line">    <span class="vhdlchar">uart_txd_o</span> <span class="vhdlchar">:</span> <span class="keywordflow">out</span> <span class="keywordtype">std_ulogic</span>;<span class="comment"> -- UART send data</span></div>
-<div class="line">    <span class="vhdlchar">uart_rxd_i</span> <span class="vhdlchar">:</span> <span class="keywordflow">in</span>  <span class="keywordtype">std_ulogic</span> <span class="vhdlchar">:=</span> <span class="vhdlchar">&#39;</span><span class="vhdllogic"></span><span class="vhdllogic">0</span><span class="vhdlchar">&#39;</span><span class="comment"> -- UART receive data</span></div>
+<div class="line">    <span class="vhdlchar">gpio_o</span>      <span class="vhdlchar">:</span> <span class="keywordflow">out</span> <span class="keywordtype">std_ulogic_vector</span><span class="vhdlchar">(</span><span class="vhdllogic"></span><span class="vhdllogic">7</span> <span class="keywordflow">downto</span> <span class="vhdllogic"></span><span class="vhdllogic">0</span><span class="vhdlchar">)</span>;<span class="comment"> -- parallel output</span></div>
+<div class="line"><span class="comment">    -- UART0 --</span></div>
+<div class="line">    <span class="vhdlchar">uart0_txd_o</span> <span class="vhdlchar">:</span> <span class="keywordflow">out</span> <span class="keywordtype">std_ulogic</span>;<span class="comment"> -- UART0 send data</span></div>
+<div class="line">    <span class="vhdlchar">uart0_rxd_i</span> <span class="vhdlchar">:</span> <span class="keywordflow">in</span>  <span class="keywordtype">std_ulogic</span> <span class="vhdlchar">:=</span> <span class="vhdlchar">&#39;</span><span class="vhdllogic"></span><span class="vhdllogic">0</span><span class="vhdlchar">&#39;</span><span class="comment"> -- UART0 receive data</span></div>
 <div class="line">  <span class="vhdlchar">)</span>;</div>
 <div class="line"><span class="keywordflow">end</span> neorv32_test_setup;</div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md38"></a>

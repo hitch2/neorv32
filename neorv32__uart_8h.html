@@ -72,7 +72,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Universal asynchronous receiver/transmitter (UART) HW driver header file.  
+<p>Universal asynchronous receiver/transmitter (UART0/UART1) HW driver header file.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdarg.h&gt;</code><br />
 </div>
@@ -104,12 +104,741 @@ Functions</h2></td></tr>
 <tr class="separator:a7334481054b26a9df6d190157b7ac7c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a316b86fa42d3fe1934f5204d1c1ea684"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#a316b86fa42d3fe1934f5204d1c1ea684">neorv32_uart_scan</a> (char *buffer, int max_size, int echo)</td></tr>
 <tr class="separator:a316b86fa42d3fe1934f5204d1c1ea684"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a547b334ce06cede10534b86a8bc9b667"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#a547b334ce06cede10534b86a8bc9b667">neorv32_uart0_available</a> (void)</td></tr>
+<tr class="separator:a547b334ce06cede10534b86a8bc9b667"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16b0bc4c54365a3288a4367376f5836c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#a16b0bc4c54365a3288a4367376f5836c">neorv32_uart0_setup</a> (uint32_t baudrate, uint8_t parity)</td></tr>
+<tr class="separator:a16b0bc4c54365a3288a4367376f5836c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a439f8a8f05ba1df4b92a6326a3108a3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#a439f8a8f05ba1df4b92a6326a3108a3a">neorv32_uart0_disable</a> (void)</td></tr>
+<tr class="separator:a439f8a8f05ba1df4b92a6326a3108a3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf23ffa72fecbf6057b74130d0001693"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#aaf23ffa72fecbf6057b74130d0001693">neorv32_uart0_putc</a> (char c)</td></tr>
+<tr class="separator:aaf23ffa72fecbf6057b74130d0001693"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a842ecaf5958978166f3bf579b96c317d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#a842ecaf5958978166f3bf579b96c317d">neorv32_uart0_tx_busy</a> (void)</td></tr>
+<tr class="separator:a842ecaf5958978166f3bf579b96c317d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0f1575a82843acbe3364d387ececffc"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#ac0f1575a82843acbe3364d387ececffc">neorv32_uart0_getc</a> (void)</td></tr>
+<tr class="separator:ac0f1575a82843acbe3364d387ececffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a645913f8f15fc084926106a9f7c67969"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#a645913f8f15fc084926106a9f7c67969">neorv32_uart0_char_received</a> (void)</td></tr>
+<tr class="separator:a645913f8f15fc084926106a9f7c67969"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa88fddcbc7744a237e87beeb0eeac608"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#aa88fddcbc7744a237e87beeb0eeac608">neorv32_uart0_getc_secure</a> (char *data)</td></tr>
+<tr class="separator:aa88fddcbc7744a237e87beeb0eeac608"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a425df6b09c33d3fbf8b0fbd9deadc09a"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#a425df6b09c33d3fbf8b0fbd9deadc09a">neorv32_uart0_char_received_get</a> (void)</td></tr>
+<tr class="separator:a425df6b09c33d3fbf8b0fbd9deadc09a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a30289f58c00fdebac0291d91751ee7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#a1a30289f58c00fdebac0291d91751ee7">neorv32_uart0_print</a> (const char *s)</td></tr>
+<tr class="separator:a1a30289f58c00fdebac0291d91751ee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b7e9d920e9551ed759eb9cd4d1df02e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#a2b7e9d920e9551ed759eb9cd4d1df02e">neorv32_uart0_printf</a> (const char *format,...)</td></tr>
+<tr class="separator:a2b7e9d920e9551ed759eb9cd4d1df02e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1093f92219d8e2725a9eb61abb7fc46b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#a1093f92219d8e2725a9eb61abb7fc46b">neorv32_uart0_scan</a> (char *buffer, int max_size, int echo)</td></tr>
+<tr class="separator:a1093f92219d8e2725a9eb61abb7fc46b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d2f758517e1bcc64c5a2426ece3804a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#a3d2f758517e1bcc64c5a2426ece3804a">neorv32_uart1_available</a> (void)</td></tr>
+<tr class="separator:a3d2f758517e1bcc64c5a2426ece3804a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55f5a0bbb0e25a5a3b6ebe197a1842c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#a55f5a0bbb0e25a5a3b6ebe197a1842c1">neorv32_uart1_setup</a> (uint32_t baudrate, uint8_t parity)</td></tr>
+<tr class="separator:a55f5a0bbb0e25a5a3b6ebe197a1842c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a372e4032b76ecbb838bacfccb10e8d76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#a372e4032b76ecbb838bacfccb10e8d76">neorv32_uart1_disable</a> (void)</td></tr>
+<tr class="separator:a372e4032b76ecbb838bacfccb10e8d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a081b6a2cc8841a36bac166d46f6f5f25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#a081b6a2cc8841a36bac166d46f6f5f25">neorv32_uart1_putc</a> (char c)</td></tr>
+<tr class="separator:a081b6a2cc8841a36bac166d46f6f5f25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeaae4ba75e18ed830fafff666d7443e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#afeaae4ba75e18ed830fafff666d7443e">neorv32_uart1_tx_busy</a> (void)</td></tr>
+<tr class="separator:afeaae4ba75e18ed830fafff666d7443e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ce9be1bc0dfe6981bb2c97c77c16a27"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#a0ce9be1bc0dfe6981bb2c97c77c16a27">neorv32_uart1_getc</a> (void)</td></tr>
+<tr class="separator:a0ce9be1bc0dfe6981bb2c97c77c16a27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37f2c1b2349ab3799c238057e4f081bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#a37f2c1b2349ab3799c238057e4f081bd">neorv32_uart1_char_received</a> (void)</td></tr>
+<tr class="separator:a37f2c1b2349ab3799c238057e4f081bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38a2c5e18eb43dd8742f806642e99081"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#a38a2c5e18eb43dd8742f806642e99081">neorv32_uart1_getc_secure</a> (char *data)</td></tr>
+<tr class="separator:a38a2c5e18eb43dd8742f806642e99081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab4aa4c96dd92c6f0996aa5f7f52180d"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#aab4aa4c96dd92c6f0996aa5f7f52180d">neorv32_uart1_char_received_get</a> (void)</td></tr>
+<tr class="separator:aab4aa4c96dd92c6f0996aa5f7f52180d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a181156eb3cdddd13ecc91847c1d2357d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#a181156eb3cdddd13ecc91847c1d2357d">neorv32_uart1_print</a> (const char *s)</td></tr>
+<tr class="separator:a181156eb3cdddd13ecc91847c1d2357d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac49e7e9cae44914209144c5bdec65183"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#ac49e7e9cae44914209144c5bdec65183">neorv32_uart1_printf</a> (const char *format,...)</td></tr>
+<tr class="separator:ac49e7e9cae44914209144c5bdec65183"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24dd487be4a2a149d2cd348746fc2188"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32__uart_8h.html#a24dd487be4a2a149d2cd348746fc2188">neorv32_uart1_scan</a> (char *buffer, int max_size, int echo)</td></tr>
+<tr class="separator:a24dd487be4a2a149d2cd348746fc2188"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Universal asynchronous receiver/transmitter (UART) HW driver header file. </p>
+<div class="textblock"><p>Universal asynchronous receiver/transmitter (UART0/UART1) HW driver header file. </p>
 <dl class="section author"><dt>Author</dt><dd>Stephan Nolting</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>These functions should only be used if the UART unit was synthesized (IO_UART_EN = true). </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>UART0 (primary UART) is used as default user console interface for all NEORV32 software framework/library functions.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>These functions should only be used if the UART0/UART1 unit was synthesized (IO_UART0_EN = true / IO_UART1_EN = true). </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a547b334ce06cede10534b86a8bc9b667"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a547b334ce06cede10534b86a8bc9b667">&#9670;&nbsp;</a></span>neorv32_uart0_available()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int neorv32_uart0_available </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Check if UART0 unit was synthesized.</p>
+<dl class="section return"><dt>Returns</dt><dd>0 if UART0 was not synthesized, 1 if UART0 is available. </dd></dl>
+
+</div>
+</div>
+<a id="a645913f8f15fc084926106a9f7c67969"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a645913f8f15fc084926106a9f7c67969">&#9670;&nbsp;</a></span>neorv32_uart0_char_received()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int neorv32_uart0_char_received </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Check if UART0 has received a char.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is non-blocking. </dd>
+<dd>
+Use <a class="el" href="neorv32__uart_8c.html#a425df6b09c33d3fbf8b0fbd9deadc09a">neorv32_uart0_char_received_get(void)</a> to get the char.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>=!0 when a char has been received. </dd></dl>
+
+</div>
+</div>
+<a id="a425df6b09c33d3fbf8b0fbd9deadc09a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a425df6b09c33d3fbf8b0fbd9deadc09a">&#9670;&nbsp;</a></span>neorv32_uart0_char_received_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char neorv32_uart0_char_received_get </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get a received char from UART0.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is non-blocking. </dd>
+<dd>
+Should only be used in combination with <a class="el" href="neorv32__uart_8c.html#acd2e407f2f23d9ee4f91c0a8e9d1c793">neorv32_uart_char_received(void)</a>.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Received char. </dd></dl>
+
+</div>
+</div>
+<a id="a439f8a8f05ba1df4b92a6326a3108a3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a439f8a8f05ba1df4b92a6326a3108a3a">&#9670;&nbsp;</a></span>neorv32_uart0_disable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void neorv32_uart0_disable </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Disable UART0. </p>
+
+</div>
+</div>
+<a id="ac0f1575a82843acbe3364d387ececffc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0f1575a82843acbe3364d387ececffc">&#9670;&nbsp;</a></span>neorv32_uart0_getc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char neorv32_uart0_getc </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get char from UART0.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is blocking and does not check for UART frame/parity errors.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Received char. </dd></dl>
+
+</div>
+</div>
+<a id="aa88fddcbc7744a237e87beeb0eeac608"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa88fddcbc7744a237e87beeb0eeac608">&#9670;&nbsp;</a></span>neorv32_uart0_getc_secure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int neorv32_uart0_getc_secure </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get char from UART0 (and check errors).</p>
+<dl class="section note"><dt>Note</dt><dd>This function is non-blocking and checks for frame and parity errors.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">data</td><td>Received char. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code (0=nothing received, 1: char received without errors; -1: char received with frame error; -2: char received with parity error; -3 char received with frame &amp; parity error). </dd></dl>
+
+</div>
+</div>
+<a id="a1a30289f58c00fdebac0291d91751ee7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a30289f58c00fdebac0291d91751ee7">&#9670;&nbsp;</a></span>neorv32_uart0_print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void neorv32_uart0_print </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Print string (zero-terminated) via UART0. Print full line break "\r\n" for every '<br  />
+'.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is blocking.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>Pointer to string. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2b7e9d920e9551ed759eb9cd4d1df02e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b7e9d920e9551ed759eb9cd4d1df02e">&#9670;&nbsp;</a></span>neorv32_uart0_printf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void neorv32_uart0_printf </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Custom version of 'printf' function using UART0.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is blocking.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td>Pointer to format string.</td></tr>
+  </table>
+  </dd>
+</dl>
+<table class="doxtable">
+<tr>
+<td>s</td><td>String (array of chars, zero-terminated) </td></tr>
+<tr>
+<td>c</td><td>Single char </td></tr>
+<tr>
+<td>i</td><td>32-bit signed number, printed as decimal </td></tr>
+<tr>
+<td>u</td><td>32-bit unsigned number, printed as decimal </td></tr>
+<tr>
+<td>x</td><td>32-bit number, printed as 8-char hexadecimal </td></tr>
+</table>
+
+</div>
+</div>
+<a id="aaf23ffa72fecbf6057b74130d0001693"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf23ffa72fecbf6057b74130d0001693">&#9670;&nbsp;</a></span>neorv32_uart0_putc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void neorv32_uart0_putc </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Send single char via UART0.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is blocking.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>Char to be send. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1093f92219d8e2725a9eb61abb7fc46b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1093f92219d8e2725a9eb61abb7fc46b">&#9670;&nbsp;</a></span>neorv32_uart0_scan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int neorv32_uart0_scan </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>max_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>echo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Simplified custom version of 'scanf' function for UART0.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is blocking.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">buffer</td><td>Pointer to array of chars to store string. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">max_size</td><td>Maximum number of chars to sample. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">echo</td><td>Echo UART input when 1. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of chars read. </dd></dl>
+
+</div>
+</div>
+<a id="a16b0bc4c54365a3288a4367376f5836c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16b0bc4c54365a3288a4367376f5836c">&#9670;&nbsp;</a></span>neorv32_uart0_setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void neorv32_uart0_setup </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>baudrate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>parity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Enable and configure primary UART (UART0).</p>
+<dl class="section note"><dt>Note</dt><dd>The 'UART0_SIM_MODE' compiler flag will configure UART0 for simulation mode: all UART0 TX data will be redirected to simulation output. Use this for simulations only! </dd>
+<dd>
+To enable simulation mode add &lt;USER_FLAGS+=-DUART0_SIM_MODE&gt; when compiling.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The baud rate is computed using INTEGER operations (truncation errors might occur).</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">baudrate</td><td>Targeted BAUD rate (e.g. 9600). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">parity</td><td>Parity configuration (00=off, 10=even, 11=odd). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a842ecaf5958978166f3bf579b96c317d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a842ecaf5958978166f3bf579b96c317d">&#9670;&nbsp;</a></span>neorv32_uart0_tx_busy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int neorv32_uart0_tx_busy </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Check if UART0 TX is busy.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is blocking.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if idle, 1 if busy </dd></dl>
+
+</div>
+</div>
+<a id="a3d2f758517e1bcc64c5a2426ece3804a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d2f758517e1bcc64c5a2426ece3804a">&#9670;&nbsp;</a></span>neorv32_uart1_available()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int neorv32_uart1_available </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Check if UART1 unit was synthesized.</p>
+<dl class="section return"><dt>Returns</dt><dd>0 if UART1 was not synthesized, 1 if UART1 is available. </dd></dl>
+
+</div>
+</div>
+<a id="a37f2c1b2349ab3799c238057e4f081bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37f2c1b2349ab3799c238057e4f081bd">&#9670;&nbsp;</a></span>neorv32_uart1_char_received()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int neorv32_uart1_char_received </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Check if UART1 has received a char.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is non-blocking. </dd>
+<dd>
+Use <a class="el" href="neorv32__uart_8c.html#a425df6b09c33d3fbf8b0fbd9deadc09a">neorv32_uart0_char_received_get(void)</a> to get the char.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>=!0 when a char has been received. </dd></dl>
+
+</div>
+</div>
+<a id="aab4aa4c96dd92c6f0996aa5f7f52180d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab4aa4c96dd92c6f0996aa5f7f52180d">&#9670;&nbsp;</a></span>neorv32_uart1_char_received_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char neorv32_uart1_char_received_get </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get a received char from UART1.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is non-blocking. </dd>
+<dd>
+Should only be used in combination with <a class="el" href="neorv32__uart_8c.html#acd2e407f2f23d9ee4f91c0a8e9d1c793">neorv32_uart_char_received(void)</a>.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Received char. </dd></dl>
+
+</div>
+</div>
+<a id="a372e4032b76ecbb838bacfccb10e8d76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a372e4032b76ecbb838bacfccb10e8d76">&#9670;&nbsp;</a></span>neorv32_uart1_disable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void neorv32_uart1_disable </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Disable UART1. </p>
+
+</div>
+</div>
+<a id="a0ce9be1bc0dfe6981bb2c97c77c16a27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ce9be1bc0dfe6981bb2c97c77c16a27">&#9670;&nbsp;</a></span>neorv32_uart1_getc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char neorv32_uart1_getc </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get char from UART1.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is blocking and does not check for UART frame/parity errors.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Received char. </dd></dl>
+
+</div>
+</div>
+<a id="a38a2c5e18eb43dd8742f806642e99081"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38a2c5e18eb43dd8742f806642e99081">&#9670;&nbsp;</a></span>neorv32_uart1_getc_secure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int neorv32_uart1_getc_secure </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get char from UART1 (and check errors).</p>
+<dl class="section note"><dt>Note</dt><dd>This function is non-blocking and checks for frame and parity errors.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">data</td><td>Received char. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code (0=nothing received, 1: char received without errors; -1: char received with frame error; -2: char received with parity error; -3 char received with frame &amp; parity error). </dd></dl>
+
+</div>
+</div>
+<a id="a181156eb3cdddd13ecc91847c1d2357d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a181156eb3cdddd13ecc91847c1d2357d">&#9670;&nbsp;</a></span>neorv32_uart1_print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void neorv32_uart1_print </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Print string (zero-terminated) via UART1. Print full line break "\r\n" for every '<br  />
+'.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is blocking.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>Pointer to string. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac49e7e9cae44914209144c5bdec65183"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac49e7e9cae44914209144c5bdec65183">&#9670;&nbsp;</a></span>neorv32_uart1_printf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void neorv32_uart1_printf </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Custom version of 'printf' function using UART1.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is blocking.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td>Pointer to format string.</td></tr>
+  </table>
+  </dd>
+</dl>
+<table class="doxtable">
+<tr>
+<td>s</td><td>String (array of chars, zero-terminated) </td></tr>
+<tr>
+<td>c</td><td>Single char </td></tr>
+<tr>
+<td>i</td><td>32-bit signed number, printed as decimal </td></tr>
+<tr>
+<td>u</td><td>32-bit unsigned number, printed as decimal </td></tr>
+<tr>
+<td>x</td><td>32-bit number, printed as 8-char hexadecimal </td></tr>
+</table>
+
+</div>
+</div>
+<a id="a081b6a2cc8841a36bac166d46f6f5f25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a081b6a2cc8841a36bac166d46f6f5f25">&#9670;&nbsp;</a></span>neorv32_uart1_putc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void neorv32_uart1_putc </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Send single char via UART1.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is blocking.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>Char to be send. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a24dd487be4a2a149d2cd348746fc2188"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24dd487be4a2a149d2cd348746fc2188">&#9670;&nbsp;</a></span>neorv32_uart1_scan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int neorv32_uart1_scan </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>max_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>echo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Simplified custom version of 'scanf' function for UART1.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is blocking.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">buffer</td><td>Pointer to array of chars to store string. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">max_size</td><td>Maximum number of chars to sample. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">echo</td><td>Echo UART input when 1. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of chars read. </dd></dl>
+
+</div>
+</div>
+<a id="a55f5a0bbb0e25a5a3b6ebe197a1842c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55f5a0bbb0e25a5a3b6ebe197a1842c1">&#9670;&nbsp;</a></span>neorv32_uart1_setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void neorv32_uart1_setup </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>baudrate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>parity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Enable and configure secondary UART (UART1).</p>
+<dl class="section note"><dt>Note</dt><dd>The 'UART1_SIM_MODE' compiler flag will configure UART1 for simulation mode: all UART1 TX data will be redirected to simulation output. Use this for simulations only! </dd>
+<dd>
+To enable simulation mode add &lt;USER_FLAGS+=-DUART1_SIM_MODE&gt; when compiling.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The baud rate is computed using INTEGER operations (truncation errors might occur).</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">baudrate</td><td>Targeted BAUD rate (e.g. 9600). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">parity</td><td>Parity configuration (00=off, 10=even, 11=odd). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afeaae4ba75e18ed830fafff666d7443e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afeaae4ba75e18ed830fafff666d7443e">&#9670;&nbsp;</a></span>neorv32_uart1_tx_busy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int neorv32_uart1_tx_busy </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Check if UART1 TX is busy.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is blocking.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if idle, 1 if busy </dd></dl>
+
+</div>
+</div>
 <a id="a0f89b5d3de3abeca32b85eb1312eed7e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0f89b5d3de3abeca32b85eb1312eed7e">&#9670;&nbsp;</a></span>neorv32_uart_available()</h2>
 
@@ -125,8 +854,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Check if UART unit was synthesized.</p>
-<dl class="section return"><dt>Returns</dt><dd>0 if UART was not synthesized, 1 if UART is available. </dd></dl>
+<p>Check if UART0 unit was synthesized.</p>
+<dl class="section warning"><dt>Warning</dt><dd>This functions maps to UART0 (primary UART).</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if UART0 was not synthesized, 1 if UART0 is available. </dd></dl>
 
 </div>
 </div>
@@ -145,10 +875,11 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Check if UART has received a char.</p>
+<p>Check if UART0 has received a char.</p>
+<dl class="section warning"><dt>Warning</dt><dd>This functions maps to UART0 (primary UART). </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This function is non-blocking. </dd>
 <dd>
-Use <a class="el" href="neorv32__uart_8c.html#a635649d3f06f4b15d710f78c31fed58c">neorv32_uart_char_received_get(void)</a> to get the char.</dd></dl>
+Use <a class="el" href="neorv32__uart_8c.html#a425df6b09c33d3fbf8b0fbd9deadc09a">neorv32_uart0_char_received_get(void)</a> to get the char.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>=!0 when a char has been received. </dd></dl>
 
 </div>
@@ -168,7 +899,8 @@ Use <a class="el" href="neorv32__uart_8c.html#a635649d3f06f4b15d710f78c31fed58c"
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get a received char.</p>
+<p>Get a received char from UART0.</p>
+<dl class="section warning"><dt>Warning</dt><dd>This functions maps to UART0 (primary UART). </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This function is non-blocking. </dd>
 <dd>
 Should only be used in combination with <a class="el" href="neorv32__uart_8c.html#acd2e407f2f23d9ee4f91c0a8e9d1c793">neorv32_uart_char_received(void)</a>.</dd></dl>
@@ -191,7 +923,7 @@ Should only be used in combination with <a class="el" href="neorv32__uart_8c.htm
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Disable UART. </p>
+<p>Disable UART0. </p><dl class="section warning"><dt>Warning</dt><dd>This functions maps to UART0 (primary UART). </dd></dl>
 
 </div>
 </div>
@@ -210,7 +942,8 @@ Should only be used in combination with <a class="el" href="neorv32__uart_8c.htm
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get char from UART.</p>
+<p>Get char from UART0.</p>
+<dl class="section warning"><dt>Warning</dt><dd>This functions maps to UART0 (primary UART). </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This function is blocking and does not check for UART frame/parity errors.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Received char. </dd></dl>
 
@@ -231,7 +964,8 @@ Should only be used in combination with <a class="el" href="neorv32__uart_8c.htm
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get char from UART (and check errors).</p>
+<p>Get char from UART0 (and check errors).</p>
+<dl class="section warning"><dt>Warning</dt><dd>This functions maps to UART0 (primary UART). </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This function is non-blocking and checks for frame and parity errors.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -258,8 +992,9 @@ Should only be used in combination with <a class="el" href="neorv32__uart_8c.htm
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Print string (zero-terminated) via UART. Print full line break "\r\n" for every '<br  />
+<p>Print string (zero-terminated) via UART0. Print full line break "\r\n" for every '<br  />
 '.</p>
+<dl class="section warning"><dt>Warning</dt><dd>This functions maps to UART0 (primary UART). </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This function is blocking.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -295,7 +1030,8 @@ Should only be used in combination with <a class="el" href="neorv32__uart_8c.htm
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Custom version of 'printf' function.</p>
+<p>Custom version of 'printf' function using UART0.</p>
+<dl class="section warning"><dt>Warning</dt><dd>This functions maps to UART0 (primary UART). </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This function is blocking.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -333,7 +1069,8 @@ Should only be used in combination with <a class="el" href="neorv32__uart_8c.htm
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Send single char via UART.</p>
+<p>Send single char via UART0.</p>
+<dl class="section warning"><dt>Warning</dt><dd>This functions maps to UART0 (primary UART). </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This function is blocking.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -375,7 +1112,8 @@ Should only be used in combination with <a class="el" href="neorv32__uart_8c.htm
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Simplified custom version of 'scanf' function.</p>
+<p>Simplified custom version of 'scanf' function for UART0.</p>
+<dl class="section warning"><dt>Warning</dt><dd>This functions maps to UART0 (primary UART). </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This function is blocking.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -414,15 +1152,16 @@ Should only be used in combination with <a class="el" href="neorv32__uart_8c.htm
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Enable and configure UART.</p>
-<dl class="section note"><dt>Note</dt><dd>The 'UART_SIM_MODE' compiler flag will configure UART for simulation mode: all UART TX data will be redirected to simulation output. Use this for simulations only! </dd>
+<p>Enable and configure primary UART (UART0).</p>
+<dl class="section warning"><dt>Warning</dt><dd>This functions maps to UART0 (primary UART).</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The 'UART0_SIM_MODE' compiler flag will configure UART0 for simulation mode: all UART0 TX data will be redirected to simulation output. Use this for simulations only! </dd>
 <dd>
-To enable simulation mode add &lt;USER_FLAGS+=-DUART_SIM_MODE&gt; when compiling.</dd></dl>
+To enable simulation mode add &lt;USER_FLAGS+=-DUART0_SIM_MODE&gt; when compiling.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>The baud rate is computed using INTEGER operations (truncation errors might occur).</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">baudrate</td><td>Targeted BAUD rate (e.g. 9600). </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">parity</td><td>PArity configuration (00=off, 10=even, 11=odd). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">parity</td><td>Parity configuration (00=off, 10=even, 11=odd). </td></tr>
   </table>
   </dd>
 </dl>
@@ -444,7 +1183,8 @@ To enable simulation mode add &lt;USER_FLAGS+=-DUART_SIM_MODE&gt; when compiling
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Check if UART TX is busy.</p>
+<p>Check if UART0 TX is busy.</p>
+<dl class="section warning"><dt>Warning</dt><dd>This functions maps to UART0 (primary UART). </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This function is blocking.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>0 if idle, 1 if busy </dd></dl>
 
