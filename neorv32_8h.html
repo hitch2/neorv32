@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>The NEORV32 Processor - Software Framework: sw/lib/include/neorv32.h File Reference</title>
+<title>The NEORV32 RISC-V Processor - Software Framework: sw/lib/include/neorv32.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,8 +20,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="neorv32_logo_transparent_small.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">The NEORV32 Processor - Software Framework
+   <div id="projectname">The NEORV32 RISC-V Processor - Software Framework
    </div>
   </td>
  </tr>
@@ -635,6 +636,7 @@ Enumerations</h2></td></tr>
 <tr class="memitem:ac2e3396ba6d5de267f4ef0fbd1a16ab2"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#ac2e3396ba6d5de267f4ef0fbd1a16ab2">NEORV32_CSR_MZEXT_enum</a> { <a class="el" href="neorv32_8h.html#ac2e3396ba6d5de267f4ef0fbd1a16ab2a8c3539e99b89eb8a542935992bccf7c9">CSR_MZEXT_ZICSR</a> = 0
 , <a class="el" href="neorv32_8h.html#ac2e3396ba6d5de267f4ef0fbd1a16ab2a59bf3760ac552fdebe9bcb8cc8db8ca8">CSR_MZEXT_ZIFENCEI</a> = 1
 , <a class="el" href="neorv32_8h.html#ac2e3396ba6d5de267f4ef0fbd1a16ab2a36ba3effd8fb6ecac845f65b86379460">CSR_MZEXT_ZBB</a> = 2
+, <a class="el" href="neorv32_8h.html#ac2e3396ba6d5de267f4ef0fbd1a16ab2ad8074f7859efa067be3bbd20c86a5c9f">CSR_MZEXT_ZBS</a> = 3
  }</td></tr>
 <tr class="separator:ac2e3396ba6d5de267f4ef0fbd1a16ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cb925a3e41efd5e767bb39b3ee60cfe"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a5cb925a3e41efd5e767bb39b3ee60cfe">NEORV32_HPMCNT_EVENT_enum</a> { <br />
@@ -817,17 +819,32 @@ Enumerations</h2></td></tr>
 , <a class="el" href="neorv32_8h.html#a646d58f8525325a98fbcdd022983bdc4a44ab7374b6fe5da4fb30b9e7f9ff41d5">UART_CT_BAUD11</a> = 11
 , <br />
 &#160;&#160;<a class="el" href="neorv32_8h.html#a646d58f8525325a98fbcdd022983bdc4a27693c922fb3cb7dcc2a17c197db03ad">UART_CT_SIM_MODE</a> = 12
+, <a class="el" href="neorv32_8h.html#a646d58f8525325a98fbcdd022983bdc4a8f2ca83bda9461054de51a9437fc3c35">UART_CT_RTS_EN</a> = 20
+, <a class="el" href="neorv32_8h.html#a646d58f8525325a98fbcdd022983bdc4a31095c953e5c6fcfe1dc5fad616e2cc0">UART_CT_CTS_EN</a> = 21
 , <a class="el" href="neorv32_8h.html#a646d58f8525325a98fbcdd022983bdc4ab554932a65f8c60641881d4e0b0207c2">UART_CT_PMODE0</a> = 22
-, <a class="el" href="neorv32_8h.html#a646d58f8525325a98fbcdd022983bdc4ac3373672e1b89c31f7cccece139d86b6">UART_CT_PMODE1</a> = 23
-, <a class="el" href="neorv32_8h.html#a646d58f8525325a98fbcdd022983bdc4a8eeca8c4c767a8ca05af9a7beeb3df71">UART_CT_PRSC0</a> = 24
 , <br />
-&#160;&#160;<a class="el" href="neorv32_8h.html#a646d58f8525325a98fbcdd022983bdc4a60b84e262d70991657471a892da724c6">UART_CT_PRSC1</a> = 25
+&#160;&#160;<a class="el" href="neorv32_8h.html#a646d58f8525325a98fbcdd022983bdc4ac3373672e1b89c31f7cccece139d86b6">UART_CT_PMODE1</a> = 23
+, <a class="el" href="neorv32_8h.html#a646d58f8525325a98fbcdd022983bdc4a8eeca8c4c767a8ca05af9a7beeb3df71">UART_CT_PRSC0</a> = 24
+, <a class="el" href="neorv32_8h.html#a646d58f8525325a98fbcdd022983bdc4a60b84e262d70991657471a892da724c6">UART_CT_PRSC1</a> = 25
 , <a class="el" href="neorv32_8h.html#a646d58f8525325a98fbcdd022983bdc4a1e67a00f4c5d2ca6d90cf3fed69c8da8">UART_CT_PRSC2</a> = 26
+, <br />
+&#160;&#160;<a class="el" href="neorv32_8h.html#a646d58f8525325a98fbcdd022983bdc4a1e232ed1d7d3ec4f83febf9de5fe9851">UART_CT_CTS</a> = 27
 , <a class="el" href="neorv32_8h.html#a646d58f8525325a98fbcdd022983bdc4a3bb99d47ccad5242d9ee57c1ca553c1e">UART_CT_EN</a> = 28
 , <a class="el" href="neorv32_8h.html#a646d58f8525325a98fbcdd022983bdc4aaa4c6f38b72f15b9ebcb1222720112a4">UART_CT_TX_BUSY</a> = 31
 <br />
  }</td></tr>
 <tr class="separator:a646d58f8525325a98fbcdd022983bdc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff01c21473e24aae8e273d4ad4b2e363"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#aff01c21473e24aae8e273d4ad4b2e363">NEORV32_UART_PARITY_enum</a> { <a class="el" href="neorv32_8h.html#aff01c21473e24aae8e273d4ad4b2e363a90674e2854f8cd4ce76ea0b4cd4546cc">PARITY_NONE</a> = 0b00
+, <a class="el" href="neorv32_8h.html#aff01c21473e24aae8e273d4ad4b2e363ae6172576b70fc73aefabd529c103c9b8">PARITY_EVEN</a> = 0b10
+, <a class="el" href="neorv32_8h.html#aff01c21473e24aae8e273d4ad4b2e363a41443d13b163ffeaf59c4667472bc49c">PARITY_ODD</a> = 0b11
+ }</td></tr>
+<tr class="separator:aff01c21473e24aae8e273d4ad4b2e363"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2312d68f890e3d3886a3e75e21b1f66f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#a2312d68f890e3d3886a3e75e21b1f66f">NEORV32_UART_FLOW_CONTROL_enum</a> { <a class="el" href="neorv32_8h.html#a2312d68f890e3d3886a3e75e21b1f66faf106a175dce01914003721577c659edc">FLOW_CONTROL_NONE</a> = 0b00
+, <a class="el" href="neorv32_8h.html#a2312d68f890e3d3886a3e75e21b1f66fa7b3bf5a6e1bb3f83d09e47feec47f0c8">FLOW_CONTROL_RTS</a> = 0b01
+, <a class="el" href="neorv32_8h.html#a2312d68f890e3d3886a3e75e21b1f66faa0161b017fd2ca1799809b186301e1ca">FLOW_CONTROL_CTS</a> = 0b10
+, <a class="el" href="neorv32_8h.html#a2312d68f890e3d3886a3e75e21b1f66faff1e0be40d8d7d70f3043e794f443c94">FLOW_CONTROL_RTSCTS</a> = 0b11
+ }</td></tr>
+<tr class="separator:a2312d68f890e3d3886a3e75e21b1f66f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcf35350a9ea18a59c32c35f528643f2"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neorv32_8h.html#adcf35350a9ea18a59c32c35f528643f2">NEORV32_UART_DATA_enum</a> { <br />
 &#160;&#160;<a class="el" href="neorv32_8h.html#adcf35350a9ea18a59c32c35f528643f2ab58c4f78a8089cb8092f8e5a3b3297a4">UART_DATA_LSB</a> = 0
 , <a class="el" href="neorv32_8h.html#adcf35350a9ea18a59c32c35f528643f2a57af69d69524945df3181580f67f96b3">UART_DATA_MSB</a> = 7
@@ -2956,6 +2973,8 @@ Enumerations</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="ac2e3396ba6d5de267f4ef0fbd1a16ab2a36ba3effd8fb6ecac845f65b86379460"></a>CSR_MZEXT_ZBB&#160;</td><td class="fielddoc"><p>CPU mzext CSR (2): Zbb extension available when set (r/-) </p>
 </td></tr>
+<tr><td class="fieldname"><a id="ac2e3396ba6d5de267f4ef0fbd1a16ab2ad8074f7859efa067be3bbd20c86a5c9f"></a>CSR_MZEXT_ZBS&#160;</td><td class="fielddoc"><p>CPU mzext CSR (3): Zbs extension available when set (r/-) </p>
+</td></tr>
 </table>
 
 </div>
@@ -3492,6 +3511,10 @@ Enumerations</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a27693c922fb3cb7dcc2a17c197db03ad"></a>UART_CT_SIM_MODE&#160;</td><td class="fielddoc"><p>UART control register(12) (r/w): Simulation output override enable, for use in simulation only </p>
 </td></tr>
+<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a8f2ca83bda9461054de51a9437fc3c35"></a>UART_CT_RTS_EN&#160;</td><td class="fielddoc"><p>UART control register(20) (r/w): Enable hardware flow control: Assert RTS output if UART.RX is ready to receive </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a31095c953e5c6fcfe1dc5fad616e2cc0"></a>UART_CT_CTS_EN&#160;</td><td class="fielddoc"><p>UART control register(21) (r/w): Enable hardware flow control: UART.TX starts sending only if CTS input is asserted </p>
+</td></tr>
 <tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4ab554932a65f8c60641881d4e0b0207c2"></a>UART_CT_PMODE0&#160;</td><td class="fielddoc"><p>UART control register(22) (r/w): Parity configuration (0=even; 1=odd) </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4ac3373672e1b89c31f7cccece139d86b6"></a>UART_CT_PMODE1&#160;</td><td class="fielddoc"><p>UART control register(23) (r/w): Parity bit enabled when set </p>
@@ -3501,6 +3524,8 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a60b84e262d70991657471a892da724c6"></a>UART_CT_PRSC1&#160;</td><td class="fielddoc"><p>UART control register(25) (r/w): BAUD rate clock prescaler select bit 1 </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a1e67a00f4c5d2ca6d90cf3fed69c8da8"></a>UART_CT_PRSC2&#160;</td><td class="fielddoc"><p>UART control register(26) (r/w): BAUD rate clock prescaler select bit 2 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a1e232ed1d7d3ec4f83febf9de5fe9851"></a>UART_CT_CTS&#160;</td><td class="fielddoc"><p>UART control register(27) (r/-): current state of CTS input </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a646d58f8525325a98fbcdd022983bdc4a3bb99d47ccad5242d9ee57c1ca553c1e"></a>UART_CT_EN&#160;</td><td class="fielddoc"><p>UART control register(28) (r/w): UART global enable </p>
 </td></tr>
@@ -3535,6 +3560,54 @@ Enumerations</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="adcf35350a9ea18a59c32c35f528643f2adf1e4d52a39e7bb5fa7b81f780b712f6"></a>UART_DATA_AVAIL&#160;</td><td class="fielddoc"><p>UART receive/transmit data register(31) (r/-): RX data available when set <br  />
  </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a2312d68f890e3d3886a3e75e21b1f66f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2312d68f890e3d3886a3e75e21b1f66f">&#9670;&nbsp;</a></span>NEORV32_UART_FLOW_CONTROL_enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="neorv32_8h.html#a2312d68f890e3d3886a3e75e21b1f66f">NEORV32_UART_FLOW_CONTROL_enum</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>UART0/UART1 hardware flow control configuration </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2312d68f890e3d3886a3e75e21b1f66faf106a175dce01914003721577c659edc"></a>FLOW_CONTROL_NONE&#160;</td><td class="fielddoc"><p>0b00: No hardware flow control </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2312d68f890e3d3886a3e75e21b1f66fa7b3bf5a6e1bb3f83d09e47feec47f0c8"></a>FLOW_CONTROL_RTS&#160;</td><td class="fielddoc"><p>0b01: Assert RTS output if UART.RX is ready to receive </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2312d68f890e3d3886a3e75e21b1f66faa0161b017fd2ca1799809b186301e1ca"></a>FLOW_CONTROL_CTS&#160;</td><td class="fielddoc"><p>0b10: UART.TX starts sending only if CTS input is asserted </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2312d68f890e3d3886a3e75e21b1f66faff1e0be40d8d7d70f3043e794f443c94"></a>FLOW_CONTROL_RTSCTS&#160;</td><td class="fielddoc"><p>0b11: Assert RTS output if UART.RX is ready to receive &amp; UART.TX starts sending only if CTS input is asserted </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="aff01c21473e24aae8e273d4ad4b2e363"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff01c21473e24aae8e273d4ad4b2e363">&#9670;&nbsp;</a></span>NEORV32_UART_PARITY_enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="neorv32_8h.html#aff01c21473e24aae8e273d4ad4b2e363">NEORV32_UART_PARITY_enum</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>UART0/UART1 parity configuration </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aff01c21473e24aae8e273d4ad4b2e363a90674e2854f8cd4ce76ea0b4cd4546cc"></a>PARITY_NONE&#160;</td><td class="fielddoc"><p>0b00: No parity bit at all </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aff01c21473e24aae8e273d4ad4b2e363ae6172576b70fc73aefabd529c103c9b8"></a>PARITY_EVEN&#160;</td><td class="fielddoc"><p>0b10: Even parity </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aff01c21473e24aae8e273d4ad4b2e363a41443d13b163ffeaf59c4667472bc49c"></a>PARITY_ODD&#160;</td><td class="fielddoc"><p>0b11: Odd parity </p>
 </td></tr>
 </table>
 

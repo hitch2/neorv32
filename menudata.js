@@ -66,10 +66,14 @@ var menudata={children:[
 {text:"w",url:"globals_func_w.html#index_w"},
 {text:"x",url:"globals_func_x.html#index_x"}]},
 {text:"Variables",url:"globals_vars.html"},
-{text:"Enumerations",url:"globals_enum.html"},
+{text:"Enumerations",url:"globals_enum.html",children:[
+{text:"e",url:"globals_enum.html#index_e"},
+{text:"n",url:"globals_enum.html#index_n"},
+{text:"s",url:"globals_enum.html#index_s"}]},
 {text:"Enumerator",url:"globals_eval.html",children:[
 {text:"c",url:"globals_eval.html#index_c"},
 {text:"e",url:"globals_eval_e.html#index_e"},
+{text:"f",url:"globals_eval_f.html#index_f"},
 {text:"h",url:"globals_eval_h.html#index_h"},
 {text:"n",url:"globals_eval_n.html#index_n"},
 {text:"p",url:"globals_eval_p.html#index_p"},
